@@ -93,8 +93,8 @@
   color: var(--tinta);
   background: var(--papel);
   scroll-margin-top: calc(93px + env(safe-area-inset-top, 0px));
-  content-visibility: auto;
-  contain-intrinsic-size: auto 460px;
+  /* 16 cartões são leves; sem renderização diferida para preservar a posição
+     exata do cartão selecionado mesmo no fim da lista. */
 }
 .disciplina-cartao::before {
   position: absolute;
