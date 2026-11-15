@@ -157,11 +157,12 @@
   }
 </style>
 <link rel="stylesheet" href="./portfolio-upgrade.css">
+<link rel="stylesheet" href="./portfolio-gallery.css">
 </head>
 <body class="trancado" data-tema="escuro">
 
 <a class="marca" href="#quem" aria-label="Herslander Jorge — início"><b>Herslander</b> Jorge ✱</a>
-<nav class="navegacao mono" aria-label="Navegação principal"><a href="#quem">Início</a><a href="#roda">O que faço</a><a href="#sobre">Sobre mim</a><a href="#contato">Contato</a></nav>
+<nav class="navegacao mono" aria-label="Navegação principal"><a href="#quem">Início</a><a href="#projetos">Projetos</a><a href="#roda">Disciplinas</a><a href="#sobre">Sobre mim</a><a href="#contato">Contato</a></nav>
 <button class="som" id="som" type="button" aria-pressed="true" aria-label="Som ligado">
   <svg viewBox="0 0 24 24" aria-hidden="true">
     <path d="M3 9v6h4l5 5V4L7 9H3z"/>
@@ -215,10 +216,18 @@
     </div>
   </section>
 
-  <!-- Projetos: preenchido pelo script a partir da lista PROJETOS -->
-  <section id="projetos" data-tema="claro" hidden>
-    <h2 class="revela">Projetos<br>selecionados<sup id="qtd-projetos"></sup></h2>
-    <ul id="lista-projetos"></ul>
+  <!-- Projetos autorais: navegação visual preserva a estrutura da referência. -->
+  <section id="projetos" data-tema="claro" aria-labelledby="projetos-titulo">
+    <header class="projetos-cabecalho">
+      <h2 id="projetos-titulo" class="revela">Projetos<br>selecionados<sup>(04)</sup></h2>
+      <p class="projetos-auxiliar mono">Deslize para explorar<br>Toque para abrir um projeto</p>
+    </header>
+    <div class="projetos-trilho" id="galeria-projetos" role="region" aria-roledescription="carrossel" aria-label="Projetos de Herslander Jorge" tabindex="0"></div>
+    <div class="projetos-controles" aria-label="Navegação pelos projetos">
+      <button type="button" id="projeto-voltar" aria-label="Projetos anteriores">←</button>
+      <button type="button" id="projeto-avancar" aria-label="Próximos projetos">→</button>
+    </div>
+    <p class="projetos-aviso">Apresentações visuais temporárias de projetos próprios. Fotografias e materiais originais serão incorporados quando disponíveis e autorizados.</p>
   </section>
 
   <!-- Roda de disciplinas -->
@@ -276,6 +285,39 @@
     <div class="fim mono"><span>© 2027 Herslander Jorge</span><a href="#quem">Voltar ao topo ↑</a></div>
   </section>
 </main>
+
+<dialog class="projeto-visualizador" id="visualizador-projeto" aria-labelledby="projeto-modal-titulo" aria-describedby="projeto-modal-introducao">
+  <header class="projeto-topo">
+    <strong>Herslander Jorge ✱</strong>
+    <button type="button" class="projeto-fechar" id="projeto-modal-fechar" aria-label="Voltar aos projetos">Fechar ✕</button>
+  </header>
+  <div class="projeto-identificacao">
+    <div>
+      <p class="mono" id="projeto-modal-indice"></p>
+      <h2 id="projeto-modal-titulo"></h2>
+    </div>
+    <small id="projeto-modal-estado"></small>
+  </div>
+  <div class="projeto-secao">
+    <p id="projeto-modal-introducao"></p>
+    <dl class="projeto-ficha">
+      <div><dt class="mono">Atuação</dt><dd id="projeto-modal-atuacao"></dd></div>
+      <div><dt class="mono">Formato</dt><dd id="projeto-modal-formato"></dd></div>
+    </dl>
+  </div>
+  <div class="projeto-cena-wrap">
+    <div class="projeto-imagem" id="projeto-modal-cena" role="img"></div>
+    <div class="projeto-placar">
+      <button type="button" id="projeto-modal-anterior" aria-label="Cena anterior">← Anterior</button>
+      <span id="projeto-modal-placar" aria-live="polite"></span>
+      <button type="button" id="projeto-modal-proximo" aria-label="Próxima cena">Próxima →</button>
+    </div>
+  </div>
+  <footer class="projeto-rodape">
+    <p class="mono" id="projeto-modal-categoria"></p>
+    <a href="#contato" id="projeto-modal-contato">Vamos criar algo juntos ↗</a>
+  </footer>
+</dialog>
 
 <dialog id="detalhe-disciplina" class="detalhe-servico" aria-labelledby="detalhe-titulo" aria-describedby="detalhe-descricao">
   <div class="detalhe-interior">
@@ -644,5 +686,6 @@ window.addEventListener("resize", aoRolar);
 aoRolar();
 </script>
 <script src="./portfolio-details.js" defer></script>
+<script src="./portfolio-gallery.js" defer></script>
 </body>
 </html>
