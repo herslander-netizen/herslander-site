@@ -3,86 +3,22 @@
   "use strict";
 
   const servicos = [
-    {
-      nome: "Direção Criativa",
-      descricao: "Transformo um objetivo de negócio em um conceito criativo coerente. Da ideia à publicação, cada peça conversa com a mesma estratégia.",
-      entregas: ["Conceito e narrativa", "Briefing e referências", "Direção de campanhas", "Revisão criativa"]
-    },
-    {
-      nome: "Estratégia de Marca",
-      descricao: "Organizo posicionamento, público, mensagem e canais para que a comunicação tenha clareza e intenção.",
-      entregas: ["Diagnóstico de posicionamento", "Público e proposta de valor", "Tom de voz", "Plano de comunicação"]
-    },
-    {
-      nome: "Direção de Marca",
-      descricao: "Alinho identidade, linguagem e presença digital para que uma marca seja reconhecível em cada ponto de contato.",
-      entregas: ["Arquitetura de marca", "Diretrizes visuais", "Consistência de comunicação", "Aplicações digitais"]
-    },
-    {
-      nome: "Direção de Arte",
-      descricao: "Crio a linguagem visual que conecta fotografia, vídeo, design e campanhas sem perder a identidade de cada projeto.",
-      entregas: ["Conceito visual", "Referências e moodboard", "Direção de peças", "Tratamento de imagens"]
-    },
-    {
-      nome: "Conteúdo e Copy",
-      descricao: "Planejo mensagens e narrativas para apresentar ideias com clareza, seja em uma campanha, vídeo, site ou rede social.",
-      entregas: ["Roteiros e legendas", "Textos para campanhas", "Calendário editorial", "Páginas e apresentações"]
-    },
-    {
-      nome: "Design Gráfico",
-      descricao: "Desenvolvo peças visuais para campanhas e marcas, adaptando o mesmo conceito aos formatos digitais e impressos.",
-      entregas: ["Posts e carrosséis", "Identidade de campanhas", "Apresentações", "Materiais de divulgação"]
-    },
-    {
-      nome: "Motion Design",
-      descricao: "Uso animação, tipografia e ritmo para tornar mensagens mais expressivas em vídeos, publicidade e ambientes digitais.",
-      entregas: ["Animações de marca", "Vídeos de lançamento", "Peças animadas", "Elementos para redes sociais"]
-    },
-    {
-      nome: "Edição de Vídeo",
-      descricao: "Estruturo vídeos com ritmo, cortes e linguagem adequados à mensagem e à plataforma em que serão publicados.",
-      entregas: ["Montagem e finalização", "Vídeos curtos e reels", "Legendas e grafismos", "Adaptação de formatos"]
-    },
-    {
-      nome: "Filmmaker",
-      descricao: "Planejo a narrativa audiovisual de um projeto e conecto captação, direção e pós-produção em um fluxo criativo.",
-      entregas: ["Conceito audiovisual", "Roteiro e decupagem", "Produção de conteúdo", "Pós-produção"]
-    },
-    {
-      nome: "Social Media",
-      descricao: "Estruturo uma presença digital consistente com pautas, criativos e acompanhamento de desempenho.",
-      entregas: ["Planejamento editorial", "Criação de conteúdo", "Organização de publicações", "Leitura de métricas"]
-    },
-    {
-      nome: "Tráfego Pago",
-      descricao: "Planejo campanhas digitais alinhando criativos, públicos e objetivos, com espaço para medir e ajustar as ações.",
-      entregas: ["Planejamento de campanhas", "Criativos e anúncios", "Testes de comunicação", "Acompanhamento de resultados"]
-    },
-    {
-      nome: "Web Design e Desenvolvimento",
-      descricao: "Crio experiências digitais responsivas que apresentam a marca, facilitam a navegação e aproximam visitantes de clientes.",
-      entregas: ["Sites institucionais", "Landing pages", "Interfaces responsivas", "Integração com contatos e formulários"]
-    },
-    {
-      nome: "Aplicativos Sob Medida",
-      descricao: "Estruturo soluções web para necessidades específicas, conectando interface, dados e fluxos operacionais.",
-      entregas: ["Sistemas de gestão", "Aplicativos e painéis", "Agendamentos e CRM", "Integrações com serviços"]
-    },
-    {
-      nome: "Automações com IA",
-      descricao: "Desenho processos que reduzem tarefas repetitivas e conectam ferramentas, sempre com regras claras e supervisão.",
-      entregas: ["Fluxos automatizados", "Integração de ferramentas", "Atendimento por mensagens", "Validação de ações"]
-    },
-    {
-      nome: "Consultoria Digital",
-      descricao: "Ajudo a identificar oportunidades de melhoria na presença online e nos processos digitais, priorizando soluções viáveis para cada fase do negócio.",
-      entregas: ["Diagnóstico digital", "Priorização de melhorias", "Escolha de ferramentas", "Plano de implementação"]
-    },
-    {
-      nome: "Agentes de IA",
-      descricao: "Projeto assistentes digitais orientados por contexto e limites definidos, para auxiliar equipes e clientes em tarefas reais.",
-      entregas: ["Assistentes para sites", "Atendimento no WhatsApp", "Consulta de informações", "Integração com sistemas"]
-    }
+    { nome: "Direção Criativa", descricao: "Desenvolvo o conceito que orienta uma marca ou campanha, mantendo a mensagem consistente da primeira ideia até a publicação.", entregas: ["Conceito e narrativa","Briefing e referências","Direção de equipes e peças","Revisão criativa"] },
+    { nome: "Estratégia de Marca", descricao: "Analiso o negócio, o mercado e a concorrência para estruturar posicionamento, público, linguagem e prioridades de comunicação.", entregas: ["Posicionamento","Definição de público","Tom de voz","Plano de comunicação"] },
+    { nome: "Identidade de Marca", descricao: "Organizo os elementos que fazem uma marca ser reconhecida: símbolo, tipografia, cores, aplicações e padrões de apresentação.", entregas: ["Logotipo e assinatura","Paleta e tipografia","Manual da marca","Sistema visual"] },
+    { nome: "Direção de Arte", descricao: "Defino a linguagem visual de campanhas, fotografias, peças editoriais e conteúdos, mantendo coerência entre diferentes formatos.", entregas: ["Conceito visual","Direção de imagens","Tratamento fotográfico","Imagens com IA"] },
+    { nome: "Texto e Conteúdo", descricao: "Transformo uma ideia em mensagens que funcionam para redes sociais, anúncios, roteiros de vídeo, apresentações e páginas digitais.", entregas: ["Textos e chamadas","Roteiros de vídeos","Conteúdo para campanhas","Calendário editorial"] },
+    { nome: "Design Gráfico", descricao: "Crio materiais de comunicação para meios digitais e impressos a partir de uma identidade visual consistente.", entregas: ["Posts e carrosséis","Stories","Peças e cartazes","Apresentações"] },
+    { nome: "Design de Produto", descricao: "Desenvolvo a apresentação visual de produtos e serviços, incluindo embalagens, rótulos e imagens para catálogos e comércio digital.", entregas: ["Conceito de produto","Rótulos e embalagens","Imagens de produto com IA","Catálogo e e-commerce"] },
+    { nome: "Vídeo e Motion Design", descricao: "Combino montagem, ritmo, som, legendas e grafismos para criar vídeos e animações alinhados à identidade de cada marca.", entregas: ["Vídeos curtos","Edição e finalização","Animações e motion","Legendas e adaptação"] },
+    { nome: "Social Media", descricao: "Planejo conteúdos, formatos e frequência para manter uma presença digital organizada e acompanhar seus resultados.", entregas: ["Plano editorial","Organização de publicações","Relacionamento com o público","Métricas e insights"] },
+    { nome: "Tráfego Pago", descricao: "Estruturo campanhas em plataformas como Instagram e Facebook, com criativos, testes, acompanhamento e ajustes baseados em objetivos.", entregas: ["Geração de contatos","Criativos para anúncios","Testes A/B","Relatórios"] },
+    { nome: "Web Design e Desenvolvimento", descricao: "Desenho e construo sites responsivos, páginas de apresentação e experiências com interações úteis, velocidade e clareza.", entregas: ["Sites institucionais","Landing pages","Interfaces responsivas","Interações e integrações"] },
+    { nome: "Aplicativos Sob Medida", descricao: "Projeto sistemas e aplicativos orientados às rotinas de um negócio: agendamento, relacionamento, gestão e integrações.", entregas: ["Agendamentos e pagamentos","Áreas restritas","Painéis e CRM","Integrações entre sistemas"] },
+    { nome: "Automações com IA", descricao: "Conecto ferramentas e crio fluxos para acompanhar contatos, reduzir tarefas repetitivas e executar ações com regras e validação.", entregas: ["Automações de mensagens","Acompanhamento de leads","Alertas operacionais","Relatórios automatizados"] },
+    { nome: "Prospecção B2B", descricao: "Organizo a pesquisa de empresas e potenciais parceiros usando dados publicados legitimamente, com foco em abordagens relevantes.", entregas: ["Pesquisa de empresas","Segmentação por região","Segmentação por nicho","Organização de contatos"] },
+    { nome: "Agentes de IA", descricao: "Desenvolvo assistentes com contexto do negócio para ajudar em sites e mensagens, consultar informações e transferir casos que exigem uma pessoa.", entregas: ["Atendimento no WhatsApp","Chat para sites","Respostas contextualizadas","Integração com agendas"] },
+    { nome: "Cérebro da Empresa", descricao: "Estruturo informações, ferramentas e fluxos para que a equipe consulte dados e acione processos em um ambiente integrado e controlado.", entregas: ["Base de conhecimento","Ferramentas conectadas","Painéis e relatórios","Ações com permissões"] }
   ];
 
   const dialogo = document.querySelector("#detalhe-disciplina");
@@ -121,7 +57,7 @@
     });
     const mensagem = "Olá! Quero conversar com Herslander Jorge sobre " + servico.nome + ".";
     acao.href = "https://wa.me/" + whatsapp + "?text=" + encodeURIComponent(mensagem);
-    verProjetos.hidden = ![0,2,3,6,7].includes(indice);
+    verProjetos.hidden = ![0,2,3,5,6,7,10,11].includes(indice);
     if (!dialogo.open) {
       ultimaOpcao = document.activeElement;
       dialogo.showModal();
