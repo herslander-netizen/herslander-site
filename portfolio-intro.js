@@ -12,12 +12,13 @@
   }
   if(reduzir){pronto();return;}
   const inicio=performance.now();
-  const duracao=1400;
+  const duracao=960;
   let ultimo=-1;
   function avancar(agora){
     if(!document.body.contains(painel) || painel.classList.contains("sai")) return;
     const progresso=Math.max(0,Math.min(1,(agora-inicio)/duracao));
-    const valor=Math.floor(progresso*100);
+    // Menos atualizações de DOM para preservar frames nos celulares.
+    const valor=progresso>=1?100:Math.floor(progresso*20)*5;
     if(valor!==ultimo){
       contador.textContent=String(valor).padStart(3,"0");
       ultimo=valor;
