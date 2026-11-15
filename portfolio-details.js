@@ -100,6 +100,7 @@
   const descricao = document.querySelector("#detalhe-descricao");
   const entregas = document.querySelector("#detalhe-entregas");
   const acao = document.querySelector("#detalhe-acao");
+  const verProjetos = document.querySelector("#detalhe-projetos");
   const fechar = document.querySelector("#fechar-detalhe");
 
   function abrirDetalhe(indice) {
@@ -120,6 +121,7 @@
     });
     const mensagem = "Olá! Quero conversar com Herslander Jorge sobre " + servico.nome + ".";
     acao.href = "https://wa.me/" + whatsapp + "?text=" + encodeURIComponent(mensagem);
+    verProjetos.hidden = ![0,2,3,6,7].includes(indice);
     if (!dialogo.open) {
       ultimaOpcao = document.activeElement;
       dialogo.showModal();
@@ -144,6 +146,11 @@
   });
 
   fechar.addEventListener("click", () => dialogo.close());
+  verProjetos.addEventListener("click",(evento)=>{
+    evento.preventDefault();
+    dialogo.close();
+    requestAnimationFrame(()=>document.querySelector("#projetos")?.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"}));
+  });
   dialogo.addEventListener("close", () => {
     tocar("voltar");
     if (ultimaOpcao?.isConnected && typeof ultimaOpcao.focus === "function") ultimaOpcao.focus({ preventScroll: true });
