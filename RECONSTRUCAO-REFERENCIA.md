@@ -91,3 +91,43 @@ A branch `feat/disciplines-fidelidade` e o PR #2 são o local de desenvolvimento
 **Limitações que devem permanecer explícitas:** não foi possível fazer uma escuta humana comparativa nem medir métricas reais de FPS/INP em um aparelho físico. Sucesso em build, testes estáticos e navegação automatizada não equivale a garantir desempenho idêntico em todos os celulares. O som do carregamento é uma recriação original, não o `sprite.mp3` da referência, e não pode tocar antes de um gesto do usuário.
 
 **Publicação:** alterações somente na branch `feat/disciplines-fidelidade` e no PR #2; produção permanece na `main`. Rever no aparelho Android e iOS antes da integração definitiva.
+
+
+## Investigação passiva e ajustes — 15/11/2026
+
+### Escopo e limites
+- Referência observada: https://lucaradez.com/ (páginas publicamente acessíveis).
+- Vídeo de referência: Record_2026-11-15-15-17-07_40deb401b9ffe8e1df2f1cc5ba480b12.mp4, 111,9 s, 5.477 quadros.
+- Repositório autorizado para edição: herslander-netizen/herslander-site, PR #2, branch feat/disciplines-fidelidade.
+- As skills do plugin REA foram consultadas, mas não há servidor MCP do REA exposto aqui. Não houve decompilação do JavaScript pelo REA; trata-se de investigação passiva de interface + observação de vídeo + testes em navegador.
+- Fotografias e sons de terceiros não foram importados nem atribuídos a Herslander.
+
+### Evidências e confiança
+
+| ID | Base | Evidência direta | Limite |
+| --- | --- | --- | --- |
+| WEB-01 | https://lucaradez.com/ | 16 especialidades, quatro entregas cada, links de contato e de trabalhos | HTML público; não revela toda a implementação |
+| VID-01 | vídeo anexado | a roleta abre uma seção azul com lista de cartões claros, título e Back | gravação da referência, não do Herslander |
+| SRC-01 | index.html anterior | modal escuro individual usado no site Herslander | comparação de estrutura |
+| SRC-02 | index.html, portfolio-details.js, portfolio-disciplines.css | lista com 16 cartões, destino por índice, link e navegação por histórico | implementação autoral |
+| RUN-01 | Cloudflare Browser Rendering 390×844 | a disciplina 16 abre; URL passa a #disciplina-16 | navegador remoto |
+| RUN-02 | Cloudflare Browser Rendering 360×800 | 16 cartões, quatro pontos da galeria, histórico Voltar correto; card 16 inicia ~113px abaixo do topo | não equivale a medição de FPS ou INP |
+| CI-01 | GitHub Actions mobile-smoke.yml | análise de sintaxe e integração de recursos | teste estático |
+
+### Correções feitas
+1. A roleta abre a lista contínua de cartões claros em fundo azul #0B63A4, em vez de um modal escuro isolado; a primeira posição exibida corresponde à disciplina tocada.
+2. O botão Voltar e Escape restauram o histórico; a URL muda conforme a disciplina visível, e o foco retorna à opção escolhida.
+3. A última disciplina estava inicialmente ~292px abaixo do topo. Após reservar área de rolagem ao fim da lista, passou a ~113px no teste mobile. A hipótese inicial de renderização diferida não era a causa suficiente; a falta de espaço após o último cartão era decisiva.
+4. A galeria passou a ter quatro indicadores acessíveis e rolagem horizontal com estado ativo sincronizado; no celular as setas redundantes desaparecem.
+5. O nome responde de forma reversível ao avanço/retorno do scroll inicial, com atualização apenas quando muda a quantidade de caracteres visíveis.
+6. São preservados os ganhos anteriores de desempenho: áudio com buffer reutilizado, roleta recalculada apenas na área visível, Canvas das mãos interrompido após a animação mobile.
+
+### Pesquisa de boas práticas
+- Autoplay e AudioContext dependem de gesto do usuário: https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Best_practices
+- Estimativas de tamanho com content-visibility/contain-intrinsic-size podem alterar posição da rolagem: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/contain-intrinsic-size
+
+### Pendências verificáveis
+- Falta inspeção comparativa de sons por audição humana e perfil real de desempenho em Android/iPhone.
+- Galerias completas de fotografias originais dependem de arquivos autorais e permissões identificados; os gráficos atuais são conceituais.
+- A equivalência de todos os tempos de transição, tipografia e gestos com a referência ainda não foi comprovada.
+- A versão de produção não foi alterada; validação feita em prévia Cloudflare Pages.
