@@ -102,9 +102,34 @@
     }
   });
 
+  const menuMobile = document.querySelector("#menu-mobile");
+  const navPrincipal = document.querySelector("#nav-principal");
+  const fecharMenu = () => {
+    document.body.classList.remove("menu-aberto");
+    menuMobile?.setAttribute("aria-expanded", "false");
+  };
+  menuMobile?.addEventListener("click", () => {
+    const abrir = !document.body.classList.contains("menu-aberto");
+    document.body.classList.toggle("menu-aberto", abrir);
+    menuMobile.setAttribute("aria-expanded", String(abrir));
+    tocar("toque");
+    if (abrir) navPrincipal?.querySelector("a")?.focus({preventScroll:true});
+  });
+  document.addEventListener("pointerdown", (evento) => {
+    if (document.body.classList.contains("menu-aberto") &&
+        !menuMobile?.contains(evento.target) && !navPrincipal?.contains(evento.target)) fecharMenu();
+  }, {passive:true});
+  document.addEventListener("keydown", (evento) => {
+    if (evento.key === "Escape") fecharMenu();
+  });
+  window.addEventListener("scroll", () => {
+    if (document.body.classList.contains("menu-aberto")) fecharMenu();
+  }, {passive:true});
+  window.addEventListener("resize", fecharMenu, {passive:true});
   document.querySelectorAll(".navegacao a").forEach((link) => {
     link.addEventListener("click", () => {
       tocar("toque");
+      fecharMenu();
       if (dialogo.open) dialogo.close();
     });
   });
