@@ -21,13 +21,13 @@ const ids = [
   "entrada","entrar","contador-entrada","som","menu-mobile","nav-principal",
   "quem","roda","lista","contador","girar","projetos","galeria-projetos",
   "visualizador-projeto","projeto-modal-fechar","projeto-modal-titulo",
-  "detalhe-disciplina","fechar-detalhe","detalhe-titulo","detalhe-acao",
+  "detalhe-disciplina","fechar-detalhe","disciplinas-titulo","disciplinas-cartoes",
   "maos","contato"
 ];
 for (const id of ids) assert(html.includes('id="' + id + '"'), "ID ausente: " + id);
 
 for (const asset of [
-  "portfolio-upgrade.css","portfolio-gallery.css","portfolio-intro.js",
+  "portfolio-upgrade.css","portfolio-gallery.css","portfolio-disciplines.css","portfolio-intro.js",
   "portfolio-gallery.js","portfolio-details.js","maos.png","silhueta.png"
 ]) {
   assert(fs.existsSync(asset), "Recurso não encontrado: " + asset);
@@ -48,5 +48,10 @@ assert.match(details,/aria-expanded/,"Menu mobile sem estado acessível");
 assert.match(intro,/const duracao=960/,"Intro não otimizada");
 assert.match(gallery,/touchstart/,"Gestos do visualizador ausentes");
 assert.match(upgrade,/@media.*max-width/s,"Regras responsivas ausentes");
+assert.match(details,/history\.pushState/,"As disciplinas precisam atualizar o histórico");
+assert.match(details,/history\.back\(\)/,"O botão Voltar precisa restaurar a roleta");
+assert.match(details,/cards\[i\]\.scrollIntoView/,"Seleção da roleta deve rolar até a disciplina");
+assert.match(html,/class="disciplinas-pagina"/,"Layout das disciplinas incorreto");
+assert.match(read("portfolio-disciplines.css"),/background: var\(--papel\)/,"Cartões de papel devem usar a cor de referência");
 
 console.log("✓ Sintaxe, IDs, arquivos, 16 disciplinas, entrada sonora, gestos e modo mobile conferidos.");
