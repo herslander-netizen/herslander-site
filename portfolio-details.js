@@ -94,7 +94,9 @@
     if (typeof sons !== "undefined" && typeof sons[efeito] === "function") sons[efeito]();
   };
   const numero = document.querySelector("#detalhe-numero");
+  const indiceVisual = document.querySelector("#detalhe-indice");
   const titulo = document.querySelector("#detalhe-titulo");
+  let ultimaOpcao = null;
   const descricao = document.querySelector("#detalhe-descricao");
   const entregas = document.querySelector("#detalhe-entregas");
   const acao = document.querySelector("#detalhe-acao");
@@ -103,7 +105,9 @@
   function abrirDetalhe(indice) {
     const servico = servicos[indice];
     if (!servico) return;
-    numero.textContent = "ÁREA " + String(indice + 1).padStart(2, "0") + " / " + String(servicos.length).padStart(2, "0");
+    const numeroAtual = String(indice + 1).padStart(2, "0");
+    numero.textContent = numeroAtual + " / " + String(servicos.length).padStart(2, "0");
+    indiceVisual.textContent = numeroAtual;
     titulo.textContent = servico.nome;
     descricao.textContent = servico.descricao;
     entregas.replaceChildren();
@@ -116,7 +120,13 @@
     });
     const mensagem = "Olá! Quero conversar com Herslander Jorge sobre " + servico.nome + ".";
     acao.href = "https://wa.me/" + whatsapp + "?text=" + encodeURIComponent(mensagem);
-    if (!dialogo.open) { dialogo.showModal(); tocar("detalhe"); }
+    if (!dialogo.open) {
+      ultimaOpcao = document.activeElement;
+      dialogo.showModal();
+      dialogo.scrollTop = 0;
+      fechar.focus();
+      tocar("detalhe");
+    }
   }
 
   Array.from(lista.children).forEach((item, indice) => {
@@ -134,7 +144,11 @@
   });
 
   fechar.addEventListener("click", () => dialogo.close());
-  dialogo.addEventListener("close", () => tocar("voltar"));
+  dialogo.addEventListener("close", () => {
+    tocar("voltar");
+    if (ultimaOpcao?.isConnected && typeof ultimaOpcao.focus === "function") ultimaOpcao.focus({ preventScroll: true });
+    ultimaOpcao = null;
+  });
   dialogo.addEventListener("click", (evento) => {
     if (evento.target === dialogo) {
       const area = dialogo.getBoundingClientRect();
