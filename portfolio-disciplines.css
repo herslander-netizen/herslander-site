@@ -80,7 +80,8 @@
 .disciplinas-lista {
   width: min(100%, 1000px);
   margin: 0 auto;
-  padding: 13px var(--margem) calc(36px + env(safe-area-inset-bottom, 0px));
+  /* Reserva espaço após a última ficha para alinhá-la sob o cabeçalho ao abrir #disciplina-16. */
+  padding: 13px var(--margem) max(40dvh, calc(80px + env(safe-area-inset-bottom, 0px)));
   display: flex;
   flex-direction: column;
   gap: 13px;
