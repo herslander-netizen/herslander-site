@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Herslander Jorge — Direção de Marca</title>
-<meta name="description" content="Portfólio 2027 de Herslander Jorge. Direção de marca, direção de arte, vídeo e web.">
-<meta name="theme-color" content="#14161B">
+<meta name="description" content="Portfólio de Herslander Jorge. Direção criativa, estratégia de marca, vídeo, sites, sistemas e inteligência artificial.">
+<meta name="theme-color" content="#2E3339">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --papel: #E5E1DC; --tinta: #14161B; --laranja: #E58F5A; --azul: #1466A2; --marinho: #0F2C5E;
+    --papel: #F6F3EF; --tinta: #2E3339; --laranja: #F59E63; --azul: #2E3339; --marinho: #23282D;
     --sans: "Inter", system-ui, sans-serif; --mono: "JetBrains Mono", ui-monospace, monospace;
     --margem: clamp(18px, 5vw, 56px);
   }
@@ -156,10 +156,12 @@
     .revela, .ferramentas > * { transition: none; }
   }
 </style>
+<link rel="stylesheet" href="./portfolio-upgrade.css">
 </head>
 <body class="trancado" data-tema="escuro">
 
-<a class="marca" href="#quem"><b>Herslander</b> Jorge</a>
+<a class="marca" href="#quem" aria-label="Herslander Jorge — início"><b>Herslander</b> Jorge ✱</a>
+<nav class="navegacao mono" aria-label="Navegação principal"><a href="#quem">Início</a><a href="#roda">O que faço</a><a href="#sobre">Sobre mim</a><a href="#contato">Contato</a></nav>
 <button class="som" id="som" type="button" aria-pressed="true" aria-label="Som ligado">
   <svg viewBox="0 0 24 24" aria-hidden="true">
     <path d="M3 9v6h4l5 5V4L7 9H3z"/>
@@ -194,19 +196,19 @@
         <img class="silhueta" src="silhueta.png" alt="Silhueta de Herslander Jorge">
         <div class="desce mono">Role ↓</div>
       </div>
-      <div class="camada funcao" data-fundo="#E5E1DC" data-cor="#14161B" data-tema="claro">
+      <div class="camada funcao" data-fundo="#F6F3EF" data-cor="#2E3339" data-tema="claro">
         <div class="topo mono"><span>Função</span><span>01 / 04</span></div>
         <div class="mascara"><div class="texto">Diretor <b>Criativo</b><i class="sinal bola"></i></div></div>
       </div>
-      <div class="camada funcao" data-fundo="#14161B" data-cor="#E5E1DC" data-tema="escuro">
+      <div class="camada funcao" data-fundo="#2E3339" data-cor="#F6F3EF" data-tema="escuro">
         <div class="topo mono"><span>Função</span><span>02 / 04</span></div>
         <div class="mascara"><div class="texto">Diretor <b>de Arte</b><i class="sinal"></i></div></div>
       </div>
-      <div class="camada funcao" data-fundo="#E58F5A" data-cor="#14161B" data-tema="claro">
+      <div class="camada funcao" data-fundo="#F59E63" data-cor="#2E3339" data-tema="claro">
         <div class="topo mono"><span>Função</span><span>03 / 04</span></div>
         <div class="mascara"><div class="texto">Web <b>Designer</b><i class="sinal tri"></i></div></div>
       </div>
-      <div class="camada funcao duas" data-fundo="#1466A2" data-cor="#E5E1DC" data-tema="escuro">
+      <div class="camada funcao duas" data-fundo="#2E3339" data-cor="#F6F3EF" data-tema="escuro">
         <div class="topo mono"><span>Função</span><span>04 / 04</span></div>
         <div class="mascara"><div class="texto">Diretor <b>de Marca</b><br><b>e Tecnologia</b><i class="sinal mais"></i></div></div>
       </div>
@@ -232,7 +234,26 @@
       <button class="girar mono" id="girar" type="button">Gire a roda</button>
       <i class="ponto" id="ponto"></i>
       <div class="lista" id="lista"></div>
+      <p class="ajuda mono">Percorra as especialidades e toque para saber mais.</p>
       <div class="rodape mono"><span>Herslander Jorge</span><span id="contador"></span></div>
+    </div>
+  </section>
+
+  <!-- Apresentação pessoal -->
+  <section id="sobre" data-tema="claro" aria-labelledby="sobre-titulo">
+    <div class="sobre-topo mono revela"><span>Uma apresentação</span><span class="sobre-numero">01 — Quem sou</span></div>
+    <div class="sobre-grid">
+      <h2 class="sobre-titulo revela" id="sobre-titulo">Sobre<span>mim<span aria-hidden="true" style="display:inline;color:var(--laranja)">.</span></span></h2>
+      <div class="sobre-texto revela">
+        <p>Sou <strong>Herslander Jorge</strong>. Trabalho na conexão entre <strong>criatividade, comunicação e tecnologia</strong>, transformando ideias em experiências, marcas e soluções digitais.</p>
+        <p>Meu olhar reúne estratégia, design, audiovisual, desenvolvimento e inteligência artificial — da primeira conversa à entrega de uma solução que faça sentido para cada negócio.</p>
+        <a class="sobre-contato mono" href="#contato">Vamos criar algo juntos <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+    <div class="sobre-faixas revela" aria-label="Três áreas de atuação">
+      <article><span class="numero mono">01 / Criatividade</span><h3>Ideias com direção.</h3><p>Marcas, design, vídeo e campanhas com linguagem própria.</p></article>
+      <article><span class="numero mono">02 / Tecnologia</span><h3>Experiências úteis.</h3><p>Sites, aplicativos e sistemas conectados às necessidades reais.</p></article>
+      <article><span class="numero mono">03 / Inteligência artificial</span><h3>Mais possibilidades.</h3><p>Automações e agentes com contexto, controle e propósito.</p></article>
     </div>
   </section>
 
@@ -242,12 +263,12 @@
     <!-- Duas mãos quase se tocando, desenhadas com caracteres pelo script. -->
     <canvas class="maos" id="maos" aria-hidden="true"></canvas>
     <p class="revela direita">e sim, a gente dá<br><em>uma mão.</em></p>
-    <div class="assina mono revela">Design, vídeo e tecnologia</div>
+    <div class="assina mono revela">Criatividade, comunicação e tecnologia</div>
   </section>
 
   <!-- Contato -->
   <section id="contato" class="tela" data-tema="claro">
-    <div class="lema mono revela">Boas ideias merecem<br>uma direção.</div>
+    <div class="lema mono revela">Criatividade, estratégia<br>e tecnologia conectadas.</div>
     <div class="nome revela"><b>Herslander</b> <span class="leve">Jorge</span></div>
     <div class="ano mono revela">Direção de Marca — 2027</div>
     <a class="falar" id="falar" href="#" target="_blank" rel="noopener">Vamos conversar</a>
@@ -256,13 +277,24 @@
   </section>
 </main>
 
+<dialog id="detalhe-disciplina" class="detalhe-servico" aria-labelledby="detalhe-titulo" aria-describedby="detalhe-descricao">
+  <div class="detalhe-interior">
+    <div class="detalhe-topo mono"><span id="detalhe-numero">ÁREA 01 / 16</span><button class="detalhe-fechar mono" id="fechar-detalhe" type="button" aria-label="Fechar informações da especialidade">Fechar ✕</button></div>
+    <h2 id="detalhe-titulo">Direção Criativa</h2>
+    <p class="detalhe-resumo" id="detalhe-descricao"></p>
+    <h3 class="mono">O que entrego</h3>
+    <ol id="detalhe-entregas" class="detalhe-entregas"></ol>
+    <a class="detalhe-acao" id="detalhe-acao" href="https://wa.me/5579998181983" target="_blank" rel="noopener">Conversar sobre esse serviço ↗</a>
+  </div>
+</dialog>
+
 <script>
 /* ============ CONTEÚDO EDITÁVEL ============ */
 const DISCIPLINAS = [
   "Direção Criativa", "Estratégia de Marca", "Direção de Marca", "Direção de Arte",
   "Conteúdo e Copy", "Design Gráfico", "Motion Design", "Edição de Vídeo",
   "Filmmaker", "Social Media", "Tráfego Pago", "Web Design e Desenvolvimento",
-  "Aplicativos Sob Medida", "Automações com IA",
+  "Aplicativos Sob Medida", "Automações com IA", "Consultoria Digital", "Agentes de IA",
 ];
 /* Cada projeto: { nome: "NOME", tipo: "Identidade visual", link: "https://..." }. Vazio = seção escondida. */
 const PROJETOS = [];
@@ -336,6 +368,8 @@ const sons = {
   rodaFinal: () => { tom({ freq: 660, dur: 0.5, vol: 0.2 }); tom({ freq: 990, dur: 0.7, vol: 0.14, atraso: 0.09 }); },
   maos: () => { sopro({ dur: 1.5, de: 180, para: 1300, vol: 0.1 }); tom({ freq: 220, dur: 1.3, vol: 0.1 }); tom({ freq: 330, dur: 1.3, vol: 0.08, atraso: 0.18 }); },
   toque: () => tom({ freq: 520, para: 780, dur: 0.09, tipo: "triangle", vol: 0.16 }),
+  detalhe: () => { tom({ freq: 420, para: 560, dur: 0.13, tipo: "sine", vol: 0.15 }); tom({ freq: 650, para: 840, dur: 0.16, vol: 0.11, atraso: 0.07 }); },
+  voltar: () => tom({ freq: 550, para: 310, dur: 0.12, tipo: "sine", vol: 0.11 }),
 };
 const atualizaBotaoSom = () => {
   const botao = $("#som");
@@ -577,8 +611,8 @@ const aoRolar = () => {
     etapaAnterior = etapa;
     camadas.forEach((c, i) => c.classList.toggle("ativa", i === etapa));
     const c = camadas[etapa];
-    fundoQuem.style.backgroundColor = c.dataset.fundo || "#E5E1DC";
-    fundoQuem.style.color = c.dataset.cor || "#14161B";
+    fundoQuem.style.backgroundColor = c.dataset.fundo || "#F6F3EF";
+    fundoQuem.style.color = c.dataset.cor || "#2E3339";
   }
   desenhaRoda(progresso($("#roda")) * (N - 1));
   if (!document.body.classList.contains("aberto")) return;
@@ -592,5 +626,6 @@ window.addEventListener("scroll", aoRolar, { passive: true });
 window.addEventListener("resize", aoRolar);
 aoRolar();
 </script>
+<script src="./portfolio-details.js" defer></script>
 </body>
 </html>
