@@ -711,12 +711,30 @@ const secaoQuem = $("#quem");
 const secaoRoda = $("#roda");
 const secoesTema = [...document.querySelectorAll("main > section[data-tema]")];
 let etapaAnterior = -1, rolagemAgendada = false;
+/* O texto do nome acompanha o começo/fim da cena e é reversível na rolagem.
+   Atualizamos somente quando o número de caracteres visíveis realmente muda. */
+let ultimoNomeVisivel = -1;
+const nomeOriginal = ["Herslander", estreito() ? "\nJorge" : " Jorge"];
+const scrubNome = (topo) => {
+  if (!$("#heroi").classList.contains("pronto")) return;
+  const spans = $("#nome").querySelectorAll("span");
+  if (spans.length < 2) return;
+  const comprimento = nomeOriginal[0].length + nomeOriginal[1].length;
+  const intervalo = Math.max(1, (secaoQuem.offsetHeight - window.innerHeight) / camadas.length);
+  const progressoNome = limita((topo - secaoQuem.offsetTop) / intervalo);
+  const caracteres = Math.round(comprimento * (1 - progressoNome));
+  if (caracteres === ultimoNomeVisivel) return;
+  ultimoNomeVisivel = caracteres;
+  spans[0].textContent = nomeOriginal[0].slice(0, caracteres);
+  spans[1].textContent = nomeOriginal[1].slice(0, Math.max(0, caracteres - nomeOriginal[0].length));
+};
 const aoRolar = () => {
   if (!document.body.classList.contains("aberto")) return;
   const topo = window.scrollY, fimTela = topo + window.innerHeight;
   const limiteQuem = secaoQuem.offsetTop + secaoQuem.offsetHeight;
   let etapa = etapaAnterior < 0 ? 0 : etapaAnterior;
   if (topo < limiteQuem) {
+    scrubNome(topo);
     etapa = Math.min(camadas.length - 1, Math.floor(progresso(secaoQuem) * camadas.length * 0.999));
     if (etapa !== etapaAnterior) {
       if (etapaAnterior >= 0 && etapa > 0) sons.funcao(etapa - 1);
