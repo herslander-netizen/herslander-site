@@ -483,6 +483,7 @@ const abrir = () => {
   document.body.classList.remove("trancado");
   document.body.classList.add("aberto");
   document.body.dataset.tema = "claro";
+  agendarRolar();
   setTimeout(() => {
     digita($("#nome"), [{ texto: "Herslander" }, { texto: estreito() ? "\nJorge" : " Jorge", classe: "leve" }], 55, () => {
       digita($("#cargo"), [{ texto: "Direção de Marca" }], 28, () => $("#heroi").classList.add("pronto"));
@@ -561,7 +562,7 @@ const telaMaos = $("#maos");
 const pincel = telaMaos.getContext("2d");
 const fonteMaos = document.createElement("canvas");
 const mapaMaos = new Image();
-mapaMaos.onload = () => { grade = null; tAnterior = -1; };
+mapaMaos.onload = () => { grade = null; tAnterior = -1; entradaMaos = performance.now() - 2000; if (typeof reiniciaMaos === "function") reiniciaMaos(); };
 mapaMaos.src = "maos.png";
 let grade = null;
 const desenhaMaos = (c) => {
@@ -586,9 +587,10 @@ const desenhaMaos = (c) => {
 const montaGrade = () => {
   const larg = telaMaos.clientWidth, alt = telaMaos.clientHeight;
   if (!larg) return;
-  const dpr = Math.min(2, window.devicePixelRatio || 1);
+  const mobile = window.innerWidth < 700;
+  const dpr = Math.min(mobile ? 1 : 1.5, window.devicePixelRatio || 1);
   telaMaos.width = Math.round(larg * dpr); telaMaos.height = Math.round(alt * dpr);
-  const cols = Math.round(limita(larg / 3.3, 112, 260));
+  const cols = Math.round(mobile ? limita(larg / 5.2, 54, 95) : limita(larg / 3.6, 112, 215));
   // Células quase quadradas, com a letra menor que a célula: fica arejado como arte ASCII.
   const celulaL = larg / cols, celulaA = celulaL * 1.3;
   const rows = Math.max(1, Math.floor(alt / celulaA));
@@ -628,24 +630,52 @@ const pintaMaos = (t, tique) => {
   }
   pincel.globalAlpha = 1;
 };
-let maosVisiveis = false, entradaMaos = 0, tiqueAnterior = -1, tAnterior = -1;
+let maosVisiveis = false, entradaMaos = 0, tiqueAnterior = -1, tAnterior = -1, maosAnimando = false;
 const cicloMaos = (agora) => {
-  if (!maosVisiveis) return;
+  if (!maosVisiveis || document.hidden) { maosAnimando = false; return; }
   if (!grade) montaGrade();
   if (!entradaMaos) entradaMaos = agora;
-  const bruto = limita((agora - entradaMaos) / 1500);
+  const mobile = window.innerWidth < 700;
+  const bruto = limita((agora - entradaMaos) / (mobile ? 650 : 1400));
   const t = 1 - Math.pow(1 - bruto, 3);
-  const tique = Math.floor(agora / 160);
-  if (grade && (t !== tAnterior || tique !== tiqueAnterior)) { pintaMaos(t, tique); tAnterior = t; tiqueAnterior = tique; }
+  /* Mobile: entrada suave e desenho estático; desktop: respiração mais espaçada. */
+  const tique = mobile ? 0 : Math.floor(agora / 260);
+  if (grade && (t !== tAnterior || tique !== tiqueAnterior)) {
+    pintaMaos(t, tique);
+    tAnterior = t;
+    tiqueAnterior = tique;
+  }
+  if (mobile && bruto >= 1) { maosAnimando = false; return; }
   requestAnimationFrame(cicloMaos);
+};
+const reiniciaMaos = () => {
+  if (!maosAnimando && maosVisiveis && !document.hidden) {
+    maosAnimando = true;
+    requestAnimationFrame(cicloMaos);
+  }
 };
 new IntersectionObserver((itens) => {
   const visivel = itens[0].isIntersecting;
-  if (visivel && !maosVisiveis) { maosVisiveis = true; if (!entradaMaos) sons.maos(); requestAnimationFrame(cicloMaos); }
-  maosVisiveis = visivel;
+  if (visivel && !maosVisiveis) {
+    maosVisiveis = true;
+    if (!entradaMaos) sons.maos();
+    reiniciaMaos();
+  } else if (!visivel) maosVisiveis = false;
 }, { threshold: 0.15 }).observe(telaMaos);
-window.addEventListener("resize", () => { grade = null; tAnterior = -1; });
-document.fonts && document.fonts.ready.then(() => { tAnterior = -1; });
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) { maosAnimando = false; return; }
+  reiniciaMaos();
+});
+window.addEventListener("resize", () => {
+  grade = null; tAnterior = -1; tiqueAnterior = -1;
+  entradaMaos = performance.now() - 2000;
+  reiniciaMaos();
+}, { passive: true });
+if (document.fonts) document.fonts.ready.then(() => {
+  tAnterior = -1;
+  entradaMaos = performance.now() - 2000;
+  reiniciaMaos();
+});
 
 /* ----- Aparição ao rolar ----- */
 const olho = new IntersectionObserver((itens) => itens.forEach((it) => it.isIntersecting && it.target.classList.add("visivel")), { threshold: 0.25 });
@@ -689,32 +719,53 @@ $("#girar").addEventListener("click", () => {
   window.scrollTo({ top: secao.offsetTop + (alvo / (N - 1)) * (secao.offsetHeight - window.innerHeight), behavior: "smooth" });
 });
 
-/* ----- Rolagem: etapas das funções, roda e cor do nome fixo ----- */
+/* ----- Rolagem otimizada: uma leitura por quadro, sem recalcular a roleta fora da tela. ----- */
 const camadas = [...document.querySelectorAll("#quem .camada")];
 const fundoQuem = $("#quem .fixo");
-let etapaAnterior = -1;
+const secaoQuem = $("#quem");
+const secaoRoda = $("#roda");
+const secoesTema = [...document.querySelectorAll("main > section[data-tema]")];
+let etapaAnterior = -1, rolagemAgendada = false;
 const aoRolar = () => {
-  const quem = $("#quem");
-  const etapa = Math.min(camadas.length - 1, Math.floor(progresso(quem) * camadas.length * 0.999));
-  if (etapa !== etapaAnterior) {
-    if (etapaAnterior >= 0 && etapa > 0) sons.funcao(etapa - 1);
-    etapaAnterior = etapa;
-    camadas.forEach((c, i) => c.classList.toggle("ativa", i === etapa));
-    const c = camadas[etapa];
-    fundoQuem.style.backgroundColor = c.dataset.fundo || "#E6E0DD";
-    fundoQuem.style.color = c.dataset.cor || "#14151B";
-  }
-  desenhaRoda(progresso($("#roda")) * (N - 1));
   if (!document.body.classList.contains("aberto")) return;
-  const linha = window.scrollY + 40;
+  const topo = window.scrollY, fimTela = topo + window.innerHeight;
+  const limiteQuem = secaoQuem.offsetTop + secaoQuem.offsetHeight;
+  let etapa = etapaAnterior < 0 ? 0 : etapaAnterior;
+  if (topo < limiteQuem) {
+    etapa = Math.min(camadas.length - 1, Math.floor(progresso(secaoQuem) * camadas.length * 0.999));
+    if (etapa !== etapaAnterior) {
+      if (etapaAnterior >= 0 && etapa > 0) sons.funcao(etapa - 1);
+      etapaAnterior = etapa;
+      camadas.forEach((c, i) => c.classList.toggle("ativa", i === etapa));
+      const c = camadas[etapa];
+      fundoQuem.style.backgroundColor = c.dataset.fundo || "#E6E0DD";
+      fundoQuem.style.color = c.dataset.cor || "#14151B";
+    }
+  }
+  /* Evita 16 transformações e alterações de estilo em cada scroll de outras seções. */
+  if (fimTela >= secaoRoda.offsetTop - 80 &&
+      topo <= secaoRoda.offsetTop + secaoRoda.offsetHeight + 80) {
+    desenhaRoda(progresso(secaoRoda) * (N - 1));
+  }
+  const linha = topo + 40;
   let tema = "claro";
-  if (linha < quem.offsetTop + quem.offsetHeight) tema = camadas[etapa].dataset.tema || "claro";
-  else document.querySelectorAll("main > section[data-tema]").forEach((s) => { if (!s.hidden && linha >= s.offsetTop) tema = s.dataset.tema; });
-  document.body.dataset.tema = tema;
+  if (linha < limiteQuem) tema = camadas[etapa].dataset.tema || "claro";
+  else for (const secao of secoesTema) {
+    if (!secao.hidden && linha >= secao.offsetTop) tema = secao.dataset.tema;
+  }
+  if (document.body.dataset.tema !== tema) document.body.dataset.tema = tema;
 };
-window.addEventListener("scroll", aoRolar, { passive: true });
-window.addEventListener("resize", aoRolar);
-aoRolar();
+const agendarRolar = () => {
+  if (rolagemAgendada || document.hidden) return;
+  rolagemAgendada = true;
+  requestAnimationFrame(() => {
+    rolagemAgendada = false;
+    aoRolar();
+  });
+};
+window.addEventListener("scroll", agendarRolar, { passive: true });
+window.addEventListener("resize", agendarRolar, { passive: true });
+requestAnimationFrame(agendarRolar);
 </script>
 <script src="./portfolio-intro.js" defer></script>
 <script src="./portfolio-details.js" defer></script>
