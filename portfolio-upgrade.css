@@ -345,3 +345,15 @@ body[data-tema="escuro"] .navegacao { color: var(--papel); }
   .detalhe-servico[open] { animation: none; }
   .detalhe-acao { transition: none; }
 }
+
+
+.detalhe-acoes { display:flex; flex-wrap:wrap; align-items:center; gap:clamp(20px,3vw,44px); }
+.detalhe-acoes .detalhe-acao { flex:0 0 auto; }
+.detalhe-projetos { display:inline-flex; align-items:center; padding:16px 0; border-bottom:1px solid currentColor; font-size:12px;letter-spacing:.12em; text-decoration:none; color:var(--papel); }
+.detalhe-projetos:hover { color:var(--laranja); }
+.detalhe-projetos[hidden] { display:none; }
+@media(max-width:699px){
+  .detalhe-acoes { width:100%; flex-direction:column; align-items:stretch; gap:14px; }
+  .detalhe-acoes .detalhe-acao { width:100%; }
+  .detalhe-projetos { align-self:flex-start; }
+}
