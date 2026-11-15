@@ -223,3 +223,10 @@
 @media(prefers-reduced-motion:reduce){
   #entrada .contador-entrada,.heroi .ola-entrada{transition:none;}
 }
+
+
+/* Na referência, a navegação mobile é discreta no topo;
+   remover a barra inferior que cobria o trabalho visual. */
+@media(max-width:699px){
+  body.aberto .navegacao { display:none; }
+}
