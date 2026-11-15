@@ -73,3 +73,21 @@ Os arquivos do seu repositório de site pessoal incluem `maos.png` e `silhueta.p
 ## Política de produção
 
 A branch `feat/disciplines-fidelidade` e o PR #2 são o local de desenvolvimento. Não alterar domínio, DNS ou configurações de e-mail. Preservar a versão anterior de `main` até revisão.
+
+
+## Atualização — foco total em mobile e áudio de carregamento (15/11/2026)
+
+**Mudanças implementadas, sem alterar a produção:**
+
+- **Som de carregamento:** um efeito original de subida e transição foi adicionado ao objeto `sons.carregamento`. A tela de entrada escuta o primeiro `pointerdown`; o botão Entrar oferece fallback por teclado. O áudio só é liberado no primeiro gesto do visitante porque Android/iOS impedem autoplay com som antes da interação. O botão de silenciar continua sendo respeitado.
+- **Áudio leve:** o ruído branco para efeitos `sopro` passou a usar um `AudioBuffer` de 0,45 s compartilhado e em loop, evitando alocações e preenchimento de buffers a cada digitação, rolagem ou toque. Digitação e roleta limitam a frequência de pequenos sons.
+- **Rolagem:** eventos passivos usam `requestAnimationFrame` para atualizar no máximo uma vez por quadro; a roleta não recalcula seus 16 itens quando está fora da área visível. Cores e etapas somente são reavaliadas quando necessário.
+- **Mãos em Canvas:** no mobile, a densidade ASCII e o DPR são limitados; depois da animação inicial de 650 ms, o Canvas para de redesenhar continuamente. No desktop continua o movimento espaçado. Visibilidade, resize e carregamento da imagem permitem redesenho quando necessário.
+- **Entrada:** contador reduzido para 960 ms e incrementos de 5 para diminuir atualizações do DOM.
+- **Gestos:** menu mobile sob demanda no topo, sem barra inferior permanente, com `aria-expanded`, fechamento por Escape, seleção de link, toque fora e rolagem. Botões de toque ampliados, hover persistente reduzido no celular.
+- **GitHub Actions:** workflow `.github/workflows/mobile-smoke.yml` testa sintaxe JavaScript, IDs, CSS/JS conectados, 16 disciplinas na mesma ordem, som de entrada e regras mobile, sem dependências.
+- **Browser Rendering:** verificado a 390×844: quatro projetos, 16 disciplinas, entrada, abertura/fechamento do menu, abertura de projeto e da explicação da primeira disciplina. Captura visual adicional realizada a 360×800.
+
+**Limitações que devem permanecer explícitas:** não foi possível fazer uma escuta humana comparativa nem medir métricas reais de FPS/INP em um aparelho físico. Sucesso em build, testes estáticos e navegação automatizada não equivale a garantir desempenho idêntico em todos os celulares. O som do carregamento é uma recriação original, não o `sprite.mp3` da referência, e não pode tocar antes de um gesto do usuário.
+
+**Publicação:** alterações somente na branch `feat/disciplines-fidelidade` e no PR #2; produção permanece na `main`. Rever no aparelho Android e iOS antes da integração definitiva.
