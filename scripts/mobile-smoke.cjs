@@ -47,6 +47,12 @@ assert.match(css,/body\.aberto\.menu-aberto \.navegacao/,"Menu mobile ausente");
 assert.match(details,/aria-expanded/,"Menu mobile sem estado acessível");
 assert.match(intro,/const duracao=960/,"Intro não otimizada");
 assert.match(gallery,/touchstart/,"Gestos do visualizador ausentes");
+assert.match(html,/id="projetos-pontos"/,"Faltam indicadores da galeria");
+assert.match(gallery,/aria-current/,"A navegação por pontos não atualiza o estado");
+assert.match(html,/const scrubNome =/,"Nome não acompanha a rolagem de forma reversível");
+assert.match(details,/disciplina-card-topo/,"Falta construção do cartão editorial");
+assert.match(read("portfolio-disciplines.css"),/max\(40dvh/,"Última disciplina pode ficar desalinhada na tela");
+
 assert.match(upgrade,/@media.*max-width/s,"Regras responsivas ausentes");
 assert.match(details,/history\.pushState/,"As disciplinas precisam atualizar o histórico");
 assert.match(details,/history\.back\(\)/,"O botão Voltar precisa restaurar a roleta");
