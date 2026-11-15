@@ -1,10 +1,10 @@
 /* Evolução editorial do portfólio pessoal — 2026. Sem dependências externas. */
 :root {
-  --papel: #E5E1DC;
-  --tinta: #14161B;
-  --laranja: #E58F5A;
-  --azul: #1466A2;
-  --marinho: #0F2C5E;
+  --papel: #E6E0DD;
+  --tinta: #14151B;
+  --laranja: #F19759;
+  --azul: #0B63A4;
+  --marinho: #0B2B5C;
 }
 html { scroll-padding-top: 80px; }
 body { background: var(--papel); }
@@ -95,9 +95,9 @@ body[data-tema="escuro"] .navegacao { color: var(--papel); }
 .sobre-faixas article:last-child { border: 0; }
 .sobre-faixas h3 { font-size: clamp(20px, 2.5vw, 32px); letter-spacing: -.04em; margin: 14px 0; }
 .sobre-faixas p { font-size: clamp(14px, 1.3vw, 16px); line-height: 1.55; opacity: .76; max-width: 28ch; }
-.sobre-faixas .numero { color: #E58F5A; }
+.sobre-faixas .numero { color: #F19759; }
 .sobre-contato { align-self: flex-start; display: inline-flex; align-items: center; gap: 14px; padding-bottom: 8px; border-bottom: 1px solid currentColor; }
-.sobre-contato:hover { color: #E58F5A; }
+.sobre-contato:hover { color: #F19759; }
 .detalhe-servico {
   width: min(760px, calc(100vw - 28px));
   max-height: min(88dvh, 960px);
@@ -130,7 +130,7 @@ body[data-tema="escuro"] .navegacao { color: var(--papel); }
   font-size: 17px;
   transition: background .2s;
 }
-.detalhe-acao:hover { background: #14161B; }
+.detalhe-acao:hover { background: #14151B; }
 #contato .falar { transition: transform .2s, background .2s; }
 #contato .falar:hover { transform: translateY(-3px); }
 @media (max-width: 699px) {
@@ -188,7 +188,7 @@ body[data-tema="escuro"] .navegacao { color: var(--papel); }
   border: 0;
   border-radius: 0;
   background: #2C2F38;
-  color: #E5E1DC;
+  color: #E6E0DD;
   box-shadow: none;
 }
 .detalhe-servico[open] {
@@ -311,7 +311,7 @@ body[data-tema="escuro"] .navegacao { color: var(--papel); }
   text-decoration: none;
   transition: transform .2s,background .2s;
 }
-.detalhe-acao:hover { background: #E58F5A; transform: translateY(-3px); }
+.detalhe-acao:hover { background: #F19759; transform: translateY(-3px); }
 .detalhe-nota { color: rgba(246,243,239,.58); font-size: 11px; }
 .detalhe-servico .detalhe-indicador {
   position: absolute;
