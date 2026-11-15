@@ -182,6 +182,11 @@
    }
    toqueInicial=null;
  },{passive:true});
+ q("#projeto-modal-contato")?.addEventListener("click",(evento)=>{
+   evento.preventDefault();
+   dialogo.close();
+   requestAnimationFrame(()=>document.querySelector("#contato")?.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"}));
+ });
  q("#projeto-avancar")?.addEventListener("click",()=>{
    const primeiro=trilho.querySelector(".projeto-cartao");
    const distancia=primeiro ? primeiro.getBoundingClientRect().width+28 : trilho.clientWidth*.8;
