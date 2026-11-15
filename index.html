@@ -479,7 +479,9 @@ const estreito = () => window.innerWidth < 700;
 const abrir = () => {
   iniciaSom();
   som.ctx?.resume?.().catch(() => {});
-  sons.entrar();
+  // Se o primeiro toque já acionou o carregamento, preserva a sequência sonora.
+  if (somCarregamentoTocado) setTimeout(() => sons.entrar(), 165);
+  else sons.entrar();
   $("#entrada").classList.add("sai");
   document.body.classList.remove("trancado");
   document.body.classList.add("aberto");
