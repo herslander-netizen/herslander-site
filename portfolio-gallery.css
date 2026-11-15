@@ -93,13 +93,13 @@
 }
 .projeto-capa--flow { background:#10254D;color:#BFD3FC; }
 .projeto-capa--flow .arte-forma { width:68%;aspect-ratio:1;border:2px solid #A8C7FA;border-radius:50%;transform:translate(30%,-12%);box-shadow:0 0 0 34px rgba(168,199,250,.10),0 0 0 71px rgba(168,199,250,.07); }
-.projeto-capa--kairos { background:#14161B;color:#E5E1DC; }
-.projeto-capa--kairos .arte-forma {width:45%;aspect-ratio:1;border:44px solid #E58F5A;transform:rotate(43deg);opacity:.9;}
-.projeto-capa--alvo { background:#1466A2;color:#E5E1DC; }
+.projeto-capa--kairos { background:#14151B;color:#E6E0DD; }
+.projeto-capa--kairos .arte-forma {width:45%;aspect-ratio:1;border:44px solid #F19759;transform:rotate(43deg);opacity:.9;}
+.projeto-capa--alvo { background:#0B63A4;color:#E6E0DD; }
 .projeto-capa--alvo .arte-forma {width:60%;aspect-ratio:1;border:1px solid rgba(229,225,220,.5);border-radius:50%;box-shadow:0 0 0 70px rgba(229,225,220,.08),0 0 0 140px rgba(229,225,220,.06);}
-.projeto-capa--herslander { background:#E58F5A;color:#14161B; }
+.projeto-capa--herslander { background:#F19759;color:#14151B; }
 .projeto-capa--herslander .arte-nome { font-size:clamp(36px,5.6vw,88px); }
-.projeto-capa--herslander .arte-forma {width:120%;height:1px;background:#14161B;box-shadow:0 85px 0 rgba(20,22,27,.26),0 -85px 0 rgba(20,22,27,.26);}
+.projeto-capa--herslander .arte-forma {width:120%;height:1px;background:#14151B;box-shadow:0 85px 0 rgba(20,22,27,.26),0 -85px 0 rgba(20,22,27,.26);}
 .projeto-info {padding-top:18px;display:flex;justify-content:space-between;gap:20px;}
 .projeto-info strong{font-size:clamp(24px,3vw,36px);letter-spacing:-.055em;}
 .projeto-info span{font-family:var(--mono);font-size:10px;text-transform:uppercase;line-height:1.6;opacity:.65;text-align:right;}
