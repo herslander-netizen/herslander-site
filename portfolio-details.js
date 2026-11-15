@@ -21,86 +21,186 @@
     { nome: "Cérebro da Empresa", descricao: "Estruturo informações, ferramentas e fluxos para que a equipe consulte dados e acione processos em um ambiente integrado e controlado.", entregas: ["Base de conhecimento","Ferramentas conectadas","Painéis e relatórios","Ações com permissões"] }
   ];
 
+
+  /* Página de disciplinas: a roleta navega para a coleção completa de cartões. */
   const dialogo = document.querySelector("#detalhe-disciplina");
   const lista = document.querySelector("#lista");
-  if (!dialogo || !lista) return;
-
+  const raizCartoes = document.querySelector("#disciplinas-cartoes");
+  const fechar = document.querySelector("#fechar-detalhe");
+  if (!dialogo || !lista || !raizCartoes || !fechar) return;
   const whatsapp = "5579998181983";
+  const mostrarTrabalho = new Set([0, 2, 3, 5, 6, 7, 10, 11]);
+  const origem = window.location.pathname + window.location.search;
+  const prefixo = "#disciplina-";
   const tocar = (efeito) => {
     if (typeof sons !== "undefined" && typeof sons[efeito] === "function") sons[efeito]();
   };
-  const numero = document.querySelector("#detalhe-numero");
-  const indiceVisual = document.querySelector("#detalhe-indice");
-  const titulo = document.querySelector("#detalhe-titulo");
-  let ultimaOpcao = null;
-  const descricao = document.querySelector("#detalhe-descricao");
-  const entregas = document.querySelector("#detalhe-entregas");
-  const acao = document.querySelector("#detalhe-acao");
-  const verProjetos = document.querySelector("#detalhe-projetos");
-  const fechar = document.querySelector("#fechar-detalhe");
+  let focoAnterior = null;
+  let indiceAtual = -1;
+  let agendadoScroll = false;
+  let scrollHabilitado = false;
 
-  function abrirDetalhe(indice) {
-    const servico = servicos[indice];
-    if (!servico) return;
-    const numeroAtual = String(indice + 1).padStart(2, "0");
-    numero.textContent = numeroAtual + " / " + String(servicos.length).padStart(2, "0");
-    indiceVisual.textContent = numeroAtual;
-    titulo.textContent = servico.nome;
-    descricao.textContent = servico.descricao;
-    entregas.replaceChildren();
-    servico.entregas.forEach((entrega, i) => {
-      const item = document.createElement("li");
-      const contagem = document.createElement("span");
-      contagem.textContent = String(i + 1).padStart(2, "0");
-      item.append(contagem, document.createTextNode(entrega));
+  function criar(tag, classe, texto) {
+    const el = document.createElement(tag);
+    if (classe) el.className = classe;
+    if (texto !== undefined) el.textContent = texto;
+    return el;
+  }
+  function numerar(n) { return String(n).padStart(2, "0"); }
+  function endereco(index) { return origem + prefixo + numerar(index + 1); }
+  function indiceDoHash() {
+    const match = window.location.hash.match(/^#disciplina-(\d{1,2})$/);
+    const i = match ? Number(match[1]) - 1 : -1;
+    return i >= 0 && i < servicos.length ? i : -1;
+  }
+  const cards = servicos.map((servico, i) => {
+    const article = criar("article", "disciplina-cartao");
+    article.id = "disciplina-" + numerar(i + 1);
+    article.setAttribute("aria-labelledby", "titulo-disciplina-" + numerar(i + 1));
+
+    const top = criar("div", "disciplina-card-topo mono");
+    top.append(criar("span", null, "Disciplina"), criar("span", null, numerar(i + 1)));
+
+    const titulo = criar("h3", "disciplina-nome", servico.nome);
+    titulo.id = "titulo-disciplina-" + numerar(i + 1);
+    const descricao = criar("p", "disciplina-descricao", servico.descricao);
+    const entregas = criar("ol", "disciplina-entregas");
+    servico.entregas.forEach((entrega, n) => {
+      const item = criar("li");
+      item.append(criar("span", "numero", numerar(n + 1)), criar("span", null, entrega));
       entregas.append(item);
     });
-    const mensagem = "Olá! Quero conversar com Herslander Jorge sobre " + servico.nome + ".";
-    acao.href = "https://wa.me/" + whatsapp + "?text=" + encodeURIComponent(mensagem);
-    verProjetos.hidden = ![0,2,3,5,6,7,10,11].includes(indice);
+    const acoes = criar("div", "disciplina-acoes");
+    const contato = criar("a", "disciplina-falar", "Vamos conversar");
+    contato.href = "https://wa.me/" + whatsapp + "?text=" +
+      encodeURIComponent("Olá! Quero conversar com Herslander Jorge sobre " + servico.nome + ".");
+    contato.target = "_blank";
+    contato.rel = "noopener noreferrer";
+    contato.addEventListener("click", () => tocar("toque"));
+    acoes.append(contato);
+
+    if (mostrarTrabalho.has(i)) {
+      const trabalhos = criar("a", "disciplina-projetos", "Ver projetos →");
+      trabalhos.href = "#projetos";
+      trabalhos.addEventListener("click", (evento) => {
+        evento.preventDefault();
+        tocar("toque");
+        history.replaceState(null, "", origem + "#projetos");
+        dialogo.close();
+        requestAnimationFrame(() => {
+          document.querySelector("#projetos")?.scrollIntoView({
+            behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"
+          });
+        });
+      });
+      acoes.append(trabalhos);
+    }
+    article.append(top, titulo, descricao, entregas, acoes);
+    return article;
+  });
+  raizCartoes.append(...cards);
+
+  function atualizarEndereco(i) {
+    if (!dialogo.open || indiceAtual === i) return;
+    indiceAtual = i;
+    const state = history.state && history.state.__herslanderDisciplina
+      ? { ...history.state, index: i }
+      : history.state;
+    history.replaceState(state, "", endereco(i));
+  }
+  function mostrar(index, opts = {}) {
+    const i = Math.min(servicos.length - 1, Math.max(0, index));
     if (!dialogo.open) {
-      ultimaOpcao = document.activeElement;
+      focoAnterior = document.activeElement;
       dialogo.showModal();
-      dialogo.scrollTop = 0;
-      fechar.focus();
-      tocar("detalhe");
+      document.body.classList.add("disciplinas-abertas");
+    }
+    scrollHabilitado = false;
+    /* A posição inicial é aplicada sem animação: reduz o atraso ao tocar na roleta. */
+    cards[i].scrollIntoView({ behavior: "instant", block: "start" });
+    indiceAtual = i;
+    if (opts.push) {
+      history.pushState({ __herslanderDisciplina: true, index: i }, "", endereco(i));
+    }
+    fechar.focus({ preventScroll: true });
+    if (opts.sound !== false) tocar("detalhe");
+    requestAnimationFrame(() => { scrollHabilitado = true; });
+  }
+  function voltar() {
+    if (!dialogo.open) return;
+    if (history.state?.__herslanderDisciplina) history.back();
+    else {
+      history.replaceState(null, "", origem);
+      dialogo.close();
     }
   }
+  function aoFechar() {
+    document.body.classList.remove("disciplinas-abertas");
+    tocar("voltar");
+    if (focoAnterior?.isConnected && typeof focoAnterior.focus === "function") {
+      focoAnterior.focus({ preventScroll: true });
+    }
+    focoAnterior = null;
+    indiceAtual = -1;
+    scrollHabilitado = false;
+  }
 
-  Array.from(lista.children).forEach((item, indice) => {
-    if (!servicos[indice]) return;
-    item.setAttribute("role", "button");
-    item.tabIndex = 0;
-    item.setAttribute("aria-label", "Conhecer " + servicos[indice].nome);
-    item.addEventListener("click", () => abrirDetalhe(indice));
-    item.addEventListener("keydown", (evento) => {
+  /* Roda: clique, toque e teclado abrem a ficha correspondente na lista contínua. */
+  Array.from(lista.children).forEach((elemento, i) => {
+    if (!servicos[i]) return;
+    elemento.setAttribute("role", "button");
+    elemento.setAttribute("aria-controls", "detalhe-disciplina");
+    elemento.setAttribute("aria-label", "Conhecer " + servicos[i].nome);
+    elemento.tabIndex = 0;
+    const acionar = () => mostrar(i, { push: true });
+    elemento.addEventListener("click", acionar);
+    elemento.addEventListener("keydown", evento => {
       if (evento.key === "Enter" || evento.key === " ") {
         evento.preventDefault();
-        abrirDetalhe(indice);
+        acionar();
       }
     });
   });
 
-  fechar.addEventListener("click", () => dialogo.close());
-  verProjetos.addEventListener("click",(evento)=>{
-    evento.preventDefault();
-    dialogo.close();
-    requestAnimationFrame(()=>document.querySelector("#projetos")?.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"}));
-  });
-  dialogo.addEventListener("close", () => {
-    tocar("voltar");
-    if (ultimaOpcao?.isConnected && typeof ultimaOpcao.focus === "function") ultimaOpcao.focus({ preventScroll: true });
-    ultimaOpcao = null;
-  });
-  dialogo.addEventListener("click", (evento) => {
-    if (evento.target === dialogo) {
-      const area = dialogo.getBoundingClientRect();
-      if (evento.clientX < area.left || evento.clientX > area.right ||
-          evento.clientY < area.top || evento.clientY > area.bottom) {
-        dialogo.close();
-      }
+  fechar.addEventListener("click", voltar);
+  dialogo.addEventListener("cancel", evento => {
+    if (history.state?.__herslanderDisciplina) {
+      evento.preventDefault();
+      history.back();
     }
   });
+  dialogo.addEventListener("close", aoFechar);
+  window.addEventListener("popstate", evento => {
+    if (evento.state?.__herslanderDisciplina) {
+      mostrar(Number(evento.state.index) || 0, { push: false, sound: false });
+    } else if (dialogo.open) dialogo.close();
+  });
+  window.addEventListener("hashchange", () => {
+    if (history.state?.__herslanderDisciplina) return;
+    const i = indiceDoHash();
+    if (i >= 0 && !dialogo.open) mostrar(i, { sound: false });
+  });
+
+  /* Ao percorrer cartões, atualiza apenas o fragmento da disciplina visível. */
+  dialogo.addEventListener("scroll", () => {
+    if (agendadoScroll || !scrollHabilitado) return;
+    agendadoScroll = true;
+    requestAnimationFrame(() => {
+      agendadoScroll = false;
+      if (!dialogo.open || !scrollHabilitado) return;
+      const linha = dialogo.getBoundingClientRect().top + 165;
+      let maisPerto = 0;
+      for (let i = 0; i < cards.length; i++) {
+        if (cards[i].getBoundingClientRect().top <= linha) maisPerto = i;
+        else break;
+      }
+      atualizarEndereco(maisPerto);
+    });
+  }, { passive: true });
+
+  /* Permite abrir diretamente #disciplina-16 a partir de um link compartilhado. */
+  const inicial = indiceDoHash();
+  if (inicial >= 0) requestAnimationFrame(() => mostrar(inicial, { sound: false }));
 
   const menuMobile = document.querySelector("#menu-mobile");
   const navPrincipal = document.querySelector("#nav-principal");
