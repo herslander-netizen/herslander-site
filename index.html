@@ -374,7 +374,7 @@ const $ = (s) => document.querySelector(s);
 const limita = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
 
 /* ----- Efeitos sonoros (sintetizados no navegador, sem arquivos de áudio) ----- */
-const som = { ctx: null, saida: null, ligado: localStorage.getItem("som") !== "0", ultimo: 0 };
+const som = { ctx: null, saida: null, ligado: localStorage.getItem("som") !== "0", ultimo: 0, ruido: null };
 const iniciaSom = () => {
   if (som.ctx) return;
   const Contexto = window.AudioContext || window.webkitAudioContext;
@@ -399,31 +399,39 @@ const tom = ({ freq = 440, para = freq, dur = 0.08, tipo = "sine", vol = 0.2, at
   osc.start(t); osc.stop(t + dur + 0.03);
 };
 /** Sopro de ruído filtrado: o filtro varre de `de` até `para`. */
+/* Ruído branco reutilizável: evita criar um AudioBuffer novo a cada toque. */
 const sopro = ({ dur = 0.3, de = 400, para = 3000, vol = 0.12, q = 1, atraso = 0 }) => {
   if (!som.ctx || !som.ligado) return;
   const t = som.ctx.currentTime + atraso;
-  const amostras = Math.ceil(som.ctx.sampleRate * dur);
-  const buffer = som.ctx.createBuffer(1, amostras, som.ctx.sampleRate);
-  const dados = buffer.getChannelData(0);
-  for (let i = 0; i < amostras; i++) dados[i] = Math.random() * 2 - 1;
+  if (!som.ruido) {
+    const amostras = Math.ceil(som.ctx.sampleRate * 0.45);
+    som.ruido = som.ctx.createBuffer(1, amostras, som.ctx.sampleRate);
+    const dados = som.ruido.getChannelData(0);
+    for (let i = 0; i < amostras; i++) dados[i] = Math.random() * 2 - 1;
+  }
+  const tempo = Math.min(2, Math.max(0.02, dur));
   const fonte = som.ctx.createBufferSource(), filtro = som.ctx.createBiquadFilter(), ganho = som.ctx.createGain();
-  fonte.buffer = buffer;
+  fonte.buffer = som.ruido;
+  fonte.loop = true;
   filtro.type = "bandpass"; filtro.Q.value = q;
-  filtro.frequency.setValueAtTime(de, t);
-  filtro.frequency.exponentialRampToValueAtTime(para, t + dur);
+  filtro.frequency.setValueAtTime(Math.max(20, de), t);
+  filtro.frequency.exponentialRampToValueAtTime(Math.max(20, para), t + tempo);
   ganho.gain.setValueAtTime(0.0001, t);
-  ganho.gain.exponentialRampToValueAtTime(vol, t + dur * 0.3);
-  ganho.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+  ganho.gain.exponentialRampToValueAtTime(vol, t + tempo * 0.3);
+  ganho.gain.exponentialRampToValueAtTime(0.0001, t + tempo);
   fonte.connect(filtro).connect(ganho).connect(som.saida);
-  fonte.start(t); fonte.stop(t + dur + 0.03);
+  fonte.start(t, Math.random() * 0.3);
+  fonte.stop(t + tempo + 0.02);
 };
+let ultimaTeclaSonora = 0;
 const sons = {
+  carregamento: () => { tom({ freq: 180, para: 390, dur: 0.16, tipo: "sine", vol: 0.12 }); sopro({ dur: 0.17, de: 550, para: 2450, vol: 0.07 }); tom({ freq: 490, para: 620, dur: 0.15, vol: 0.08, atraso: 0.13 }); },
   entrar: () => { sopro({ dur: 0.8, de: 250, para: 3200, vol: 0.2 }); tom({ freq: 120, para: 48, dur: 0.6, vol: 0.4 }); },
-  tecla: () => { sopro({ dur: 0.03, de: 2600, para: 1700, vol: 0.14, q: 2 }); tom({ freq: 1800 + Math.random() * 400, dur: 0.02, tipo: "square", vol: 0.025 }); },
+  tecla: () => { const agora = performance.now(); if (agora - ultimaTeclaSonora < 78) return; ultimaTeclaSonora = agora; tom({ freq: 1420 + Math.random() * 320, dur: 0.025, tipo: "triangle", vol: 0.035 }); },
   funcao: (i) => { tom({ freq: [330, 392, 494, 587][i % 4], dur: 0.22, tipo: "triangle", vol: 0.2 }); sopro({ dur: 0.14, de: 1800, para: 500, vol: 0.09 }); },
   roda: () => {
     const agora = performance.now();
-    if (agora - som.ultimo < 28) return;
+    if (agora - som.ultimo < 65) return;
     som.ultimo = agora;
     tom({ freq: 1150 + Math.random() * 250, para: 700, dur: 0.035, tipo: "square", vol: 0.05 });
     sopro({ dur: 0.02, de: 3200, para: 2000, vol: 0.09, q: 3 });
@@ -444,6 +452,7 @@ $("#som").addEventListener("click", () => {
   som.ligado = !som.ligado;
   localStorage.setItem("som", som.ligado ? "1" : "0");
   iniciaSom();
+  som.ctx?.resume?.().catch(() => {});
   if (som.saida) som.saida.gain.value = som.ligado ? 0.6 : 0;
   atualizaBotaoSom();
   sons.toque();
@@ -468,6 +477,7 @@ const digita = (alvo, partes, ms, fim) => {
 const estreito = () => window.innerWidth < 700;
 const abrir = () => {
   iniciaSom();
+  som.ctx?.resume?.().catch(() => {});
   sons.entrar();
   $("#entrada").classList.add("sai");
   document.body.classList.remove("trancado");
@@ -479,7 +489,24 @@ const abrir = () => {
     });
   }, 350);
 };
-$("#entrar").addEventListener("click", abrir);
+/* Políticas de autoplay: o primeiro toque libera o som do carregamento.
+   Antes de qualquer gesto, a introdução permanece silenciosa por exigência do navegador. */
+let somCarregamentoTocado = false;
+const ativaSomCarregamento = () => {
+  if (somCarregamentoTocado || !som.ligado) return;
+  somCarregamentoTocado = true;
+  iniciaSom();
+  som.ctx?.resume?.().catch(() => {});
+  sons.carregamento();
+};
+$("#entrada").addEventListener("pointerdown", ativaSomCarregamento, { passive: true, once: true });
+$("#entrar").addEventListener("keydown", (e) => {
+  if (e.key === "Enter" || e.key === " ") ativaSomCarregamento();
+});
+$("#entrar").addEventListener("click", () => {
+  ativaSomCarregamento();
+  abrir();
+});
 
 /* ----- Projetos ----- */
 if (PROJETOS.length) {
