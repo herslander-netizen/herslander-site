@@ -74,6 +74,11 @@
       entregas: ["Fluxos automatizados", "Integração de ferramentas", "Atendimento por mensagens", "Validação de ações"]
     },
     {
+      nome: "Consultoria Digital",
+      descricao: "Ajudo a identificar oportunidades de melhoria na presença online e nos processos digitais, priorizando soluções viáveis para cada fase do negócio.",
+      entregas: ["Diagnóstico digital", "Priorização de melhorias", "Escolha de ferramentas", "Plano de implementação"]
+    },
+    {
       nome: "Agentes de IA",
       descricao: "Projeto assistentes digitais orientados por contexto e limites definidos, para auxiliar equipes e clientes em tarefas reais.",
       entregas: ["Assistentes para sites", "Atendimento no WhatsApp", "Consulta de informações", "Integração com sistemas"]
@@ -85,6 +90,9 @@
   if (!dialogo || !lista) return;
 
   const whatsapp = "5579998181983";
+  const tocar = (efeito) => {
+    if (typeof sons !== "undefined" && typeof sons[efeito] === "function") sons[efeito]();
+  };
   const numero = document.querySelector("#detalhe-numero");
   const titulo = document.querySelector("#detalhe-titulo");
   const descricao = document.querySelector("#detalhe-descricao");
@@ -108,7 +116,7 @@
     });
     const mensagem = "Olá! Quero conversar com Herslander Jorge sobre " + servico.nome + ".";
     acao.href = "https://wa.me/" + whatsapp + "?text=" + encodeURIComponent(mensagem);
-    if (!dialogo.open) dialogo.showModal();
+    if (!dialogo.open) { dialogo.showModal(); tocar("detalhe"); }
   }
 
   Array.from(lista.children).forEach((item, indice) => {
@@ -126,6 +134,7 @@
   });
 
   fechar.addEventListener("click", () => dialogo.close());
+  dialogo.addEventListener("close", () => tocar("voltar"));
   dialogo.addEventListener("click", (evento) => {
     if (evento.target === dialogo) {
       const area = dialogo.getBoundingClientRect();
@@ -138,6 +147,7 @@
 
   document.querySelectorAll(".navegacao a").forEach((link) => {
     link.addEventListener("click", () => {
+      tocar("toque");
       if (dialogo.open) dialogo.close();
     });
   });
