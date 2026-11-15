@@ -306,3 +306,49 @@
 @media (prefers-reduced-motion:reduce) {
   .menu-mobile, body.aberto .navegacao { transition:none; }
 }
+
+
+/* Pontos de paginação, como na referência: controles leves e acessíveis. */
+.projetos-pontos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  margin: 6px 0 5px;
+}
+.projetos-pontos button {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 39px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--tinta);
+  cursor: pointer;
+}
+.projetos-pontos button::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: .3;
+  transition: transform .16s, opacity .16s;
+}
+.projetos-pontos button[aria-current="true"]::after {
+  transform: scale(1.35);
+  opacity: 1;
+}
+.projetos-pontos button:focus-visible {
+  outline: 2px solid var(--laranja);
+  outline-offset: -5px;
+}
+@media (max-width:699px) {
+  .projetos-controles { display: none; }
+  .projetos-pontos { margin-top: 0; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .projetos-pontos button::after { transition: none; }
+}
