@@ -174,11 +174,12 @@
 <!-- Entrada -->
 <div class="entrada" id="entrada">
   <span class="canto mono" style="left:var(--margem);top:clamp(16px,4vw,28px)">Herslander Jorge</span>
-  <span class="canto mono" style="right:var(--margem);bottom:clamp(16px,4vw,28px)">Portfólio 2027</span>
+  <span class="canto mono" style="right:var(--margem);bottom:clamp(16px,4vw,28px)">Portfólio 2026</span>
   <div class="linha-v" style="left:32%"></div><div class="linha-v" style="left:68%"></div>
   <div class="linha-h" style="top:calc(50% - 29px)"></div><div class="linha-h" style="top:calc(50% + 29px)"></div>
   <i class="no" style="left:32%;top:calc(50% - 29px)"></i><i class="no" style="left:68%;top:calc(50% - 29px)"></i>
   <i class="no" style="left:32%;top:calc(50% + 29px)"></i><i class="no" style="left:68%;top:calc(50% + 29px)"></i>
+  <output class="contador-entrada" id="contador-entrada" aria-label="Carregando portfólio">000</output>
   <button class="entrar mono" id="entrar" type="button"><i></i>Entrar</button>
 </div>
 
@@ -211,7 +212,7 @@
       </div>
       <div class="camada funcao duas" data-fundo="#1466A2" data-cor="#E5E1DC" data-tema="escuro">
         <div class="topo mono"><span>Função</span><span>04 / 04</span></div>
-        <div class="mascara"><div class="texto">Diretor <b>de Marca</b><br><b>e Tecnologia</b><i class="sinal mais"></i></div></div>
+        <div class="mascara"><div class="texto">Parceiro <b>Criativo</b><i class="sinal mais"></i></div></div>
       </div>
     </div>
   </section>
@@ -279,10 +280,10 @@
   <section id="contato" class="tela" data-tema="claro">
     <div class="lema mono revela">Criatividade, estratégia<br>e tecnologia conectadas.</div>
     <div class="nome revela"><b>Herslander</b> <span class="leve">Jorge</span></div>
-    <div class="ano mono revela">Direção de Marca — 2027</div>
+    <div class="ano mono revela">Direção de Marca — 2026</div>
     <a class="falar" id="falar" href="#" target="_blank" rel="noopener">Vamos conversar</a>
     <div class="canais mono" id="canais"></div>
-    <div class="fim mono"><span>© 2027 Herslander Jorge</span><a href="#quem">Voltar ao topo ↑</a></div>
+    <div class="fim mono"><span>© 2026 Herslander Jorge</span><a href="#quem">Voltar ao topo ↑</a></div>
   </section>
 </main>
 
@@ -685,6 +686,7 @@ window.addEventListener("scroll", aoRolar, { passive: true });
 window.addEventListener("resize", aoRolar);
 aoRolar();
 </script>
+<script src="./portfolio-intro.js" defer></script>
 <script src="./portfolio-details.js" defer></script>
 <script src="./portfolio-gallery.js" defer></script>
 </body>
