@@ -230,3 +230,79 @@
 @media(max-width:699px){
   body.aberto .navegacao { display:none; }
 }
+
+
+/* Otimização de toque e navegação mobile — mantém a linguagem editorial. */
+.menu-mobile { display:none; }
+.lista div { will-change:auto; }
+.lista div.ativo { will-change:transform; }
+@media (max-width:699px) {
+  html { scroll-behavior:auto; }
+  #quem { height:460svh; }
+  .revela { transition-duration:.36s; }
+  .funcao .texto { transition-duration:.32s; }
+  .girar { min-height:44px; }
+  #roda .lista > div { padding:7px 0; min-height:40px; }
+  .projeto-cartao:hover, .projeto-cartao:hover .arte-nome { transform:none; }
+  .projeto-cartao:active { transform:scale(.988); }
+  .projetos-trilho { overscroll-behavior-inline:contain; -webkit-overflow-scrolling:touch; }
+  .menu-mobile {
+    display:block;
+    position:fixed;
+    z-index:32;
+    top:clamp(8px,2.6vw,18px);
+    right:calc(var(--margem) + 47px);
+    height:42px;min-width:54px;
+    border:0;background:none;color:var(--tinta);
+    opacity:0;pointer-events:none;
+    cursor:pointer;
+    transition:opacity .18s;
+  }
+  body.aberto .menu-mobile { opacity:1;pointer-events:auto; }
+  body[data-tema="escuro"] .menu-mobile { color:var(--papel); }
+  body.aberto .navegacao {
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    justify-content:flex-start;
+    position:fixed;
+    top:61px;
+    bottom:auto;
+    left:auto;
+    right:var(--margem);
+    width:min(270px,calc(100vw - 2 * var(--margem)));
+    height:auto;
+    min-height:0;
+    padding:9px 17px;
+    gap:0;
+    background:var(--tinta);
+    color:var(--papel);
+    border:1px solid rgba(230,224,221,.2);
+    box-shadow:0 12px 38px rgba(0,0,0,.20);
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transform:translateY(-9px);
+    transition:opacity .16s,transform .16s,visibility .16s;
+  }
+  body.aberto.menu-aberto .navegacao {
+    opacity:1;visibility:visible;
+    pointer-events:auto;
+    transform:translateY(0);
+  }
+  body.aberto .navegacao a {
+    display:flex;align-items:center;
+    min-height:46px;
+    font-size:11px;
+    letter-spacing:.12em;
+    padding:11px 4px;
+    border-bottom:1px solid rgba(230,224,221,.13);
+  }
+  body.aberto .navegacao a:last-child { border-bottom:0; }
+  body.aberto .navegacao a:active { color:var(--laranja); }
+  .detalhe-servico[open], .projeto-visualizador[open] { animation-duration:.34s; }
+  .detalhe-acao:active, .projeto-placar button:active { transform:scale(.985); }
+}
+@media (prefers-reduced-motion:reduce) {
+  .menu-mobile, body.aberto .navegacao { transition:none; }
+}
