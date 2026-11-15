@@ -100,7 +100,54 @@
    botao.addEventListener("click",()=>abrir(i,botao));
    return botao;
  }
+
  PROJETOS_AUTORAIS.forEach((projeto,i)=>trilho.append(capa(projeto,i)));
+
+ /* Paginação da galeria: 4 pontos, um listener passivo e cálculo em 1 RAF. */
+ const pontos=document.querySelector("#projetos-pontos");
+ const botoesPontos=[];
+ let pontoAtivo=-1, pontoPendente=false;
+ const passoCartao=()=>{
+   const primeiro=trilho.querySelector(".projeto-cartao");
+   return primeiro ? primeiro.getBoundingClientRect().width+
+     (parseFloat(getComputedStyle(trilho).columnGap)||0) : 1;
+ };
+ const ativarPonto=(index)=>{
+   if(index===pontoAtivo)return;
+   pontoAtivo=index;
+   botoesPontos.forEach((botao,i)=>
+     botao.setAttribute("aria-current",String(i===index)));
+ };
+ if(pontos){
+   PROJETOS_AUTORAIS.forEach((projeto,i)=>{
+     const botao=criar("button");
+     botao.type="button";
+     botao.setAttribute("aria-label","Ir para projeto "+projeto.nome);
+     botao.setAttribute("aria-current",String(i===0));
+     botao.addEventListener("click",()=>{
+       tocar("toque");
+       ativarPonto(i);
+       trilho.scrollTo({
+         left:i*passoCartao(),
+         behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"
+       });
+     });
+     botoesPontos.push(botao);
+     pontos.append(botao);
+   });
+   pontoAtivo=0;
+   trilho.addEventListener("scroll",()=>{
+     if(pontoPendente)return;
+     pontoPendente=true;
+     requestAnimationFrame(()=>{
+       pontoPendente=false;
+       const i=Math.max(0,Math.min(PROJETOS_AUTORAIS.length-1,
+         Math.round(trilho.scrollLeft/passoCartao())));
+       ativarPonto(i);
+     });
+   },{passive:true});
+ }
+
  function renderCena(){
    const p=PROJETOS_AUTORAIS[atual];
    if(!p) return;
