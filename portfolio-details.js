@@ -107,13 +107,16 @@
   const fecharMenu = () => {
     document.body.classList.remove("menu-aberto");
     menuMobile?.setAttribute("aria-expanded", "false");
+    if (menuMobile) menuMobile.textContent = "Menu";
   };
   menuMobile?.addEventListener("click", () => {
     const abrir = !document.body.classList.contains("menu-aberto");
     document.body.classList.toggle("menu-aberto", abrir);
     menuMobile.setAttribute("aria-expanded", String(abrir));
+    menuMobile.textContent = abrir ? "Fechar" : "Menu";
     tocar("toque");
-    if (abrir) navPrincipal?.querySelector("a")?.focus({preventScroll:true});
+    // Foco automático apenas para teclado; em toque mobile não exibimos moldura inesperada.
+    if (abrir && menuMobile.matches(":focus-visible")) navPrincipal?.querySelector("a")?.focus({preventScroll:true});
   });
   document.addEventListener("pointerdown", (evento) => {
     if (document.body.classList.contains("menu-aberto") &&
