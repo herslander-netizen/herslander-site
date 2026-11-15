@@ -1,0 +1,34 @@
+name: Mobile smoke checks
+
+on:
+  push:
+    branches:
+      - feat/disciplines-fidelidade
+  pull_request:
+    paths:
+      - "index.html"
+      - "portfolio-*.js"
+      - "portfolio-*.css"
+      - "scripts/**"
+      - ".github/workflows/mobile-smoke.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: JavaScript e integrações mobile
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Obter arquivos
+        uses: actions/checkout@v4
+      - name: Conferir JavaScript
+        run: |
+          node --version
+          node --check portfolio-intro.js
+          node --check portfolio-details.js
+          node --check portfolio-gallery.js
+      - name: Conferir roleta, áudio, menu e recursos
+        run: node scripts/mobile-smoke.cjs

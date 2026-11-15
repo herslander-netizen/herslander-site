@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Herslander Jorge — Direção de Marca</title>
 <meta name="description" content="Portfólio de Herslander Jorge. Direção criativa, estratégia de marca, vídeo, sites, sistemas e inteligência artificial.">
-<meta name="theme-color" content="#2E3339">
+<meta name="theme-color" content="#14151B">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --papel: #F6F3EF; --tinta: #2E3339; --laranja: #F59E63; --azul: #2E3339; --marinho: #23282D;
+    --papel: #E6E0DD; --tinta: #14151B; --laranja: #F19759; --azul: #0B63A4; --marinho: #0B2B5C;
     --sans: "Inter", system-ui, sans-serif; --mono: "JetBrains Mono", ui-monospace, monospace;
     --margem: clamp(18px, 5vw, 56px);
   }
@@ -157,11 +157,14 @@
   }
 </style>
 <link rel="stylesheet" href="./portfolio-upgrade.css">
+<link rel="stylesheet" href="./portfolio-gallery.css">
+<link rel="stylesheet" href="./portfolio-disciplines.css">
 </head>
 <body class="trancado" data-tema="escuro">
 
 <a class="marca" href="#quem" aria-label="Herslander Jorge — início"><b>Herslander</b> Jorge ✱</a>
-<nav class="navegacao mono" aria-label="Navegação principal"><a href="#quem">Início</a><a href="#roda">O que faço</a><a href="#sobre">Sobre mim</a><a href="#contato">Contato</a></nav>
+<nav class="navegacao mono" id="nav-principal" aria-label="Navegação principal"><a href="#quem">Início</a><a href="#projetos">Projetos</a><a href="#roda">Disciplinas</a><a href="#sobre">Sobre mim</a><a href="#contato">Contato</a></nav>
+<button class="menu-mobile mono" id="menu-mobile" type="button" aria-expanded="false" aria-controls="nav-principal">Menu</button>
 <button class="som" id="som" type="button" aria-pressed="true" aria-label="Som ligado">
   <svg viewBox="0 0 24 24" aria-hidden="true">
     <path d="M3 9v6h4l5 5V4L7 9H3z"/>
@@ -173,11 +176,12 @@
 <!-- Entrada -->
 <div class="entrada" id="entrada">
   <span class="canto mono" style="left:var(--margem);top:clamp(16px,4vw,28px)">Herslander Jorge</span>
-  <span class="canto mono" style="right:var(--margem);bottom:clamp(16px,4vw,28px)">Portfólio 2027</span>
+  <span class="canto mono" style="right:var(--margem);bottom:clamp(16px,4vw,28px)">Portfólio 2026</span>
   <div class="linha-v" style="left:32%"></div><div class="linha-v" style="left:68%"></div>
   <div class="linha-h" style="top:calc(50% - 29px)"></div><div class="linha-h" style="top:calc(50% + 29px)"></div>
   <i class="no" style="left:32%;top:calc(50% - 29px)"></i><i class="no" style="left:68%;top:calc(50% - 29px)"></i>
   <i class="no" style="left:32%;top:calc(50% + 29px)"></i><i class="no" style="left:68%;top:calc(50% + 29px)"></i>
+  <output class="contador-entrada" id="contador-entrada" aria-label="Carregando portfólio">000</output>
   <button class="entrar mono" id="entrar" type="button"><i></i>Entrar</button>
 </div>
 
@@ -196,29 +200,38 @@
         <img class="silhueta" src="silhueta.png" alt="Silhueta de Herslander Jorge">
         <div class="desce mono">Role ↓</div>
       </div>
-      <div class="camada funcao" data-fundo="#F6F3EF" data-cor="#2E3339" data-tema="claro">
+      <div class="camada funcao" data-fundo="#E6E0DD" data-cor="#14151B" data-tema="claro">
         <div class="topo mono"><span>Função</span><span>01 / 04</span></div>
         <div class="mascara"><div class="texto">Diretor <b>Criativo</b><i class="sinal bola"></i></div></div>
       </div>
-      <div class="camada funcao" data-fundo="#2E3339" data-cor="#F6F3EF" data-tema="escuro">
+      <div class="camada funcao" data-fundo="#14151B" data-cor="#E6E0DD" data-tema="escuro">
         <div class="topo mono"><span>Função</span><span>02 / 04</span></div>
         <div class="mascara"><div class="texto">Diretor <b>de Arte</b><i class="sinal"></i></div></div>
       </div>
-      <div class="camada funcao" data-fundo="#F59E63" data-cor="#2E3339" data-tema="claro">
+      <div class="camada funcao" data-fundo="#F19759" data-cor="#14151B" data-tema="claro">
         <div class="topo mono"><span>Função</span><span>03 / 04</span></div>
         <div class="mascara"><div class="texto">Web <b>Designer</b><i class="sinal tri"></i></div></div>
       </div>
-      <div class="camada funcao duas" data-fundo="#2E3339" data-cor="#F6F3EF" data-tema="escuro">
+      <div class="camada funcao duas" data-fundo="#0B63A4" data-cor="#E6E0DD" data-tema="escuro">
         <div class="topo mono"><span>Função</span><span>04 / 04</span></div>
-        <div class="mascara"><div class="texto">Diretor <b>de Marca</b><br><b>e Tecnologia</b><i class="sinal mais"></i></div></div>
+        <div class="mascara"><div class="texto">Parceiro <b>Criativo</b><i class="sinal mais"></i></div></div>
       </div>
     </div>
   </section>
 
-  <!-- Projetos: preenchido pelo script a partir da lista PROJETOS -->
-  <section id="projetos" data-tema="claro" hidden>
-    <h2 class="revela">Projetos<br>selecionados<sup id="qtd-projetos"></sup></h2>
-    <ul id="lista-projetos"></ul>
+  <!-- Projetos autorais: navegação visual preserva a estrutura da referência. -->
+  <section id="projetos" data-tema="claro" aria-labelledby="projetos-titulo">
+    <header class="projetos-cabecalho">
+      <h2 id="projetos-titulo" class="revela">Projetos<br>selecionados<sup>(04)</sup></h2>
+      <p class="projetos-auxiliar mono">Deslize para explorar<br>Toque para abrir um projeto</p>
+    </header>
+    <div class="projetos-trilho" id="galeria-projetos" role="region" aria-roledescription="carrossel" aria-label="Projetos de Herslander Jorge" tabindex="0"></div>
+    <div id="projetos-pontos" class="projetos-pontos" aria-label="Ir para projeto"></div>
+    <div class="projetos-controles" aria-label="Navegação pelos projetos">
+      <button type="button" id="projeto-voltar" aria-label="Projetos anteriores">←</button>
+      <button type="button" id="projeto-avancar" aria-label="Próximos projetos">→</button>
+    </div>
+    <p class="projetos-aviso">Apresentações visuais temporárias de projetos próprios. Fotografias e materiais originais serão incorporados quando disponíveis e autorizados.</p>
   </section>
 
   <!-- Roda de disciplinas -->
@@ -270,31 +283,64 @@
   <section id="contato" class="tela" data-tema="claro">
     <div class="lema mono revela">Criatividade, estratégia<br>e tecnologia conectadas.</div>
     <div class="nome revela"><b>Herslander</b> <span class="leve">Jorge</span></div>
-    <div class="ano mono revela">Direção de Marca — 2027</div>
+    <div class="ano mono revela">Direção de Marca — 2026</div>
     <a class="falar" id="falar" href="#" target="_blank" rel="noopener">Vamos conversar</a>
     <div class="canais mono" id="canais"></div>
-    <div class="fim mono"><span>© 2027 Herslander Jorge</span><a href="#quem">Voltar ao topo ↑</a></div>
+    <div class="fim mono"><span>© 2026 Herslander Jorge</span><a href="#quem">Voltar ao topo ↑</a></div>
   </section>
 </main>
 
-<dialog id="detalhe-disciplina" class="detalhe-servico" aria-labelledby="detalhe-titulo" aria-describedby="detalhe-descricao">
-  <div class="detalhe-interior">
-    <div class="detalhe-topo mono"><span id="detalhe-numero">ÁREA 01 / 16</span><button class="detalhe-fechar mono" id="fechar-detalhe" type="button" aria-label="Fechar informações da especialidade">Fechar ✕</button></div>
-    <h2 id="detalhe-titulo">Direção Criativa</h2>
-    <p class="detalhe-resumo" id="detalhe-descricao"></p>
-    <h3 class="mono">O que entrego</h3>
-    <ol id="detalhe-entregas" class="detalhe-entregas"></ol>
-    <a class="detalhe-acao" id="detalhe-acao" href="https://wa.me/5579998181983" target="_blank" rel="noopener">Conversar sobre esse serviço ↗</a>
+<dialog class="projeto-visualizador" id="visualizador-projeto" aria-labelledby="projeto-modal-titulo" aria-describedby="projeto-modal-introducao">
+  <header class="projeto-topo">
+    <strong>Herslander Jorge ✱</strong>
+    <button type="button" class="projeto-fechar" id="projeto-modal-fechar" aria-label="Voltar aos projetos">Fechar ✕</button>
+  </header>
+  <div class="projeto-identificacao">
+    <div>
+      <p class="mono" id="projeto-modal-indice"></p>
+      <h2 id="projeto-modal-titulo"></h2>
+    </div>
+    <small id="projeto-modal-estado"></small>
   </div>
+  <div class="projeto-secao">
+    <p id="projeto-modal-introducao"></p>
+    <dl class="projeto-ficha">
+      <div><dt class="mono">Atuação</dt><dd id="projeto-modal-atuacao"></dd></div>
+      <div><dt class="mono">Formato</dt><dd id="projeto-modal-formato"></dd></div>
+    </dl>
+  </div>
+  <div class="projeto-cena-wrap">
+    <div class="projeto-imagem" id="projeto-modal-cena" role="img"></div>
+    <div class="projeto-placar">
+      <button type="button" id="projeto-modal-anterior" aria-label="Cena anterior">← Anterior</button>
+      <span id="projeto-modal-placar" aria-live="polite"></span>
+      <button type="button" id="projeto-modal-proximo" aria-label="Próxima cena">Próxima →</button>
+    </div>
+  </div>
+  <footer class="projeto-rodape">
+    <p class="mono" id="projeto-modal-categoria"></p>
+    <a href="#contato" id="projeto-modal-contato">Vamos criar algo juntos ↗</a>
+  </footer>
+</dialog>
+
+<dialog id="detalhe-disciplina" class="disciplinas-pagina" aria-labelledby="disciplinas-titulo">
+  <header class="disciplinas-topo">
+    <div>
+      <h2 id="disciplinas-titulo">Disciplinas</h2>
+      <p class="disciplinas-assinatura mono">Herslander Jorge</p>
+    </div>
+    <button class="disciplinas-voltar mono" type="button" id="fechar-detalhe" aria-label="Voltar à roleta">Voltar</button>
+  </header>
+  <div id="disciplinas-cartoes" class="disciplinas-lista" aria-label="16 especialidades e serviços de Herslander Jorge"></div>
 </dialog>
 
 <script>
 /* ============ CONTEÚDO EDITÁVEL ============ */
 const DISCIPLINAS = [
-  "Direção Criativa", "Estratégia de Marca", "Direção de Marca", "Direção de Arte",
-  "Conteúdo e Copy", "Design Gráfico", "Motion Design", "Edição de Vídeo",
-  "Filmmaker", "Social Media", "Tráfego Pago", "Web Design e Desenvolvimento",
-  "Aplicativos Sob Medida", "Automações com IA", "Consultoria Digital", "Agentes de IA",
+  "Direção Criativa", "Estratégia de Marca", "Identidade de Marca", "Direção de Arte",
+  "Texto e Conteúdo", "Design Gráfico", "Design de Produto", "Vídeo e Motion Design",
+  "Social Media", "Tráfego Pago", "Web Design e Desenvolvimento", "Aplicativos Sob Medida",
+  "Automações com IA", "Prospecção B2B", "Agentes de IA", "Cérebro da Empresa",
 ];
 /* Cada projeto: { nome: "NOME", tipo: "Identidade visual", link: "https://..." }. Vazio = seção escondida. */
 const PROJETOS = [];
@@ -311,7 +357,7 @@ const $ = (s) => document.querySelector(s);
 const limita = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
 
 /* ----- Efeitos sonoros (sintetizados no navegador, sem arquivos de áudio) ----- */
-const som = { ctx: null, saida: null, ligado: localStorage.getItem("som") !== "0", ultimo: 0 };
+const som = { ctx: null, saida: null, ligado: localStorage.getItem("som") !== "0", ultimo: 0, ruido: null };
 const iniciaSom = () => {
   if (som.ctx) return;
   const Contexto = window.AudioContext || window.webkitAudioContext;
@@ -336,31 +382,39 @@ const tom = ({ freq = 440, para = freq, dur = 0.08, tipo = "sine", vol = 0.2, at
   osc.start(t); osc.stop(t + dur + 0.03);
 };
 /** Sopro de ruído filtrado: o filtro varre de `de` até `para`. */
+/* Ruído branco reutilizável: evita criar um AudioBuffer novo a cada toque. */
 const sopro = ({ dur = 0.3, de = 400, para = 3000, vol = 0.12, q = 1, atraso = 0 }) => {
   if (!som.ctx || !som.ligado) return;
   const t = som.ctx.currentTime + atraso;
-  const amostras = Math.ceil(som.ctx.sampleRate * dur);
-  const buffer = som.ctx.createBuffer(1, amostras, som.ctx.sampleRate);
-  const dados = buffer.getChannelData(0);
-  for (let i = 0; i < amostras; i++) dados[i] = Math.random() * 2 - 1;
+  if (!som.ruido) {
+    const amostras = Math.ceil(som.ctx.sampleRate * 0.45);
+    som.ruido = som.ctx.createBuffer(1, amostras, som.ctx.sampleRate);
+    const dados = som.ruido.getChannelData(0);
+    for (let i = 0; i < amostras; i++) dados[i] = Math.random() * 2 - 1;
+  }
+  const tempo = Math.min(2, Math.max(0.02, dur));
   const fonte = som.ctx.createBufferSource(), filtro = som.ctx.createBiquadFilter(), ganho = som.ctx.createGain();
-  fonte.buffer = buffer;
+  fonte.buffer = som.ruido;
+  fonte.loop = true;
   filtro.type = "bandpass"; filtro.Q.value = q;
-  filtro.frequency.setValueAtTime(de, t);
-  filtro.frequency.exponentialRampToValueAtTime(para, t + dur);
+  filtro.frequency.setValueAtTime(Math.max(20, de), t);
+  filtro.frequency.exponentialRampToValueAtTime(Math.max(20, para), t + tempo);
   ganho.gain.setValueAtTime(0.0001, t);
-  ganho.gain.exponentialRampToValueAtTime(vol, t + dur * 0.3);
-  ganho.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+  ganho.gain.exponentialRampToValueAtTime(vol, t + tempo * 0.3);
+  ganho.gain.exponentialRampToValueAtTime(0.0001, t + tempo);
   fonte.connect(filtro).connect(ganho).connect(som.saida);
-  fonte.start(t); fonte.stop(t + dur + 0.03);
+  fonte.start(t, Math.random() * 0.3);
+  fonte.stop(t + tempo + 0.02);
 };
+let ultimaTeclaSonora = 0;
 const sons = {
+  carregamento: () => { tom({ freq: 180, para: 390, dur: 0.16, tipo: "sine", vol: 0.12 }); sopro({ dur: 0.17, de: 550, para: 2450, vol: 0.07 }); tom({ freq: 490, para: 620, dur: 0.15, vol: 0.08, atraso: 0.13 }); },
   entrar: () => { sopro({ dur: 0.8, de: 250, para: 3200, vol: 0.2 }); tom({ freq: 120, para: 48, dur: 0.6, vol: 0.4 }); },
-  tecla: () => { sopro({ dur: 0.03, de: 2600, para: 1700, vol: 0.14, q: 2 }); tom({ freq: 1800 + Math.random() * 400, dur: 0.02, tipo: "square", vol: 0.025 }); },
+  tecla: () => { const agora = performance.now(); if (agora - ultimaTeclaSonora < 78) return; ultimaTeclaSonora = agora; tom({ freq: 1420 + Math.random() * 320, dur: 0.025, tipo: "triangle", vol: 0.035 }); },
   funcao: (i) => { tom({ freq: [330, 392, 494, 587][i % 4], dur: 0.22, tipo: "triangle", vol: 0.2 }); sopro({ dur: 0.14, de: 1800, para: 500, vol: 0.09 }); },
   roda: () => {
     const agora = performance.now();
-    if (agora - som.ultimo < 28) return;
+    if (agora - som.ultimo < 65) return;
     som.ultimo = agora;
     tom({ freq: 1150 + Math.random() * 250, para: 700, dur: 0.035, tipo: "square", vol: 0.05 });
     sopro({ dur: 0.02, de: 3200, para: 2000, vol: 0.09, q: 3 });
@@ -381,6 +435,7 @@ $("#som").addEventListener("click", () => {
   som.ligado = !som.ligado;
   localStorage.setItem("som", som.ligado ? "1" : "0");
   iniciaSom();
+  som.ctx?.resume?.().catch(() => {});
   if (som.saida) som.saida.gain.value = som.ligado ? 0.6 : 0;
   atualizaBotaoSom();
   sons.toque();
@@ -405,18 +460,39 @@ const digita = (alvo, partes, ms, fim) => {
 const estreito = () => window.innerWidth < 700;
 const abrir = () => {
   iniciaSom();
-  sons.entrar();
+  som.ctx?.resume?.().catch(() => {});
+  // Se o primeiro toque já acionou o carregamento, preserva a sequência sonora.
+  if (somCarregamentoTocado) setTimeout(() => sons.entrar(), 165);
+  else sons.entrar();
   $("#entrada").classList.add("sai");
   document.body.classList.remove("trancado");
   document.body.classList.add("aberto");
   document.body.dataset.tema = "claro";
+  agendarRolar();
   setTimeout(() => {
     digita($("#nome"), [{ texto: "Herslander" }, { texto: estreito() ? "\nJorge" : " Jorge", classe: "leve" }], 55, () => {
       digita($("#cargo"), [{ texto: "Direção de Marca" }], 28, () => $("#heroi").classList.add("pronto"));
     });
   }, 350);
 };
-$("#entrar").addEventListener("click", abrir);
+/* Políticas de autoplay: o primeiro toque libera o som do carregamento.
+   Antes de qualquer gesto, a introdução permanece silenciosa por exigência do navegador. */
+let somCarregamentoTocado = false;
+const ativaSomCarregamento = () => {
+  if (somCarregamentoTocado || !som.ligado) return;
+  somCarregamentoTocado = true;
+  iniciaSom();
+  som.ctx?.resume?.().catch(() => {});
+  sons.carregamento();
+};
+$("#entrada").addEventListener("pointerdown", ativaSomCarregamento, { passive: true, once: true });
+$("#entrar").addEventListener("keydown", (e) => {
+  if (e.key === "Enter" || e.key === " ") ativaSomCarregamento();
+});
+$("#entrar").addEventListener("click", () => {
+  ativaSomCarregamento();
+  abrir();
+});
 
 /* ----- Projetos ----- */
 if (PROJETOS.length) {
@@ -471,7 +547,7 @@ const telaMaos = $("#maos");
 const pincel = telaMaos.getContext("2d");
 const fonteMaos = document.createElement("canvas");
 const mapaMaos = new Image();
-mapaMaos.onload = () => { grade = null; tAnterior = -1; };
+mapaMaos.onload = () => { grade = null; tAnterior = -1; entradaMaos = performance.now() - 2000; if (typeof reiniciaMaos === "function") reiniciaMaos(); };
 mapaMaos.src = "maos.png";
 let grade = null;
 const desenhaMaos = (c) => {
@@ -496,9 +572,10 @@ const desenhaMaos = (c) => {
 const montaGrade = () => {
   const larg = telaMaos.clientWidth, alt = telaMaos.clientHeight;
   if (!larg) return;
-  const dpr = Math.min(2, window.devicePixelRatio || 1);
+  const mobile = window.innerWidth < 700;
+  const dpr = Math.min(mobile ? 1 : 1.5, window.devicePixelRatio || 1);
   telaMaos.width = Math.round(larg * dpr); telaMaos.height = Math.round(alt * dpr);
-  const cols = Math.round(limita(larg / 3.3, 112, 260));
+  const cols = Math.round(mobile ? limita(larg / 5.2, 54, 95) : limita(larg / 3.6, 112, 215));
   // Células quase quadradas, com a letra menor que a célula: fica arejado como arte ASCII.
   const celulaL = larg / cols, celulaA = celulaL * 1.3;
   const rows = Math.max(1, Math.floor(alt / celulaA));
@@ -538,24 +615,52 @@ const pintaMaos = (t, tique) => {
   }
   pincel.globalAlpha = 1;
 };
-let maosVisiveis = false, entradaMaos = 0, tiqueAnterior = -1, tAnterior = -1;
+let maosVisiveis = false, entradaMaos = 0, tiqueAnterior = -1, tAnterior = -1, maosAnimando = false;
 const cicloMaos = (agora) => {
-  if (!maosVisiveis) return;
+  if (!maosVisiveis || document.hidden) { maosAnimando = false; return; }
   if (!grade) montaGrade();
   if (!entradaMaos) entradaMaos = agora;
-  const bruto = limita((agora - entradaMaos) / 1500);
+  const mobile = window.innerWidth < 700;
+  const bruto = limita((agora - entradaMaos) / (mobile ? 650 : 1400));
   const t = 1 - Math.pow(1 - bruto, 3);
-  const tique = Math.floor(agora / 160);
-  if (grade && (t !== tAnterior || tique !== tiqueAnterior)) { pintaMaos(t, tique); tAnterior = t; tiqueAnterior = tique; }
+  /* Mobile: entrada suave e desenho estático; desktop: respiração mais espaçada. */
+  const tique = mobile ? 0 : Math.floor(agora / 260);
+  if (grade && (t !== tAnterior || tique !== tiqueAnterior)) {
+    pintaMaos(t, tique);
+    tAnterior = t;
+    tiqueAnterior = tique;
+  }
+  if (mobile && bruto >= 1) { maosAnimando = false; return; }
   requestAnimationFrame(cicloMaos);
+};
+const reiniciaMaos = () => {
+  if (!maosAnimando && maosVisiveis && !document.hidden) {
+    maosAnimando = true;
+    requestAnimationFrame(cicloMaos);
+  }
 };
 new IntersectionObserver((itens) => {
   const visivel = itens[0].isIntersecting;
-  if (visivel && !maosVisiveis) { maosVisiveis = true; if (!entradaMaos) sons.maos(); requestAnimationFrame(cicloMaos); }
-  maosVisiveis = visivel;
+  if (visivel && !maosVisiveis) {
+    maosVisiveis = true;
+    if (!entradaMaos) sons.maos();
+    reiniciaMaos();
+  } else if (!visivel) maosVisiveis = false;
 }, { threshold: 0.15 }).observe(telaMaos);
-window.addEventListener("resize", () => { grade = null; tAnterior = -1; });
-document.fonts && document.fonts.ready.then(() => { tAnterior = -1; });
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) { maosAnimando = false; return; }
+  reiniciaMaos();
+});
+window.addEventListener("resize", () => {
+  grade = null; tAnterior = -1; tiqueAnterior = -1;
+  entradaMaos = performance.now() - 2000;
+  reiniciaMaos();
+}, { passive: true });
+if (document.fonts) document.fonts.ready.then(() => {
+  tAnterior = -1;
+  entradaMaos = performance.now() - 2000;
+  reiniciaMaos();
+});
 
 /* ----- Aparição ao rolar ----- */
 const olho = new IntersectionObserver((itens) => itens.forEach((it) => it.isIntersecting && it.target.classList.add("visivel")), { threshold: 0.25 });
@@ -599,33 +704,74 @@ $("#girar").addEventListener("click", () => {
   window.scrollTo({ top: secao.offsetTop + (alvo / (N - 1)) * (secao.offsetHeight - window.innerHeight), behavior: "smooth" });
 });
 
-/* ----- Rolagem: etapas das funções, roda e cor do nome fixo ----- */
+/* ----- Rolagem otimizada: uma leitura por quadro, sem recalcular a roleta fora da tela. ----- */
 const camadas = [...document.querySelectorAll("#quem .camada")];
 const fundoQuem = $("#quem .fixo");
-let etapaAnterior = -1;
-const aoRolar = () => {
-  const quem = $("#quem");
-  const etapa = Math.min(camadas.length - 1, Math.floor(progresso(quem) * camadas.length * 0.999));
-  if (etapa !== etapaAnterior) {
-    if (etapaAnterior >= 0 && etapa > 0) sons.funcao(etapa - 1);
-    etapaAnterior = etapa;
-    camadas.forEach((c, i) => c.classList.toggle("ativa", i === etapa));
-    const c = camadas[etapa];
-    fundoQuem.style.backgroundColor = c.dataset.fundo || "#F6F3EF";
-    fundoQuem.style.color = c.dataset.cor || "#2E3339";
-  }
-  desenhaRoda(progresso($("#roda")) * (N - 1));
-  if (!document.body.classList.contains("aberto")) return;
-  const linha = window.scrollY + 40;
-  let tema = "claro";
-  if (linha < quem.offsetTop + quem.offsetHeight) tema = camadas[etapa].dataset.tema || "claro";
-  else document.querySelectorAll("main > section[data-tema]").forEach((s) => { if (!s.hidden && linha >= s.offsetTop) tema = s.dataset.tema; });
-  document.body.dataset.tema = tema;
+const secaoQuem = $("#quem");
+const secaoRoda = $("#roda");
+const secoesTema = [...document.querySelectorAll("main > section[data-tema]")];
+let etapaAnterior = -1, rolagemAgendada = false;
+/* O texto do nome acompanha o começo/fim da cena e é reversível na rolagem.
+   Atualizamos somente quando o número de caracteres visíveis realmente muda. */
+let ultimoNomeVisivel = -1;
+const nomeOriginal = ["Herslander", estreito() ? "\nJorge" : " Jorge"];
+const scrubNome = (topo) => {
+  if (!$("#heroi").classList.contains("pronto")) return;
+  const spans = $("#nome").querySelectorAll("span");
+  if (spans.length < 2) return;
+  const comprimento = nomeOriginal[0].length + nomeOriginal[1].length;
+  const intervalo = Math.max(1, (secaoQuem.offsetHeight - window.innerHeight) / camadas.length);
+  const progressoNome = limita((topo - secaoQuem.offsetTop) / intervalo);
+  const caracteres = Math.round(comprimento * (1 - progressoNome));
+  if (caracteres === ultimoNomeVisivel) return;
+  ultimoNomeVisivel = caracteres;
+  spans[0].textContent = nomeOriginal[0].slice(0, caracteres);
+  spans[1].textContent = nomeOriginal[1].slice(0, Math.max(0, caracteres - nomeOriginal[0].length));
 };
-window.addEventListener("scroll", aoRolar, { passive: true });
-window.addEventListener("resize", aoRolar);
-aoRolar();
+const aoRolar = () => {
+  if (!document.body.classList.contains("aberto")) return;
+  const topo = window.scrollY, fimTela = topo + window.innerHeight;
+  const limiteQuem = secaoQuem.offsetTop + secaoQuem.offsetHeight;
+  let etapa = etapaAnterior < 0 ? 0 : etapaAnterior;
+  if (topo < limiteQuem) {
+    scrubNome(topo);
+    etapa = Math.min(camadas.length - 1, Math.floor(progresso(secaoQuem) * camadas.length * 0.999));
+    if (etapa !== etapaAnterior) {
+      if (etapaAnterior >= 0 && etapa > 0) sons.funcao(etapa - 1);
+      etapaAnterior = etapa;
+      camadas.forEach((c, i) => c.classList.toggle("ativa", i === etapa));
+      const c = camadas[etapa];
+      fundoQuem.style.backgroundColor = c.dataset.fundo || "#E6E0DD";
+      fundoQuem.style.color = c.dataset.cor || "#14151B";
+    }
+  }
+  /* Evita 16 transformações e alterações de estilo em cada scroll de outras seções. */
+  if (fimTela >= secaoRoda.offsetTop - 80 &&
+      topo <= secaoRoda.offsetTop + secaoRoda.offsetHeight + 80) {
+    desenhaRoda(progresso(secaoRoda) * (N - 1));
+  }
+  const linha = topo + 40;
+  let tema = "claro";
+  if (linha < limiteQuem) tema = camadas[etapa].dataset.tema || "claro";
+  else for (const secao of secoesTema) {
+    if (!secao.hidden && linha >= secao.offsetTop) tema = secao.dataset.tema;
+  }
+  if (document.body.dataset.tema !== tema) document.body.dataset.tema = tema;
+};
+const agendarRolar = () => {
+  if (rolagemAgendada || document.hidden) return;
+  rolagemAgendada = true;
+  requestAnimationFrame(() => {
+    rolagemAgendada = false;
+    aoRolar();
+  });
+};
+window.addEventListener("scroll", agendarRolar, { passive: true });
+window.addEventListener("resize", agendarRolar, { passive: true });
+requestAnimationFrame(agendarRolar);
 </script>
+<script src="./portfolio-intro.js" defer></script>
 <script src="./portfolio-details.js" defer></script>
+<script src="./portfolio-gallery.js" defer></script>
 </body>
 </html>
