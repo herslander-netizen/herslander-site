@@ -158,6 +158,7 @@
 </style>
 <link rel="stylesheet" href="./portfolio-upgrade.css">
 <link rel="stylesheet" href="./portfolio-gallery.css">
+<link rel="stylesheet" href="./portfolio-disciplines.css">
 </head>
 <body class="trancado" data-tema="escuro">
 
@@ -321,35 +322,15 @@
   </footer>
 </dialog>
 
-<dialog id="detalhe-disciplina" class="detalhe-servico" aria-labelledby="detalhe-titulo" aria-describedby="detalhe-descricao">
-  <div class="detalhe-interior">
-    <header class="detalhe-topo">
-      <div class="detalhe-marca"><strong>Herslander</strong> Jorge ✱</div>
-      <button class="detalhe-fechar mono" id="fechar-detalhe" type="button" aria-label="Voltar à roleta de especialidades">← Voltar</button>
-    </header>
-    <div class="detalhe-cabecalho mono">
-      <div id="detalhe-numero" aria-live="polite">01 / 16</div>
-      <div>Disciplina <span id="detalhe-indice">01</span></div>
+<dialog id="detalhe-disciplina" class="disciplinas-pagina" aria-labelledby="disciplinas-titulo">
+  <header class="disciplinas-topo">
+    <div>
+      <h2 id="disciplinas-titulo">Disciplinas</h2>
+      <p class="disciplinas-assinatura mono">Herslander Jorge</p>
     </div>
-    <div class="detalhe-conteudo">
-      <h2 id="detalhe-titulo">Direção Criativa</h2>
-      <div class="detalhe-informacoes">
-        <p class="detalhe-resumo" id="detalhe-descricao"></p>
-        <div>
-          <h3 class="mono">O que está incluído</h3>
-          <ol id="detalhe-entregas" class="detalhe-entregas"></ol>
-        </div>
-      </div>
-    </div>
-    <footer class="detalhe-rodape">
-      <div class="detalhe-acoes">
-        <a class="detalhe-acao" id="detalhe-acao" href="https://wa.me/5579998181983" target="_blank" rel="noopener">Vamos conversar ↗</a>
-        <a class="detalhe-projetos mono" id="detalhe-projetos" href="#projetos" hidden>Ver projetos →</a>
-      </div>
-      <p class="detalhe-nota mono">Herslander Jorge · Comunicação, criação e tecnologia</p>
-    </footer>
-    <span class="detalhe-indicador" aria-hidden="true"></span>
-  </div>
+    <button class="disciplinas-voltar mono" type="button" id="fechar-detalhe" aria-label="Voltar à roleta">Voltar</button>
+  </header>
+  <div id="disciplinas-cartoes" class="disciplinas-lista" aria-label="16 especialidades e serviços de Herslander Jorge"></div>
 </dialog>
 
 <script>
