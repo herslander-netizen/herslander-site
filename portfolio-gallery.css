@@ -170,3 +170,56 @@
 @media(prefers-reduced-motion:reduce){
   .projeto-cartao,.projeto-capa .arte-nome,.projeto-visualizador[open]{animation:none;transition:none;}
 }
+
+/* Entrada animada: números, travas visuais e saudação. */
+#entrada .contador-entrada {
+  position:absolute;
+  left:var(--margem);
+  bottom:clamp(28px,6vh,82px);
+  display:block;
+  font-weight:700;
+  font-family:var(--sans);
+  font-size:clamp(96px,17vw,270px);
+  line-height:1;
+  letter-spacing:-.09em;
+  color:var(--papel);
+  font-variant-numeric:tabular-nums;
+  opacity:1;
+  transition:opacity .35s,transform .35s;
+}
+#entrada .entrar {
+  visibility:hidden;
+  opacity:0;
+  animation:none;
+  pointer-events:none;
+  transition:opacity .5s;
+}
+#entrada.entrada-pronta .entrar {
+  visibility:visible;
+  opacity:1;
+  pointer-events:auto;
+}
+#entrada.entrada-pronta .contador-entrada {
+  transform:translateY(16px);
+  opacity:0;
+  pointer-events:none;
+}
+.heroi .ola-entrada {
+  position:absolute;z-index:5;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--papel);color:var(--tinta);
+  font-family:var(--sans);
+  font-size:clamp(62px,13vw,180px);font-weight:700;
+  letter-spacing:-.075em;
+  opacity:0;transform:translateY(18px);
+  transition:opacity .34s,transform .34s;
+  pointer-events:none;
+}
+.heroi .ola-entrada span { color:var(--laranja); }
+.heroi .ola-entrada.ola-entrada-ativa { opacity:1;transform:none; }
+@media (max-width:699px){
+  #entrada .contador-entrada{font-size:clamp(100px,28vw,160px);bottom:11vh;}
+}
+@media(prefers-reduced-motion:reduce){
+  #entrada .contador-entrada,.heroi .ola-entrada{transition:none;}
+}
