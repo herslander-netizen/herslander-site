@@ -1,0 +1,3964 @@
+[
+  {
+    "arquivo": "alba-badge.webp",
+    "alteracoes": [
+      {
+        "original": "Airside passes in midnight the sun where the",
+        "traducao": "Airside passa na meia-noite o sol onde o",
+        "bbox": [
+          86,
+          1658,
+          420,
+          20
+        ],
+        "font": "sans",
+        "size": 25,
+        "rgb": [
+          178,
+          182,
+          189
+        ]
+      },
+      {
+        "original": "gos and Sunrise on the back",
+        "traducao": "gos e Sunrise nas costas",
+        "bbox": [
+          148,
+          1688,
+          278,
+          18
+        ],
+        "font": "sans",
+        "size": 22,
+        "rgb": [
+          186,
+          189,
+          196
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "alba-borse.webp",
+    "alteracoes": [
+      {
+        "original": "Bag Design",
+        "traducao": "Desenho de Sacos",
+        "bbox": [
+          88,
+          240,
+          126,
+          24
+        ],
+        "font": "sans",
+        "size": 16,
+        "rgb": [
+          184,
+          193,
+          205
+        ]
+      },
+      {
+        "original": "Three sizes, three marks: the duty free bag in Super Sonic with",
+        "traducao": "Três tamanhos, três marcas: o saco livre de impostos em Super Sonic com",
+        "bbox": [
+          88,
+          282,
+          634,
+          22
+        ],
+        "font": "sans",
+        "size": 20,
+        "rgb": [
+          188,
+          198,
+          210
+        ]
+      },
+      {
+        "original": "the stacked lockup, the medium in Lemon Tonic with the sun",
+        "traducao": "o lockup empilhado, o meio em tónico limão com o sol",
+        "bbox": [
+          86,
+          312,
+          624,
+          22
+        ],
+        "font": "sans",
+        "size": 27,
+        "rgb": [
+          182,
+          190,
+          203
+        ]
+      },
+      {
+        "original": "‘lone, the small in Cloud with the name.",
+        "traducao": "‘Solitário, o pequeno em Nuvem com o nome.",
+        "bbox": [
+          86,
+          344,
+          410,
+          18
+        ],
+        "font": "sans",
+        "size": 21,
+        "rgb": [
+          187,
+          197,
+          210
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "alba-cabina.webp",
+    "alteracoes": [
+      {
+        "original": "‘Sea on three bands of",
+        "traducao": "«Mar em três bandas de",
+        "bbox": [
+          934,
+          1628,
+          360,
+          14
+        ],
+        "font": "sans",
+        "size": 17,
+        "rgb": [
+          181,
+          187,
+          196
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "alba-colore.webp",
+    "alteracoes": [
+      {
+        "original": "Lemon Tonic",
+        "traducao": "Tónico Limão",
+        "bbox": [
+          1062,
+          512,
+          136,
+          16
+        ],
+        "font": "sans",
+        "size": 20,
+        "rgb": [
+          204,
+          210,
+          217
+        ]
+      },
+      {
+        "original": "Sea Angel",
+        "traducao": "Anjo do Mar",
+        "bbox": [
+          1062,
+          742,
+          108,
+          24
+        ],
+        "font": "sans",
+        "size": 21,
+        "rgb": [
+          212,
+          219,
+          225
+        ]
+      },
+      {
+        "original": "The mark own colours: the sun",
+        "traducao": "As cores próprias da marca: o sol",
+        "bbox": [
+          956,
+          1060,
+          392,
+          56
+        ],
+        "font": "sans",
+        "size": 28,
+        "rgb": [
+          179,
+          188,
+          201
+        ]
+      },
+      {
+        "original": "In lemon Tone, the Super Sonic, Sea",
+        "traducao": "Em tom de limão, o super Sonic, Mar",
+        "bbox": [
+          954,
+          1114,
+          398,
+          18
+        ],
+        "font": "sans",
+        "size": 22,
+        "rgb": [
+          179,
+          188,
+          201
+        ]
+      },
+      {
+        "original": "[Angel and the midnight before",
+        "traducao": "[Anjo e meia-noite antes",
+        "bbox": [
+          954,
+          1142,
+          382,
+          18
+        ],
+        "font": "sans",
+        "size": 22,
+        "rgb": [
+          191,
+          200,
+          213
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "alba-copertina.webp",
+    "alteracoes": [
+      {
+        "original": "Brand Definition",
+        "traducao": "Conceito da marca",
+        "bbox": [
+          808,
+          1164,
+          156,
+          16
+        ],
+        "font": "sans",
+        "size": 20,
+        "rgb": [
+          196,
+          214,
+          226
+        ]
+      },
+      {
+        "original": "‘Visual identity",
+        "traducao": "Identidade visual",
+        "bbox": [
+          86,
+          1164,
+          142,
+          22
+        ],
+        "font": "sans",
+        "size": 20,
+        "rgb": [
+          204,
+          222,
+          232
+        ]
+      },
+      {
+        "original": "visual language drawn from fist",
+        "traducao": "linguagem visual desenhada do punho",
+        "bbox": [
+          158,
+          1204,
+          302,
+          20
+        ],
+        "font": "sans",
+        "size": 18,
+        "rgb": [
+          184,
+          211,
+          228
+        ]
+      },
+      {
+        "original": "‘ba concept London,",
+        "traducao": "«ba conceito de Londres,",
+        "bbox": [
+          808,
+          1204,
+          384,
+          20
+        ],
+        "font": "sans",
+        "size": 25,
+        "rgb": [
+          175,
+          201,
+          219
+        ]
+      },
+      {
+        "original": "light over the sun three bands",
+        "traducao": "luz sobre o sol três bandas",
+        "bbox": [
+          86,
+          1232,
+          400,
+          20
+        ],
+        "font": "sans",
+        "size": 25,
+        "rgb": [
+          183,
+          211,
+          229
+        ]
+      },
+      {
+        "original": "early departures, clear skies.",
+        "traducao": "Partidas antecipadas, céu limpo.",
+        "bbox": [
+          926,
+          1234,
+          262,
+          18
+        ],
+        "font": "sans",
+        "size": 19,
+        "rgb": [
+          182,
+          208,
+          225
+        ]
+      },
+      {
+        "original": "‘of water and a polatte of morning blues",
+        "traducao": "«de água e uma polata de azuis matinais",
+        "bbox": [
+          86,
+          1240,
+          374,
+          56
+        ],
+        "font": "sans",
+        "size": 22,
+        "rgb": [
+          185,
+          212,
+          229
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "alba-disegni-lavoro.webp",
+    "alteracoes": [
+      {
+        "original": "the morning",
+        "traducao": "manhã",
+        "bbox": [
+          574,
+          284,
+          126,
+          20
+        ],
+        "font": "sans",
+        "size": 25,
+        "rgb": [
+          176,
+          184,
+          197
+        ]
+      },
+      {
+        "original": "card, the",
+        "traducao": "cartão, o",
+        "bbox": [
+          166,
+          314,
+          90,
+          14
+        ],
+        "font": "sans",
+        "size": 17,
+        "rgb": [
+          187,
+          196,
+          208
+        ]
+      },
+      {
+        "original": "label and the b",
+        "traducao": "etiqueta e b",
+        "bbox": [
+          366,
+          314,
+          168,
+          14
+        ],
+        "font": "sans",
+        "size": 17,
+        "rgb": [
+          189,
+          197,
+          210
+        ]
+      },
+      {
+        "original": "notice in",
+        "traducao": "aviso em",
+        "bbox": [
+          624,
+          314,
+          86,
+          14
+        ],
+        "font": "sans",
+        "size": 17,
+        "rgb": [
+          187,
+          196,
+          208
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "alba-duty-free.webp",
+    "alteracoes": [
+      {
+        "original": "paper bags in Super",
+        "traducao": "Sacos de papel em Super",
+        "bbox": [
+          184,
+          174,
+          190,
+          20
+        ],
+        "font": "sans",
+        "size": 18,
+        "rgb": [
+          177,
+          186,
+          195
+        ]
+      },
+      {
+        "original": "Sonie blue, printed in a single white.",
+        "traducao": "Sonie Blue, impressa num único branco.",
+        "bbox": [
+          92,
+          204,
+          320,
+          18
+        ],
+        "font": "sans",
+        "size": 19,
+        "rgb": [
+          180,
+          197,
+          209
+        ]
+      },
+      {
+        "original": "Visual identity",
+        "traducao": "Identidade visual",
+        "bbox": [
+          146,
+          314,
+          142,
+          22
+        ],
+        "font": "sans",
+        "size": 20,
+        "rgb": [
+          203,
+          211,
+          217
+        ]
+      },
+      {
+        "original": "visual language drawn",
+        "traducao": "linguagem visual desenhada",
+        "bbox": [
+          218,
+          356,
+          214,
+          18
+        ],
+        "font": "sans",
+        "size": 18,
+        "rgb": [
+          190,
+          205,
+          215
+        ]
+      },
+      {
+        "original": "bonds of water and",
+        "traducao": "ligações de água e",
+        "bbox": [
+          244,
+          412,
+          202,
+          14
+        ],
+        "font": "sans",
+        "size": 17,
+        "rgb": [
+          186,
+          202,
+          215
+        ]
+      },
+      {
+        "original": "palette of morning",
+        "traducao": "paleta da manhã",
+        "bbox": [
+          148,
+          440,
+          172,
+          20
+        ],
+        "font": "sans",
+        "size": 24,
+        "rgb": [
+          178,
+          201,
+          218
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "alba-gate.webp",
+    "alteracoes": [
+      {
+        "original": "looking for",
+        "traducao": "procurando por",
+        "bbox": [
+          124,
+          1698,
+          96,
+          20
+        ],
+        "font": "sans",
+        "size": 15,
+        "rgb": [
+          166,
+          176,
+          189
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "alba-immagini.webp",
+    "alteracoes": [
+      {
+        "original": "Visual imagery",
+        "traducao": "Imagens visuais",
+        "bbox": [
+          86,
+          240,
+          168,
+          24
+        ],
+        "font": "sans",
+        "size": 25,
+        "rgb": [
+          188,
+          197,
+          209
+        ]
+      },
+      {
+        "original": "Real places at firs light. The mark is always there but never",
+        "traducao": "Lugares reais à luz do abeto. A marca está sempre lá mas nunca",
+        "bbox": [
+          88,
+          282,
+          608,
+          22
+        ],
+        "font": "sans",
+        "size": 22,
+        "rgb": [
+          183,
+          192,
+          205
+        ]
+      },
+      {
+        "original": "on the wall of the hangar.",
+        "traducao": "na parede do hangar.",
+        "bbox": [
+          176,
+          344,
+          260,
+          20
+        ],
+        "font": "sans",
+        "size": 25,
+        "rgb": [
+          182,
+          191,
+          205
+        ]
+      },
+      {
+        "original": "Posing: on a bag under the Eifel Tower, on a cup by the",
+        "traducao": "Posando: em um saco sob a Torre Eifel, em um copo perto do",
+        "bbox": [
+          88,
+          312,
+          574,
+          22
+        ],
+        "font": "sans",
+        "size": 22,
+        "rgb": [
+          185,
+          194,
+          206
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "alba-insegna.webp",
+    "alteracoes": [
+      {
+        "original": "The sun painted at the scale of the building at Hangar 02, the",
+        "traducao": "O sol pintado na escala do edifício no Hangar 02, o",
+        "bbox": [
+          90,
+          282,
+          630,
+          22
+        ],
+        "font": "sans",
+        "size": 27,
+        "rgb": [
+          191,
+          201,
+          213
+        ]
+      },
+      {
+        "original": "launch on the totems of Terminal |, gate screens in midnight",
+        "traducao": "lançamento nos totens do Terminal, telas do portão na meia-noite",
+        "bbox": [
+          88,
+          290,
+          622,
+          56
+        ],
+        "font": "sans",
+        "size": 22,
+        "rgb": [
+          190,
+          199,
+          211
+        ]
+      },
+      {
+        "original": "with one yellow word,",
+        "traducao": "com uma palavra amarela,",
+        "bbox": [
+          86,
+          344,
+          216,
+          20
+        ],
+        "font": "sans",
+        "size": 19,
+        "rgb": [
+          184,
+          193,
+          207
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "alba-logotipo.webp",
+    "alteracoes": [
+      {
+        "original": "The Mark",
+        "traducao": "A marca",
+        "bbox": [
+          956,
+          1044,
+          88,
+          16
+        ],
+        "font": "sans",
+        "size": 20,
+        "rgb": [
+          213,
+          219,
+          226
+        ]
+      },
+      {
+        "original": "bands of ea below that thin out ike",
+        "traducao": "bandas de ea abaixo que fino out ike",
+        "bbox": [
+          1010,
+          1112,
+          336,
+          16
+        ],
+        "font": "sans",
+        "size": 20,
+        "rgb": [
+          179,
+          188,
+          201
+        ]
+      },
+      {
+        "original": "ight on water",
+        "traducao": "light on water",
+        "bbox": [
+          964,
+          1144,
+          110,
+          16
+        ],
+        "font": "sans",
+        "size": 19,
+        "rgb": [
+          185,
+          195,
+          207
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "alba-manifesto.webp",
+    "alteracoes": [
+      {
+        "original": "FIRST LIGHT.",
+        "traducao": "Amanhecer",
+        "bbox": [
+          388,
+          1168,
+          650,
+          128
+        ],
+        "font": "bold",
+        "size": 124,
+        "rgb": [
+          229,
+          231,
+          230
+        ]
+      },
+      {
+        "original": "London = Ibiza",
+        "traducao": "Londres = Ibiza",
+        "bbox": [
+          386,
+          1416,
+          160,
+          52
+        ],
+        "font": "sans",
+        "size": 25,
+        "rgb": [
+          187,
+          192,
+          194
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "alba-motivi.webp",
+    "alteracoes": [
+      {
+        "original": "Brand Patterns",
+        "traducao": "Padrões de Marcas",
+        "bbox": [
+          88,
+          240,
+          164,
+          18
+        ],
+        "font": "sans",
+        "size": 21,
+        "rgb": [
+          192,
+          202,
+          215
+        ]
+      },
+      {
+        "original": "Three patterns from one mark: the sun, the sea beneath it",
+        "traducao": "Três padrões de uma marca: o sol, o mar abaixo dele",
+        "bbox": [
+          90,
+          282,
+          592,
+          16
+        ],
+        "font": "sans",
+        "size": 20,
+        "rgb": [
+          188,
+          198,
+          211
+        ]
+      },
+      {
+        "original": "‘and the window you watch Same step; Lemon Tonic",
+        "traducao": "'e a janela que você assistir Mesma etapa; Tônico limão",
+        "bbox": [
+          86,
+          312,
+          616,
+          22
+        ],
+        "font": "sans",
+        "size": 26,
+        "rgb": [
+          180,
+          190,
+          203
+        ]
+      },
+      {
+        "original": "‘on Super Sonic, the seaain Super Sonic on Sea Ang",
+        "traducao": "‘em Super Sonic, o seaain Super Sonic em Sea Ang",
+        "bbox": [
+          78,
+          322,
+          518,
+          56
+        ],
+        "font": "sans",
+        "size": 24,
+        "rgb": [
+          191,
+          201,
+          214
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "alba-motivi-lavoro.webp",
+    "alteracoes": [
+      {
+        "original": "Sunrise on the cabin the counter cup and the back of",
+        "traducao": "Nascer do sol na cabine o copo de balcão e a parte de trás de",
+        "bbox": [
+          88,
+          282,
+          624,
+          22
+        ],
+        "font": "sans",
+        "size": 24,
+        "rgb": [
+          185,
+          195,
+          207
+        ]
+      },
+      {
+        "original": "the crew pass; Sea on every headrest; Window on the napkin",
+        "traducao": "a tripulação passar; Mar em cada apoio de cabeça; Janela no guardanapo",
+        "bbox": [
+          86,
+          312,
+          630,
+          22
+        ],
+        "font": "sans",
+        "size": 20,
+        "rgb": [
+          187,
+          196,
+          208
+        ]
+      },
+      {
+        "original": "the moming service,",
+        "traducao": "o serviço de maternidade,",
+        "bbox": [
+          114,
+          344,
+          204,
+          20
+        ],
+        "font": "sans",
+        "size": 18,
+        "rgb": [
+          185,
+          194,
+          207
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "alba-post.webp",
+    "alteracoes": [
+      {
+        "original": "Post Designs",
+        "traducao": "Artes para posts",
+        "bbox": [
+          88,
+          240,
+          140,
+          24
+        ],
+        "font": "sans",
+        "size": 20,
+        "rgb": [
+          196,
+          205,
+          216
+        ]
+      },
+      {
+        "original": "Three templates for the photo and headline, drawing",
+        "traducao": "Três modelos para a foto e título, desenho",
+        "bbox": [
+          90,
+          260,
+          602,
+          56
+        ],
+        "font": "sans",
+        "size": 34,
+        "rgb": [
+          183,
+          192,
+          205
+        ]
+      },
+      {
+        "original": "‘and headline on Tonic, photo with one quiet line,",
+        "traducao": "«e cabeçalho sobre Tónico, foto com uma linha silenciosa,",
+        "bbox": [
+          86,
+          292,
+          580,
+          56
+        ],
+        "font": "sans",
+        "size": 24,
+        "rgb": [
+          187,
+          196,
+          208
+        ]
+      },
+      {
+        "original": "FIRST LIGHT.",
+        "traducao": "Amanhecer",
+        "bbox": [
+          112,
+          1244,
+          258,
+          22
+        ],
+        "font": "bold",
+        "size": 27,
+        "rgb": [
+          217,
+          226,
+          232
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "alba-stampati.webp",
+    "alteracoes": [
+      {
+        "original": "Collateral Design",
+        "traducao": "Concepção Colateral",
+        "bbox": [
+          86,
+          240,
+          192,
+          24
+        ],
+        "font": "sans",
+        "size": 22,
+        "rgb": [
+          194,
+          203,
+          215
+        ]
+      },
+      {
+        "original": "Everything on paper, one system: the launch poster, the",
+        "traducao": "Tudo em papel, um sistema: o cartaz de lançamento, o",
+        "bbox": [
+          88,
+          282,
+          572,
+          22
+        ],
+        "font": "sans",
+        "size": 25,
+        "rgb": [
+          184,
+          193,
+          205
+        ]
+      },
+      {
+        "original": "pass, the tag, blind-embossed cards, the",
+        "traducao": "passar, a etiqueta, cartões de",
+        "bbox": [
+          188,
+          312,
+          502,
+          22
+        ],
+        "font": "sans",
+        "size": 27,
+        "rgb": [
+          183,
+          192,
+          204
+        ]
+      },
+      {
+        "original": "‘crew pass and the morning service card.",
+        "traducao": "«Passo da tripulação e cartão de serviço matinal.",
+        "bbox": [
+          86,
+          344,
+          420,
+          20
+        ],
+        "font": "sans",
+        "size": 20,
+        "rgb": [
+          185,
+          194,
+          207
+        ]
+      },
+      {
+        "original": "FIRST LIGHT",
+        "traducao": "Amanhecer",
+        "bbox": [
+          176,
+          982,
+          320,
+          28
+        ],
+        "font": "bold",
+        "size": 35,
+        "rgb": [
+          220,
+          226,
+          234
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "alba-storie.webp",
+    "alteracoes": [
+      {
+        "original": "Story Designs",
+        "traducao": "Desenhos de História",
+        "bbox": [
+          86,
+          240,
+          152,
+          24
+        ],
+        "font": "sans",
+        "size": 17,
+        "rgb": [
+          192,
+          201,
+          213
+        ]
+      },
+      {
+        "original": "The same grammar in nine by sixteen: one new route per",
+        "traducao": "A mesma gramática em nove por dezesseis: uma nova rota por",
+        "bbox": [
+          88,
+          282,
+          590,
+          22
+        ],
+        "font": "sans",
+        "size": 22,
+        "rgb": [
+          185,
+          194,
+          207
+        ]
+      },
+      {
+        "original": "Clear of the interface.",
+        "traducao": "Livre da interface.",
+        "bbox": [
+          86,
+          342,
+          216,
+          18
+        ],
+        "font": "sans",
+        "size": 22,
+        "rgb": [
+          182,
+          191,
+          204
+        ]
+      },
+      {
+        "original": "story, the city on top, the route and the mark at the bottom,",
+        "traducao": "história, a cidade no topo, a rota e a marca no fundo,",
+        "bbox": [
+          86,
+          312,
+          614,
+          22
+        ],
+        "font": "sans",
+        "size": 27,
+        "rgb": [
+          186,
+          195,
+          207
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "alba-tipo-lavoro.webp",
+    "alteracoes": [
+      {
+        "original": "Display for the volee,Poppine for the facts.",
+        "traducao": "Mostre para o volee, Poppine para os fatos.",
+        "bbox": [
+          960,
+          1686,
+          390,
+          22
+        ],
+        "font": "sans",
+        "size": 21,
+        "rgb": [
+          177,
+          218,
+          251
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "alba-tipografia.webp",
+    "alteracoes": [
+      {
+        "original": "Alba Display",
+        "traducao": "Display Alba",
+        "bbox": [
+          808,
+          310,
+          162,
+          28
+        ],
+        "font": "sans",
+        "size": 31,
+        "rgb": [
+          208,
+          214,
+          221
+        ]
+      },
+      {
+        "original": "Light 300",
+        "traducao": "Luz 300",
+        "bbox": [
+          808,
+          1188,
+          144,
+          36
+        ],
+        "font": "sans",
+        "size": 44,
+        "rgb": [
+          213,
+          220,
+          226
+        ]
+      },
+      {
+        "original": "Medium 500",
+        "traducao": "Média 500",
+        "bbox": [
+          808,
+          1240,
+          212,
+          26
+        ],
+        "font": "sans",
+        "size": 32,
+        "rgb": [
+          223,
+          228,
+          233
+        ]
+      },
+      {
+        "original": "Text and every ine people read",
+        "traducao": "Texto e todas as pessoas lêem",
+        "bbox": [
+          808,
+          1364,
+          358,
+          56
+        ],
+        "font": "sans",
+        "size": 28,
+        "rgb": [
+          186,
+          195,
+          207
+        ]
+      },
+      {
+        "original": "GATE AIZ",
+        "traducao": "AIZ DE GATE",
+        "bbox": [
+          290,
+          1584,
+          102,
+          16
+        ],
+        "font": "bold",
+        "size": 17,
+        "rgb": [
+          224,
+          228,
+          116
+        ]
+      },
+      {
+        "original": "Alba gates, routes",
+        "traducao": "Portões Alba, rotas",
+        "bbox": [
+          808,
+          1586,
+          264,
+          20
+        ],
+        "font": "sans",
+        "size": 25,
+        "rgb": [
+          191,
+          200,
+          212
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "alba-totem.webp",
+    "alteracoes": [
+      {
+        "original": "FIRST LIGHT.",
+        "traducao": "Amanhecer",
+        "bbox": [
+          730,
+          888,
+          320,
+          30
+        ],
+        "font": "bold",
+        "size": 37,
+        "rgb": [
+          208,
+          227,
+          246
+        ]
+      },
+      {
+        "original": "The launch of",
+        "traducao": "O lançamento de",
+        "bbox": [
+          90,
+          1628,
+          370,
+          14
+        ],
+        "font": "sans",
+        "size": 17,
+        "rgb": [
+          188,
+          211,
+          225
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "alba-trolley.webp",
+    "alteracoes": [
+      {
+        "original": "etd of suns",
+        "traducao": "etd de sóis",
+        "bbox": [
+          366,
+          1636,
+          112,
+          56
+        ],
+        "font": "sans",
+        "size": 24,
+        "rgb": [
+          184,
+          201,
+          212
+        ]
+      },
+      {
+        "original": "you spot",
+        "traducao": "manchar",
+        "bbox": [
+          86,
+          1668,
+          82,
+          56
+        ],
+        "font": "sans",
+        "size": 22,
+        "rgb": [
+          195,
+          209,
+          217
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "kage-aperta.webp",
+    "alteracoes": [
+      {
+        "original": "07 FIRST FLUSH",
+        "traducao": "07 PRIMEIRO FLUSH",
+        "bbox": [
+          128,
+          1660,
+          152,
+          56
+        ],
+        "font": "bold",
+        "size": 16,
+        "rgb": [
+          217,
+          220,
+          209
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "kage-bicchieri.webp",
+    "alteracoes": [
+      {
+        "original": "PACKAGING - 05",
+        "traducao": "EMBALAGEM - 05",
+        "bbox": [
+          86,
+          42,
+          146,
+          56
+        ],
+        "font": "bold",
+        "size": 18,
+        "rgb": [
+          213,
+          218,
+          211
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "kage-borse.webp",
+    "alteracoes": [
+      {
+        "original": "PAPER BAGS. 40,24 AND 14 CM- ONE MARK EACH",
+        "traducao": "Sacos de papel. 40,24 E 14 CM- UMA MARCA CADA",
+        "bbox": [
+          86,
+          1684,
+          460,
+          16
+        ],
+        "font": "bold",
+        "size": 19,
+        "rgb": [
+          219,
+          222,
+          214
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "kage-colore.webp",
+    "alteracoes": [
+      {
+        "original": "FIRST FLUSH",
+        "traducao": "PRIMEIRO FLUSH",
+        "bbox": [
+          562,
+          238,
+          126,
+          16
+        ],
+        "font": "bold",
+        "size": 16,
+        "rgb": [
+          26,
+          37,
+          22
+        ]
+      },
+      {
+        "original": "24 days, stone-milled",
+        "traducao": "24 dias, moídos em pedra",
+        "bbox": [
+          686,
+          266,
+          192,
+          20
+        ],
+        "font": "sans",
+        "size": 17,
+        "rgb": [
+          55,
+          61,
+          47
+        ]
+      },
+      {
+        "original": "Acid Lime",
+        "traducao": "Cal ácida",
+        "bbox": [
+          1112,
+          504,
+          106,
+          18
+        ],
+        "font": "sans",
+        "size": 22,
+        "rgb": [
+          44,
+          73,
+          2
+        ]
+      },
+      {
+        "original": "‘Six greens taken from the powder itself, from the dark under the shade net to",
+        "traducao": "«Seis verdes retirados do próprio pó, do escuro sob a rede de sombra para",
+        "bbox": [
+          86,
+          1546,
+          756,
+          22
+        ],
+        "font": "sans",
+        "size": 24,
+        "rgb": [
+          56,
+          62,
+          49
+        ]
+      },
+      {
+        "original": "the lea in the sun, and one that does not ask permission.",
+        "traducao": "o lea ao sol, e um que não pede permissão.",
+        "bbox": [
+          86,
+          1576,
+          656,
+          22
+        ],
+        "font": "sans",
+        "size": 27,
+        "rgb": [
+          55,
+          62,
+          48
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "kage-copertina.webp",
+    "alteracoes": [
+      {
+        "original": "the tana.",
+        "traducao": "A tana.",
+        "bbox": [
+          502,
+          1594,
+          84,
+          18
+        ],
+        "font": "sans",
+        "size": 22,
+        "rgb": [
+          189,
+          204,
+          189
+        ]
+      },
+      {
+        "original": "ADE TO GLOW",
+        "traducao": "ADE A GLOW",
+        "bbox": [
+          1126,
+          1622,
+          130,
+          56
+        ],
+        "font": "bold",
+        "size": 22,
+        "rgb": [
+          169,
+          185,
+          168
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "kage-disegni.webp",
+    "alteracoes": [
+      {
+        "original": "ILLUSTRATION - 08",
+        "traducao": "ILUSTRAÇÃO - 08",
+        "bbox": [
+          88,
+          42,
+          166,
+          56
+        ],
+        "font": "bold",
+        "size": 21,
+        "rgb": [
+          36,
+          47,
+          33
+        ]
+      },
+      {
+        "original": "ONE LINE, FLAT GREENS, ONE ANGLE: 30°",
+        "traducao": "Uma linha, verduras, um ângulo: 30°",
+        "bbox": [
+          86,
+          1684,
+          376,
+          16
+        ],
+        "font": "bold",
+        "size": 20,
+        "rgb": [
+          39,
+          49,
+          34
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "kage-goccia.webp",
+    "alteracoes": [
+      {
+        "original": "- 40 STONE-MILLED LOT",
+        "traducao": "- 40 toneladas, muito",
+        "bbox": [
+          162,
+          1662,
+          294,
+          56
+        ],
+        "font": "bold",
+        "size": 29,
+        "rgb": [
+          218,
+          225,
+          210
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "kage-incarto.webp",
+    "alteracoes": [
+      {
+        "original": "twenty-four davs",
+        "traducao": "vinte e quatro dias",
+        "bbox": [
+          576,
+          730,
+          672,
+          66
+        ],
+        "font": "sans",
+        "size": 82,
+        "rgb": [
+          192,
+          238,
+          32
+        ]
+      },
+      {
+        "original": "IN THE DARK. THEN, ONE GREEN.",
+        "traducao": "No escuro. Então, um verde.",
+        "bbox": [
+          578,
+          848,
+          558,
+          26
+        ],
+        "font": "bold",
+        "size": 32,
+        "rgb": [
+          225,
+          228,
+          217
+        ]
+      },
+      {
+        "original": "the wrap",
+        "traducao": "o wrap",
+        "bbox": [
+          88,
+          1564,
+          374,
+          86
+        ],
+        "font": "sans",
+        "size": 107,
+        "rgb": [
+          32,
+          63,
+          40
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "kage-insegna.webp",
+    "alteracoes": [
+      {
+        "original": "the sign",
+        "traducao": "o sinal",
+        "bbox": [
+          88,
+          1564,
+          280,
+          86
+        ],
+        "font": "sans",
+        "size": 104,
+        "rgb": [
+          232,
+          230,
+          219
+        ]
+      },
+      {
+        "original": "KAGE CAFE HALO-LIT LETTERS ON THE REED SCREEN",
+        "traducao": "CARTAS DE HALO-LIT DE CAFE KAGE NA ESTRELA DE RED",
+        "bbox": [
+          88,
+          1680,
+          502,
+          18
+        ],
+        "font": "bold",
+        "size": 19,
+        "rgb": [
+          219,
+          223,
+          213
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "kage-logotipo.webp",
+    "alteracoes": [
+      {
+        "original": "‘ONE STEM, ONE HAIRLINE, ONE ANGLE: 30°,",
+        "traducao": "«Um ponto, uma linha de cabelo, um ângulo: 30°,",
+        "bbox": [
+          86,
+          1476,
+          456,
+          20
+        ],
+        "font": "bold",
+        "size": 19,
+        "rgb": [
+          29,
+          44,
+          21
+        ]
+      },
+      {
+        "original": "Kage is a concept matcha from the shaded gardens of Wazuka, Uji: one fist",
+        "traducao": "Kage é um matcha conceito dos jardins sombreados de Wazuka, Uji: um punho",
+        "bbox": [
+          88,
+          1506,
+          710,
+          20
+        ],
+        "font": "sans",
+        "size": 21,
+        "rgb": [
+          51,
+          64,
+          33
+        ]
+      },
+      {
+        "original": "flush harvest a year, miled on granite, sealed by lot.",
+        "traducao": "Colheita ruborizada por ano, milhada em granito, selada por lote.",
+        "bbox": [
+          86,
+          1536,
+          478,
+          20
+        ],
+        "font": "sans",
+        "size": 17,
+        "rgb": [
+          49,
+          61,
+          32
+        ]
+      },
+      {
+        "original": "‘The name means shade. In old Japanese it also means",
+        "traducao": "«O nome significa sombra. Em japonês velho significa também",
+        "bbox": [
+          86,
+          1594,
+          514,
+          20
+        ],
+        "font": "sans",
+        "size": 19,
+        "rgb": [
+          53,
+          65,
+          36
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "kage-luce.webp",
+    "alteracoes": [
+      {
+        "original": "IMAGERY - 06",
+        "traducao": "IMAGÉRIA - 06",
+        "bbox": [
+          92,
+          42,
+          124,
+          56
+        ],
+        "font": "bold",
+        "size": 18,
+        "rgb": [
+          212,
+          217,
+          207
+        ]
+      },
+      {
+        "original": "the light",
+        "traducao": "a luz",
+        "bbox": [
+          88,
+          1564,
+          286,
+          86
+        ],
+        "font": "sans",
+        "size": 107,
+        "rgb": [
+          235,
+          233,
+          222
+        ]
+      },
+      {
+        "original": "ONE LIGHT FOR THE WHOLE",
+        "traducao": "UMA LUZ PARA O TODO",
+        "bbox": [
+          86,
+          1660,
+          258,
+          56
+        ],
+        "font": "bold",
+        "size": 23,
+        "rgb": [
+          218,
+          223,
+          212
+        ]
+      },
+      {
+        "original": ": HARD SUN TH",
+        "traducao": ": DURO SOL",
+        "bbox": [
+          416,
+          1660,
+          142,
+          56
+        ],
+        "font": "bold",
+        "size": 26,
+        "rgb": [
+          215,
+          221,
+          211
+        ]
+      },
+      {
+        "original": "by Rad fez",
+        "traducao": "por Rad Fez",
+        "bbox": [
+          1224,
+          1698,
+          130,
+          56
+        ],
+        "font": "sans",
+        "size": 26,
+        "rgb": [
+          184,
+          194,
+          184
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "kage-mood.webp",
+    "alteracoes": [
+      {
+        "original": "RAISED IN SHADE.",
+        "traducao": "Cultivado à sombra",
+        "bbox": [
+          538,
+          380,
+          364,
+          30
+        ],
+        "font": "bold",
+        "size": 37,
+        "rgb": [
+          226,
+          229,
+          215
+        ]
+      },
+      {
+        "original": "the mood",
+        "traducao": "o humor",
+        "bbox": [
+          90,
+          1564,
+          340,
+          66
+        ],
+        "font": "sans",
+        "size": 82,
+        "rgb": [
+          32,
+          63,
+          40
+        ]
+      },
+      {
+        "original": "HARD SUN THROUGH THE REEDS - DEEP GREENS - ONE ACID LIME",
+        "traducao": "Duro sol através dos juncos - verdes profundos - uma lima do ÁCIDO",
+        "bbox": [
+          88,
+          1660,
+          602,
+          56
+        ],
+        "font": "bold",
+        "size": 19,
+        "rgb": [
+          32,
+          43,
+          29
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "kage-motivi.webp",
+    "alteracoes": [
+      {
+        "original": "the whisk",
+        "traducao": "o batedor",
+        "bbox": [
+          518,
+          1274,
+          212,
+          38
+        ],
+        "font": "sans",
+        "size": 47,
+        "rgb": [
+          41,
+          68,
+          45
+        ]
+      },
+      {
+        "original": "he garde",
+        "traducao": "garde",
+        "bbox": [
+          958,
+          1268,
+          184,
+          64
+        ],
+        "font": "sans",
+        "size": 77,
+        "rgb": [
+          41,
+          68,
+          45
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "kage-motto.webp",
+    "alteracoes": [
+      {
+        "original": "MATCHA - UsI, KYOTO - JAPAN.",
+        "traducao": "- Usi, Kyoto, Japão.",
+        "bbox": [
+          620,
+          1618,
+          302,
+          56
+        ],
+        "font": "sans",
+        "size": 39,
+        "rgb": [
+          214,
+          220,
+          204
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "kage-post.webp",
+    "alteracoes": [
+      {
+        "original": "the feed",
+        "traducao": "O feed",
+        "bbox": [
+          88,
+          1562,
+          304,
+          68
+        ],
+        "font": "sans",
+        "size": 85,
+        "rgb": [
+          230,
+          233,
+          220
+        ]
+      },
+      {
+        "original": "‘THREE TEMPLATES: PHOTO AND HEADLINE, DRAWING, CAROUSEL",
+        "traducao": "«TERCEIROS MODELOS: FOTO E FUNCIONAMENTO, desenho, carrossel",
+        "bbox": [
+          86,
+          1684,
+          604,
+          14
+        ],
+        "font": "bold",
+        "size": 17,
+        "rgb": [
+          213,
+          226,
+          210
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "kage-rito.webp",
+    "alteracoes": [
+      {
+        "original": "‘THN TEA, FOUR STEPS:",
+        "traducao": "«THN TEA, quatro passos:",
+        "bbox": [
+          130,
+          288,
+          216,
+          56
+        ],
+        "font": "bold",
+        "size": 18,
+        "rgb": [
+          52,
+          80,
+          45
+        ]
+      },
+      {
+        "original": "The whole leaf",
+        "traducao": "A folha inteira",
+        "bbox": [
+          714,
+          766,
+          180,
+          20
+        ],
+        "font": "sans",
+        "size": 25,
+        "rgb": [
+          41,
+          71,
+          39
+        ]
+      },
+      {
+        "original": "‘fine foam rises",
+        "traducao": "«Colocações de espuma fina",
+        "bbox": [
+          324,
+          834,
+          138,
+          14
+        ],
+        "font": "sans",
+        "size": 11,
+        "rgb": [
+          65,
+          89,
+          50
+        ]
+      },
+      {
+        "original": "straight away",
+        "traducao": "imediatamente",
+        "bbox": [
+          714,
+          834,
+          112,
+          18
+        ],
+        "font": "sans",
+        "size": 17,
+        "rgb": [
+          67,
+          91,
+          53
+        ]
+      },
+      {
+        "original": "IN SHADE.",
+        "traducao": "Em forma.",
+        "bbox": [
+          1140,
+          894,
+          80,
+          14
+        ],
+        "font": "bold",
+        "size": 16,
+        "rgb": [
+          45,
+          68,
+          47
+        ]
+      },
+      {
+        "original": "matcha bar",
+        "traducao": "barra matcha",
+        "bbox": [
+          488,
+          1100,
+          316,
+          50
+        ],
+        "font": "sans",
+        "size": 57,
+        "rgb": [
+          35,
+          72,
+          20
+        ]
+      },
+      {
+        "original": "Matcha tonic",
+        "traducao": "Tónico de fósforo",
+        "bbox": [
+          788,
+          1254,
+          138,
+          18
+        ],
+        "font": "sans",
+        "size": 19,
+        "rgb": [
+          48,
+          89,
+          3
+        ]
+      },
+      {
+        "original": "6 Shade Kit",
+        "traducao": "Kit de 6 Sombras",
+        "bbox": [
+          744,
+          1306,
+          146,
+          18
+        ],
+        "font": "sans",
+        "size": 20,
+        "rgb": [
+          55,
+          96,
+          5
+        ]
+      },
+      {
+        "original": "the rifual",
+        "traducao": "o rifual",
+        "bbox": [
+          88,
+          1564,
+          326,
+          66
+        ],
+        "font": "sans",
+        "size": 82,
+        "rgb": [
+          30,
+          62,
+          38
+        ]
+      },
+      {
+        "original": "‘THE DRAWINGS AT WORK: THE CARO IN THE TIN, STICKERS, THE BAR MENU",
+        "traducao": "«Os projectos em curso: o CARRO NA TINA, OS STICKERS, O BAR MENU",
+        "bbox": [
+          86,
+          1662,
+          692,
+          56
+        ],
+        "font": "bold",
+        "size": 21,
+        "rgb": [
+          34,
+          45,
+          32
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "kage-stampati.webp",
+    "alteracoes": [
+      {
+        "original": "matcha bar",
+        "traducao": "barra matcha",
+        "bbox": [
+          148,
+          234,
+          236,
+          36
+        ],
+        "font": "sans",
+        "size": 42,
+        "rgb": [
+          35,
+          64,
+          41
+        ]
+      },
+      {
+        "original": "the paper",
+        "traducao": "o papel",
+        "bbox": [
+          88,
+          1564,
+          358,
+          86
+        ],
+        "font": "sans",
+        "size": 107,
+        "rgb": [
+          230,
+          230,
+          219
+        ]
+      },
+      {
+        "original": "MENU, RECEIPT, CARDS, COASTER, STICKERS, LABEL, ENVELOPE",
+        "traducao": "MENU, RECEITA, CARDS, COASTERIAL, STICKERS, RÓTULO, ENVELOPE",
+        "bbox": [
+          88,
+          1684,
+          594,
+          16
+        ],
+        "font": "bold",
+        "size": 18,
+        "rgb": [
+          217,
+          223,
+          213
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "kage-storie.webp",
+    "alteracoes": [
+      {
+        "original": "the stories",
+        "traducao": "as histórias",
+        "bbox": [
+          88,
+          1562,
+          378,
+          68
+        ],
+        "font": "sans",
+        "size": 80,
+        "rgb": [
+          229,
+          231,
+          218
+        ]
+      },
+      {
+        "original": "‘THE SAME THREE TEMPLATES, CUT FOR STORIES",
+        "traducao": "«OS MESMOS TRÊS MOTIVOS, CUT PARA AS STORIAS",
+        "bbox": [
+          86,
+          1684,
+          452,
+          14
+        ],
+        "font": "bold",
+        "size": 17,
+        "rgb": [
+          213,
+          224,
+          209
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "kage-strada.webp",
+    "alteracoes": [
+      {
+        "original": "‘OUT OF HOME - SHADE, MADETO GLOW",
+        "traducao": "« FORA DE CASA, MADETO GLOW",
+        "bbox": [
+          78,
+          1660,
+          472,
+          56
+        ],
+        "font": "bold",
+        "size": 30,
+        "rgb": [
+          220,
+          222,
+          209
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "kage-tipo-lavoro.webp",
+    "alteracoes": [
+      {
+        "original": "THE DARK.",
+        "traducao": "O escuro.",
+        "bbox": [
+          88,
+          698,
+          920,
+          124
+        ],
+        "font": "bold",
+        "size": 155,
+        "rgb": [
+          238,
+          235,
+          223
+        ]
+      },
+      {
+        "original": "Then, one green.",
+        "traducao": "Até surgir o verde",
+        "bbox": [
+          84,
+          920,
+          534,
+          68
+        ],
+        "font": "sans",
+        "size": 72,
+        "rgb": [
+          190,
+          210,
+          168
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "kage-tipografia.webp",
+    "alteracoes": [
+      {
+        "original": "‘SWEAR DISPLAY MEDIUM",
+        "traducao": "«MÉDIO DE DISPOSIÇÃO DE VIDA",
+        "bbox": [
+          86,
+          646,
+          278,
+          18
+        ],
+        "font": "bold",
+        "size": 18,
+        "rgb": [
+          196,
+          212,
+          171
+        ]
+      },
+      {
+        "original": "RAISED IN SHADE.",
+        "traducao": "Cultivado à sombra",
+        "bbox": [
+          90,
+          1056,
+          558,
+          48
+        ],
+        "font": "bold",
+        "size": 60,
+        "rgb": [
+          233,
+          231,
+          221
+        ]
+      },
+      {
+        "original": "You drink the whole leaf.",
+        "traducao": "Você bebe a folha inteira",
+        "bbox": [
+          86,
+          1134,
+          638,
+          48
+        ],
+        "font": "sans",
+        "size": 60,
+        "rgb": [
+          205,
+          212,
+          203
+        ]
+      },
+      {
+        "original": "HIRAGINO SANS We : kage, matcha. Shade, powdered tea.",
+        "traducao": "HIRAGINO SANS Nós : kage, matcha. Shade, chá em pó.",
+        "bbox": [
+          88,
+          1560,
+          594,
+          56
+        ],
+        "font": "sans",
+        "size": 25,
+        "rgb": [
+          186,
+          203,
+          166
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "kage-tote.webp",
+    "alteracoes": [
+      {
+        "original": "Raised in",
+        "traducao": "Criado em",
+        "bbox": [
+          530,
+          842,
+          260,
+          74
+        ],
+        "font": "sans",
+        "size": 61,
+        "rgb": [
+          190,
+          200,
+          156
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "kage-varianti.webp",
+    "alteracoes": [
+      {
+        "original": "RAISED IN SHADE, MADE TO GLOW",
+        "traducao": "Em forma, feita para brilhar",
+        "bbox": [
+          248,
+          490,
+          398,
+          40
+        ],
+        "font": "bold",
+        "size": 30,
+        "rgb": [
+          213,
+          224,
+          209
+        ]
+      },
+      {
+        "original": "the marks",
+        "traducao": "as marcas",
+        "bbox": [
+          88,
+          1564,
+          368,
+          66
+        ],
+        "font": "sans",
+        "size": 82,
+        "rgb": [
+          31,
+          61,
+          38
+        ]
+      },
+      {
+        "original": "‘ONE NAME, SIX USES EACH ON A COLOUR OF THE PALETTE",
+        "traducao": "«Um nome, seis usa cada um numa cor do palete",
+        "bbox": [
+          86,
+          1684,
+          552,
+          14
+        ],
+        "font": "bold",
+        "size": 17,
+        "rgb": [
+          35,
+          44,
+          30
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "kage-vetrata.webp",
+    "alteracoes": [
+      {
+        "original": "the \\winde",
+        "traducao": "o \\winde",
+        "bbox": [
+          88,
+          1562,
+          390,
+          68
+        ],
+        "font": "sans",
+        "size": 85,
+        "rgb": [
+          232,
+          231,
+          220
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "meridio-colore.webp",
+    "alteracoes": [
+      {
+        "original": "MERIDIO GREEN",
+        "traducao": "MERIDIO VERDE",
+        "bbox": [
+          394,
+          630,
+          236,
+          22
+        ],
+        "font": "serif",
+        "size": 27,
+        "rgb": [
+          195,
+          211,
+          188
+        ]
+      },
+      {
+        "original": "YELLOW GOLD",
+        "traducao": "OURO AMARELHO",
+        "bbox": [
+          394,
+          1080,
+          214,
+          22
+        ],
+        "font": "serif",
+        "size": 26,
+        "rgb": [
+          49,
+          72,
+          30
+        ]
+      },
+      {
+        "original": "NEAR BLACK",
+        "traducao": "PERTO DE NEGRA",
+        "bbox": [
+          820,
+          1390,
+          182,
+          22
+        ],
+        "font": "serif",
+        "size": 22,
+        "rgb": [
+          172,
+          152,
+          117
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "meridio-cover.webp",
+    "alteracoes": [
+      {
+        "original": "lime does",
+        "traducao": "lima faz",
+        "bbox": [
+          950,
+          1394,
+          352,
+          62
+        ],
+        "font": "serif",
+        "size": 77,
+        "rgb": [
+          226,
+          216,
+          197
+        ]
+      },
+      {
+        "original": "not shoul.",
+        "traducao": "Não shoul.",
+        "bbox": [
+          944,
+          1482,
+          348,
+          60
+        ],
+        "font": "serif",
+        "size": 75,
+        "rgb": [
+          225,
+          215,
+          196
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "meridio-hero.webp",
+    "alteracoes": [
+      {
+        "original": "NO MODEL",
+        "traducao": "Sem MODELO",
+        "bbox": [
+          226,
+          1300,
+          432,
+          90
+        ],
+        "font": "serif",
+        "size": 71,
+        "rgb": [
+          222,
+          211,
+          189
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "meridio-nastro.webp",
+    "alteracoes": [
+      {
+        "original": "ends. itends",
+        "traducao": "Fim. termina",
+        "bbox": [
+          1070,
+          1438,
+          282,
+          38
+        ],
+        "font": "serif",
+        "size": 47,
+        "rgb": [
+          208,
+          205,
+          189
+        ]
+      },
+      {
+        "original": "il is nol",
+        "traducao": "il é nol",
+        "bbox": [
+          1190,
+          1492,
+          158,
+          40
+        ],
+        "font": "serif",
+        "size": 50,
+        "rgb": [
+          214,
+          212,
+          195
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "meridio-post.webp",
+    "alteracoes": [
+      {
+        "original": "lime does",
+        "traducao": "lima faz",
+        "bbox": [
+          620,
+          834,
+          212,
+          36
+        ],
+        "font": "serif",
+        "size": 45,
+        "rgb": [
+          30,
+          72,
+          42
+        ]
+      },
+      {
+        "original": "not shout.",
+        "traducao": "Não grites.",
+        "bbox": [
+          616,
+          882,
+          210,
+          36
+        ],
+        "font": "serif",
+        "size": 45,
+        "rgb": [
+          30,
+          71,
+          41
+        ]
+      },
+      {
+        "original": "One valley.",
+        "traducao": "Um vale.",
+        "bbox": [
+          112,
+          1042,
+          210,
+          44
+        ],
+        "font": "serif",
+        "size": 55,
+        "rgb": [
+          208,
+          210,
+          192
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "meridio-poster.webp",
+    "alteracoes": [
+      {
+        "original": "18K YELLOW GOLD",
+        "traducao": "18 quilates de ouro amarelo",
+        "bbox": [
+          1086,
+          126,
+          262,
+          16
+        ],
+        "font": "serif",
+        "size": 20,
+        "rgb": [
+          42,
+          76,
+          47
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "meridio-storie.webp",
+    "alteracoes": [
+      {
+        "original": "I do not add.",
+        "traducao": "Não acrescento.",
+        "bbox": [
+          628,
+          782,
+          186,
+          24
+        ],
+        "font": "serif",
+        "size": 27,
+        "rgb": [
+          192,
+          205,
+          183
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "meridio-tipografia.webp",
+    "alteracoes": [
+      {
+        "original": "MERIDIO YELLOW GOLD",
+        "traducao": "OURO AMÉRICO",
+        "bbox": [
+          518,
+          570,
+          404,
+          14
+        ],
+        "font": "serif",
+        "size": 17,
+        "rgb": [
+          183,
+          192,
+          179
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "meridio-varianti.webp",
+    "alteracoes": [
+      {
+        "original": "Primary on oy",
+        "traducao": "Primário em oy",
+        "bbox": [
+          658,
+          794,
+          124,
+          14
+        ],
+        "font": "serif",
+        "size": 17,
+        "rgb": [
+          196,
+          179,
+          157
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "quartier-anatomia.webp",
+    "alteracoes": [
+      {
+        "original": "Les couches",
+        "traducao": "Les sofás",
+        "bbox": [
+          1112,
+          1350,
+          202,
+          26
+        ],
+        "font": "serif",
+        "size": 32,
+        "rgb": [
+          238,
+          232,
+          193
+        ]
+      },
+      {
+        "original": "the anatomy.",
+        "traducao": "A anatomia.",
+        "bbox": [
+          86,
+          1652,
+          304,
+          44
+        ],
+        "font": "serif",
+        "size": 55,
+        "rgb": [
+          243,
+          233,
+          189
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "quartier-bicchieri.webp",
+    "alteracoes": [
+      {
+        "original": "the cups.",
+        "traducao": "Os copos.",
+        "bbox": [
+          86,
+          1652,
+          206,
+          44
+        ],
+        "font": "serif",
+        "size": 51,
+        "rgb": [
+          31,
+          68,
+          95
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "quartier-bottega.webp",
+    "alteracoes": [
+      {
+        "original": "‘The bakery",
+        "traducao": "«A padaria",
+        "bbox": [
+          876,
+          142,
+          118,
+          56
+        ],
+        "font": "serif",
+        "size": 26,
+        "rgb": [
+          220,
+          229,
+          208
+        ]
+      },
+      {
+        "original": "before the fist customer was in.",
+        "traducao": "Antes de o cliente entrar.",
+        "bbox": [
+          968,
+          218,
+          302,
+          56
+        ],
+        "font": "serif",
+        "size": 28,
+        "rgb": [
+          203,
+          220,
+          210
+        ]
+      },
+      {
+        "original": "Four, butter, two hands and one oven. it",
+        "traducao": "Quatro, manteiga, duas mãos e um forno. ele",
+        "bbox": [
+          876,
+          188,
+          478,
+          56
+        ],
+        "font": "serif",
+        "size": 24,
+        "rgb": [
+          207,
+          223,
+          213
+        ]
+      },
+      {
+        "original": "the bakery.",
+        "traducao": "A padaria.",
+        "bbox": [
+          86,
+          1650,
+          260,
+          46
+        ],
+        "font": "serif",
+        "size": 57,
+        "rgb": [
+          240,
+          236,
+          196
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "quartier-caratteri.webp",
+    "alteracoes": [
+      {
+        "original": "Basteleur Bold",
+        "traducao": "Bastileur Negrito",
+        "bbox": [
+          1012,
+          1258,
+          198,
+          24
+        ],
+        "font": "serif",
+        "size": 27,
+        "rgb": [
+          231,
+          233,
+          203
+        ]
+      },
+      {
+        "original": "the type.",
+        "traducao": "A tipografia",
+        "bbox": [
+          86,
+          1650,
+          204,
+          46
+        ],
+        "font": "serif",
+        "size": 41,
+        "rgb": [
+          239,
+          236,
+          196
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "quartier-colori.webp",
+    "alteracoes": [
+      {
+        "original": "the shoptont we sat",
+        "traducao": "O lojista que sentíamos",
+        "bbox": [
+          512,
+          852,
+          250,
+          56
+        ],
+        "font": "serif",
+        "size": 25,
+        "rgb": [
+          186,
+          210,
+          214
+        ]
+      },
+      {
+        "original": "he the crust",
+        "traducao": "ele a crosta",
+        "bbox": [
+          506,
+          1200,
+          184,
+          56
+        ],
+        "font": "serif",
+        "size": 38,
+        "rgb": [
+          230,
+          205,
+          174
+        ]
+      },
+      {
+        "original": "the colours.",
+        "traducao": "As cores.",
+        "bbox": [
+          86,
+          1652,
+          270,
+          34
+        ],
+        "font": "serif",
+        "size": 42,
+        "rgb": [
+          245,
+          232,
+          186
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "quartier-colori-trovati.webp",
+    "alteracoes": [
+      {
+        "original": "the colours, found.",
+        "traducao": "As cores, encontradas.",
+        "bbox": [
+          86,
+          1650,
+          428,
+          42
+        ],
+        "font": "serif",
+        "size": 45,
+        "rgb": [
+          246,
+          233,
+          187
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "quartier-copertina.webp",
+    "alteracoes": [
+      {
+        "original": "FEUILLETE A LA MAIN",
+        "traducao": "FEUILLETE A LA PRINCIPAL",
+        "bbox": [
+          306,
+          1674,
+          488,
+          26
+        ],
+        "font": "serif",
+        "size": 32,
+        "rgb": [
+          231,
+          230,
+          197
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "quartier-etui.webp",
+    "alteracoes": [
+      {
+        "original": "The fold",
+        "traducao": "A dobra",
+        "bbox": [
+          876,
+          142,
+          94,
+          56
+        ],
+        "font": "serif",
+        "size": 28,
+        "rgb": [
+          215,
+          226,
+          206
+        ]
+      },
+      {
+        "original": "ach croissant leaves own étu butter paper,",
+        "traducao": "ach croissant deixa próprio papel de manteiga étu,",
+        "bbox": [
+          86,
+          188,
+          474,
+          56
+        ],
+        "font": "serif",
+        "size": 22,
+        "rgb": [
+          205,
+          221,
+          211
+        ]
+      },
+      {
+        "original": "The closes over the the way the",
+        "traducao": "O fechamento sobre o caminho o",
+        "bbox": [
+          878,
+          188,
+          482,
+          56
+        ],
+        "font": "serif",
+        "size": 33,
+        "rgb": [
+          204,
+          219,
+          210
+        ]
+      },
+      {
+        "original": "‘our moon on every fold.",
+        "traducao": "‘nossa lua em cada dobra.",
+        "bbox": [
+          78,
+          216,
+          230,
+          56
+        ],
+        "font": "serif",
+        "size": 21,
+        "rgb": [
+          202,
+          218,
+          209
+        ]
+      },
+      {
+        "original": "dough closes over the butter: once, by hand.",
+        "traducao": "massa fecha sobre a manteiga: uma vez, à mão.",
+        "bbox": [
+          884,
+          216,
+          404,
+          56
+        ],
+        "font": "serif",
+        "size": 20,
+        "rgb": [
+          201,
+          217,
+          208
+        ]
+      },
+      {
+        "original": "the étui.",
+        "traducao": "O étui.",
+        "bbox": [
+          86,
+          1650,
+          194,
+          36
+        ],
+        "font": "serif",
+        "size": 45,
+        "rgb": [
+          29,
+          67,
+          95
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "quartier-feed.webp",
+    "alteracoes": [
+      {
+        "original": "followers",
+        "traducao": "seguidores",
+        "bbox": [
+          732,
+          458,
+          78,
+          16
+        ],
+        "font": "serif",
+        "size": 17,
+        "rgb": [
+          32,
+          32,
+          32
+        ]
+      },
+      {
+        "original": "following",
+        "traducao": "seguindo",
+        "bbox": [
+          864,
+          456,
+          86,
+          22
+        ],
+        "font": "serif",
+        "size": 22,
+        "rgb": [
+          30,
+          30,
+          30
+        ]
+      },
+      {
+        "original": "Message",
+        "traducao": "mensagem",
+        "bbox": [
+          818,
+          696,
+          94,
+          20
+        ],
+        "font": "serif",
+        "size": 20,
+        "rgb": [
+          22,
+          22,
+          22
+        ]
+      },
+      {
+        "original": "‘The mark",
+        "traducao": "A marca",
+        "bbox": [
+          1202,
+          954,
+          152,
+          22
+        ],
+        "font": "serif",
+        "size": 27,
+        "rgb": [
+          238,
+          232,
+          196
+        ]
+      },
+      {
+        "original": "Photo and hand —- Mit,",
+        "traducao": "Foto e mão —- Mit,",
+        "bbox": [
+          88,
+          1200,
+          514,
+          92
+        ],
+        "font": "serif",
+        "size": 64,
+        "rgb": [
+          207,
+          187,
+          155
+        ]
+      },
+      {
+        "original": "one Balt,",
+        "traducao": "um Balt,",
+        "bbox": [
+          166,
+          1282,
+          150,
+          16
+        ],
+        "font": "serif",
+        "size": 20,
+        "rgb": [
+          218,
+          225,
+          207
+        ]
+      },
+      {
+        "original": "the feed.",
+        "traducao": "O feed",
+        "bbox": [
+          86,
+          1652,
+          196,
+          34
+        ],
+        "font": "serif",
+        "size": 42,
+        "rgb": [
+          240,
+          234,
+          194
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "quartier-logotipo.webp",
+    "alteracoes": [
+      {
+        "original": "the logotype.",
+        "traducao": "o logótipo.",
+        "bbox": [
+          86,
+          1652,
+          300,
+          44
+        ],
+        "font": "serif",
+        "size": 55,
+        "rgb": [
+          243,
+          232,
+          188
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "quartier-mattino.webp",
+    "alteracoes": [
+      {
+        "original": "come in croissant.",
+        "traducao": "Venha em croissant.",
+        "bbox": [
+          132,
+          1462,
+          264,
+          18
+        ],
+        "font": "serif",
+        "size": 22,
+        "rgb": [
+          228,
+          221,
+          186
+        ]
+      },
+      {
+        "original": "the morning.",
+        "traducao": "De manhã.",
+        "bbox": [
+          86,
+          1650,
+          306,
+          46
+        ],
+        "font": "serif",
+        "size": 57,
+        "rgb": [
+          243,
+          233,
+          189
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "quartier-menu.webp",
+    "alteracoes": [
+      {
+        "original": "les croissants",
+        "traducao": "croissants",
+        "bbox": [
+          184,
+          498,
+          180,
+          18
+        ],
+        "font": "serif",
+        "size": 22,
+        "rgb": [
+          35,
+          69,
+          88
+        ]
+      },
+      {
+        "original": "the menu.",
+        "traducao": "O menu.",
+        "bbox": [
+          86,
+          1652,
+          232,
+          34
+        ],
+        "font": "serif",
+        "size": 42,
+        "rgb": [
+          246,
+          236,
+          189
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "quartier-motivi.webp",
+    "alteracoes": [
+      {
+        "original": "the patterns.",
+        "traducao": "Os padrões.",
+        "bbox": [
+          86,
+          1652,
+          304,
+          44
+        ],
+        "font": "serif",
+        "size": 55,
+        "rgb": [
+          243,
+          234,
+          189
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "quartier-rivista.webp",
+    "alteracoes": [
+      {
+        "original": "the press.",
+        "traducao": "A imprensa.",
+        "bbox": [
+          86,
+          1652,
+          224,
+          44
+        ],
+        "font": "serif",
+        "size": 44,
+        "rgb": [
+          244,
+          234,
+          190
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "quartier-sacchetto.webp",
+    "alteracoes": [
+      {
+        "original": "The paper",
+        "traducao": "O papel",
+        "bbox": [
+          886,
+          164,
+          94,
+          20
+        ],
+        "font": "serif",
+        "size": 25,
+        "rgb": [
+          244,
+          224,
+          185
+        ]
+      },
+      {
+        "original": "Wide enough for three croissants, tal enough to",
+        "traducao": "Grande o suficiente para três croissants, tal suficiente para",
+        "bbox": [
+          88,
+          188,
+          468,
+          56
+        ],
+        "font": "serif",
+        "size": 18,
+        "rgb": [
+          237,
+          214,
+          180
+        ]
+      },
+      {
+        "original": "Paper, never the steam escapes and the",
+        "traducao": "Papel, nunca o vapor escapa e o",
+        "bbox": [
+          884,
+          208,
+          470,
+          20
+        ],
+        "font": "serif",
+        "size": 25,
+        "rgb": [
+          236,
+          213,
+          179
+        ]
+      },
+      {
+        "original": "keep them standing, tothe sky.",
+        "traducao": "Mantê-los de pé, para o céu.",
+        "bbox": [
+          86,
+          238,
+          316,
+          20
+        ],
+        "font": "serif",
+        "size": 25,
+        "rgb": [
+          240,
+          217,
+          183
+        ]
+      },
+      {
+        "original": "csp the frst ite.",
+        "traducao": "Csp o frst ite.",
+        "bbox": [
+          988,
+          238,
+          196,
+          20
+        ],
+        "font": "serif",
+        "size": 25,
+        "rgb": [
+          239,
+          217,
+          182
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "quartier-segni.webp",
+    "alteracoes": [
+      {
+        "original": "Q | QUARTIER.",
+        "traducao": "Q-Quartier.",
+        "bbox": [
+          288,
+          1288,
+          348,
+          62
+        ],
+        "font": "serif",
+        "size": 74,
+        "rgb": [
+          33,
+          69,
+          94
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "quartier-segno.webp",
+    "alteracoes": [
+      {
+        "original": "The mark",
+        "traducao": "A marca",
+        "bbox": [
+          876,
+          930,
+          126,
+          56
+        ],
+        "font": "serif",
+        "size": 36,
+        "rgb": [
+          226,
+          231,
+          203
+        ]
+      },
+      {
+        "original": "was bom a moon, and sois",
+        "traducao": "foi bom uma lua, e sois",
+        "bbox": [
+          982,
+          972,
+          288,
+          56
+        ],
+        "font": "serif",
+        "size": 30,
+        "rgb": [
+          186,
+          208,
+          207
+        ]
+      },
+      {
+        "original": "one long tal",
+        "traducao": "um tal longo",
+        "bbox": [
+          876,
+          1028,
+          112,
+          56
+        ],
+        "font": "serif",
+        "size": 21,
+        "rgb": [
+          190,
+          213,
+          214
+        ]
+      },
+      {
+        "original": "the mark.",
+        "traducao": "A marca",
+        "bbox": [
+          86,
+          1652,
+          216,
+          34
+        ],
+        "font": "serif",
+        "size": 42,
+        "rgb": [
+          240,
+          236,
+          197
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "quartier-sigillo.webp",
+    "alteracoes": [
+      {
+        "original": "Every bag leaves the counter folded twice",
+        "traducao": "Cada saco deixa o balcão dobrado duas vezes",
+        "bbox": [
+          456,
+          1268,
+          530,
+          26
+        ],
+        "font": "serif",
+        "size": 27,
+        "rgb": [
+          228,
+          231,
+          202
+        ]
+      },
+      {
+        "original": "and closed by hand with our seal.",
+        "traducao": "e fechado à mão com o nosso selo.",
+        "bbox": [
+          508,
+          1302,
+          424,
+          28
+        ],
+        "font": "serif",
+        "size": 29,
+        "rgb": [
+          231,
+          233,
+          203
+        ]
+      },
+      {
+        "original": "the seal.",
+        "traducao": "O selo.",
+        "bbox": [
+          86,
+          1650,
+          192,
+          36
+        ],
+        "font": "serif",
+        "size": 45,
+        "rgb": [
+          240,
+          236,
+          196
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "quartier-storie.webp",
+    "alteracoes": [
+      {
+        "original": "Photo and title",
+        "traducao": "Foto e título",
+        "bbox": [
+          88,
+          1242,
+          274,
+          28
+        ],
+        "font": "serif",
+        "size": 35,
+        "rgb": [
+          28,
+          66,
+          92
+        ]
+      },
+      {
+        "original": "The mark",
+        "traducao": "A marca",
+        "bbox": [
+          514,
+          1244,
+          180,
+          26
+        ],
+        "font": "serif",
+        "size": 32,
+        "rgb": [
+          30,
+          67,
+          93
+        ]
+      },
+      {
+        "original": "Photo and hand",
+        "traducao": "Foto e mão",
+        "bbox": [
+          944,
+          1244,
+          288,
+          26
+        ],
+        "font": "serif",
+        "size": 32,
+        "rgb": [
+          28,
+          65,
+          92
+        ]
+      },
+      {
+        "original": "Bleu de Nut, the a goodbye,",
+        "traducao": "Bleu de Nut, o adeus,",
+        "bbox": [
+          516,
+          1296,
+          254,
+          18
+        ],
+        "font": "serif",
+        "size": 22,
+        "rgb": [
+          118,
+          96,
+          63
+        ]
+      },
+      {
+        "original": "the stories.",
+        "traducao": "As histórias.",
+        "bbox": [
+          86,
+          1650,
+          260,
+          36
+        ],
+        "font": "serif",
+        "size": 45,
+        "rgb": [
+          29,
+          67,
+          94
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "quartier-timbro.webp",
+    "alteracoes": [
+      {
+        "original": "The stamp",
+        "traducao": "O carimbo",
+        "bbox": [
+          88,
+          164,
+          96,
+          18
+        ],
+        "font": "serif",
+        "size": 22,
+        "rgb": [
+          56,
+          81,
+          85
+        ]
+      },
+      {
+        "original": "The monogram",
+        "traducao": "O monograma",
+        "bbox": [
+          886,
+          164,
+          140,
+          20
+        ],
+        "font": "serif",
+        "size": 23,
+        "rgb": [
+          57,
+          82,
+          85
+        ]
+      },
+      {
+        "original": "Two rings and one moon, inked by hand: no",
+        "traducao": "Dois anéis e uma lua, pintados à mão: não",
+        "bbox": [
+          88,
+          208,
+          424,
+          20
+        ],
+        "font": "serif",
+        "size": 24,
+        "rgb": [
+          71,
+          90,
+          84
+        ]
+      },
+      {
+        "original": "‘A giant Q woven fom tiny QUARTIER words, on the",
+        "traducao": "«Um gigante Q tecido fom minúsculas palavras QUARTIER, no",
+        "bbox": [
+          882,
+          208,
+          472,
+          20
+        ],
+        "font": "serif",
+        "size": 17,
+        "rgb": [
+          65,
+          85,
+          80
+        ]
+      },
+      {
+        "original": "ever come out tho same,",
+        "traducao": "Nunca mais sair do mesmo,",
+        "bbox": [
+          166,
+          216,
+          226,
+          56
+        ],
+        "font": "serif",
+        "size": 19,
+        "rgb": [
+          69,
+          88,
+          83
+        ]
+      },
+      {
+        "original": "and the white",
+        "traducao": "e o branco",
+        "bbox": [
+          934,
+          240,
+          122,
+          14
+        ],
+        "font": "serif",
+        "size": 17,
+        "rgb": [
+          63,
+          83,
+          81
+        ]
+      },
+      {
+        "original": "QUARTIER QUARTIER",
+        "traducao": "QUARTIER",
+        "bbox": [
+          560,
+          1110,
+          284,
+          18
+        ],
+        "font": "serif",
+        "size": 22,
+        "rgb": [
+          227,
+          230,
+          203
+        ]
+      },
+      {
+        "original": "the stamp.",
+        "traducao": "O selo.",
+        "bbox": [
+          86,
+          1652,
+          246,
+          44
+        ],
+        "font": "serif",
+        "size": 55,
+        "rgb": [
+          237,
+          235,
+          197
+        ]
+      }
+    ]
+  },
+  {
+    "arquivo": "quartier-tipografia.webp",
+    "alteracoes": [
+      {
+        "original": "Basteleur Bold",
+        "traducao": "Bastileur Negrito",
+        "bbox": [
+          626,
+          340,
+          184,
+          22
+        ],
+        "font": "serif",
+        "size": 25,
+        "rgb": [
+          38,
+          71,
+          89
+        ]
+      }
+    ]
+  }
+]
