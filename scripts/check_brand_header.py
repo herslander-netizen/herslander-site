@@ -6,7 +6,7 @@ import sys
 
 pages = [
     Path("index.html"), Path("work/index.html"),
-    *(Path("work") / name / "index.html" for name in ("quartier", "meridio", "kage", "alba")),
+    *(Path("work") / name / "index.html" for name in ("quartier", "meridio", "kage", "alba", "kairos")),
 ]
 css_path = Path("assets/css/brand-name.css")
 problems = []
