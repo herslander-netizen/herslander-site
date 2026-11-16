@@ -1,7 +1,6 @@
-/* Assinatura da marca nos cabeçalhos: Herslander Jorge✱.
-   Os estilos são restritos à navegação para não alterar as animações do nome na home. */
-.bar__name .nm__l { font-weight: 700; }
-.bar__name .nm__r { font-weight: 400; }
+/* Assinatura da marca em todo o portfólio: Herslander em negrito, Jorge leve. */
+.nm__l { font-weight: 700; }
+.nm__r { font-weight: 400; }
 .bar__name .nm__mark {
   display: inline-block;
   /* Herda a cor animada do nome. Na seção laranja, fica preto. */
