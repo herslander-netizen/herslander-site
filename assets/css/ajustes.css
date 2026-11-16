@@ -7,3 +7,24 @@
 /* Na abertura, mantenha espaço entre o último caractere de “Olá” e o ponto laranja.
    A margem permanece desde a digitação até o ponto aparecer, sem mover a animação. */
 .intro__hello > .caret { margin-left: .14em; }
+
+/* Especialidades: substitui somente o ponto da roleta pelo asterisco da marca.
+   Preserva [data-dot] e seu <i>: o JavaScript continua controlando posição,
+   escala, pulsação, chegada e saída exatamente como antes. */
+.play__dot i {
+  display: grid;
+  place-items: center;
+  border-radius: 0;
+  background: transparent;
+  color: var(--color-arancio);
+  font-style: normal;
+}
+.play__dot i::before {
+  content: "✱";
+  display: block;
+  font-family: Arial, "Segoe UI Symbol", sans-serif;
+  font-size: 27px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0;
+}
