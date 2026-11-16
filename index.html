@@ -2,630 +2,387 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Herslander Jorge — Direção de Marca</title>
-<meta name="description" content="Portfólio de Herslander Jorge. Direção criativa, estratégia de marca, vídeo, sites, sistemas e inteligência artificial.">
-<meta name="theme-color" content="#14151B">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --papel: #F4F1EE; --tinta: #14151B; --laranja: #F19759; --azul: #0B63A4; --marinho: #0B2B5C;
-    --sans: "Inter", system-ui, sans-serif; --mono: "JetBrains Mono", ui-monospace, monospace;
-    --margem: clamp(18px, 5vw, 56px);
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body { font-family: var(--sans); background: var(--papel); color: var(--tinta); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-  body.trancado { overflow: hidden; height: 100vh; }
-  a { color: inherit; text-decoration: none; }
-  b { font-weight: 700; }
-  .mono { font-family: var(--mono); font-weight: 500; font-size: clamp(10px, 2.9vw, 13px); letter-spacing: 0.2em; text-transform: uppercase; }
-  .tela { position: relative; min-height: 100vh; min-height: 100svh; }
-  .fixo { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
-
-  /* Nome fixo no canto: muda de cor conforme o fundo. */
-  .marca { position: fixed; z-index: 30; left: var(--margem); top: clamp(16px, 4vw, 28px); font-size: clamp(15px, 4.2vw, 19px); letter-spacing: -0.03em; color: var(--tinta); transition: color 0.25s, opacity 0.4s; opacity: 0; }
-  .marca b { font-weight: 700; }
-  body[data-tema="escuro"] .marca { color: var(--papel); }
-  body.aberto .marca { opacity: 1; }
-  /* Botão de som, no canto oposto ao nome. */
-  .som { position: fixed; z-index: 30; right: calc(var(--margem) - 8px); top: clamp(8px, 2.6vw, 18px); width: 40px; height: 40px; padding: 8px; background: none; border: 0; color: var(--tinta); cursor: pointer; opacity: 0; transition: color 0.25s, opacity 0.4s; }
-  .som svg { width: 100%; height: 100%; fill: currentColor; display: block; }
-  .som .corte { display: none; }
-  .som.mudo .ondas { display: none; }
-  .som.mudo .corte { display: block; }
-  body[data-tema="escuro"] .som { color: var(--papel); }
-  body.aberto .som { opacity: 1; }
-
-  /* ---------- Entrada ---------- */
-  .entrada { position: fixed; inset: 0; z-index: 50; background: var(--tinta); color: var(--papel); transition: opacity 0.6s ease, visibility 0.6s; }
-  .entrada.sai { opacity: 0; visibility: hidden; }
-  .entrada .linha-v, .entrada .linha-h { position: absolute; background: rgba(229,225,220,0.45); }
-  .entrada .linha-v { top: 8%; bottom: 8%; width: 1px; transform: scaleY(0); animation: cresceY 1s 0.1s ease forwards; }
-  .entrada .linha-h { left: 0; right: 0; height: 1px; transform: scaleX(0); animation: cresceX 1s 0.1s ease forwards; }
-  .entrada .no { position: absolute; width: 11px; height: 11px; margin: -5px 0 0 -5px; border-radius: 50%; border: 1.5px solid var(--papel); background: var(--tinta); opacity: 0; animation: surge 0.4s 0.9s forwards; }
-  .entrar { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: flex; align-items: center; gap: 14px; padding: 18px 26px; background: none; border: 0; color: var(--papel); cursor: pointer; opacity: 0; animation: surge 0.5s 1s forwards; }
-  .entrar i { width: 13px; height: 13px; border-radius: 50%; background: var(--laranja); animation: pulsa 1.6s ease-in-out infinite; }
-  .entrada .canto { position: absolute; opacity: 0.6; }
-  @keyframes cresceY { to { transform: scaleY(1); } }
-  @keyframes cresceX { to { transform: scaleX(1); } }
-  @keyframes surge { to { opacity: 1; } }
-  @keyframes pulsa { 50% { transform: scale(1.35); } }
-
-  /* ---------- Quem sou e funções (rolagem em etapas) ---------- */
-  #quem { height: 520vh; }
-  #quem .fixo { background: var(--papel); transition: background-color 0.2s; }
-  .camada { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity 0.25s, visibility 0.25s; }
-  .camada.ativa { opacity: 1; visibility: visible; }
-  .guia { position: absolute; background: rgba(20,22,27,0.22); }
-  .heroi .guia.v { left: var(--margem); top: 10%; bottom: 0; width: 1px; }
-  .heroi .cota { position: absolute; left: calc(var(--margem) + 10px); top: 11%; opacity: 0.5; font-size: 10px; letter-spacing: 0.1em; }
-  .heroi .bloco { position: absolute; left: 0; right: 0; top: 38%; transform: translateY(-50%); text-align: center; }
-  .heroi .eu { font-weight: 700; font-size: clamp(20px, 5.6vw, 34px); letter-spacing: -0.03em; margin-bottom: 0.8em; }
-  /* As duas linhas de guia são as bordas do próprio nome. */
-  .heroi .nome { font-weight: 700; font-size: clamp(60px, 15.5vw, 150px); line-height: 1.08; min-height: 2.28em; padding: 0.06em 0; letter-spacing: -0.045em; white-space: pre; border-top: 1px solid rgba(20,22,27,0.22); border-bottom: 1px solid rgba(20,22,27,0.22); }
-  .heroi .nome .leve { font-weight: 400; }
-  .heroi .cargo { margin-top: 1.5em; min-height: 1.4em; }
-  .cursor { display: inline-block; width: 3px; height: 0.82em; margin-left: 4px; background: var(--laranja); vertical-align: -0.05em; animation: pisca 0.8s steps(1) infinite; }
-  @keyframes pisca { 50% { opacity: 0; } }
-  .heroi .silhueta { position: absolute; left: 50%; bottom: 0; height: 38%; transform: translate(-50%, 105%); transition: transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1); }
-  .heroi.pronto .silhueta { transform: translate(-50%, 0); }
-  .desce { position: absolute; right: var(--margem); bottom: clamp(16px, 4vw, 28px); opacity: 0; transition: opacity 0.5s 1.6s; }
-  .heroi.pronto .desce { opacity: 0.6; }
-
-  .funcao .topo { position: absolute; left: var(--margem); right: var(--margem); top: calc(50% - clamp(34px, 9.4vw, 96px) * 0.9 - 2.4em); display: flex; justify-content: space-between; }
-  .funcao.duas .topo { top: calc(50% - clamp(34px, 9.4vw, 96px) * 1.6 - 2.4em); }
-  .funcao .mascara { position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); overflow: hidden; text-align: center; }
-  .funcao .texto { display: inline-block; font-size: clamp(34px, 9.4vw, 96px); line-height: 1.3; letter-spacing: -0.04em; white-space: nowrap; transform: translateY(110%); transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1); }
-  .funcao.ativa .texto { transform: none; }
-  .funcao .sinal { display: inline-block; width: 0.2em; height: 0.2em; margin-left: 0.1em; vertical-align: 0.62em; background: var(--laranja); transform: scale(0); transition: transform 0.4s 0.25s cubic-bezier(0.3, 1.6, 0.5, 1); }
-  .funcao.ativa .sinal { transform: scale(1); }
-  .sinal.bola { border-radius: 50%; }
-  .sinal.tri { clip-path: polygon(50% 0, 100% 100%, 0 100%); background: var(--papel); }
-  .sinal.mais { clip-path: polygon(38% 0, 62% 0, 62% 38%, 100% 38%, 100% 62%, 62% 62%, 62% 100%, 38% 100%, 38% 62%, 0 62%, 0 38%, 38% 38%); }
-
-  /* ---------- Projetos (só aparece quando a lista PROJETOS tem itens) ---------- */
-  #projetos { padding: 18vh var(--margem); background: var(--papel); }
-  #projetos[hidden] { display: none; }
-  #projetos h2 { font-weight: 400; font-size: clamp(34px, 9vw, 84px); line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 8vh; }
-  #projetos h2 sup { font-family: var(--mono); font-size: 0.26em; letter-spacing: 0.1em; vertical-align: 2.2em; margin-left: 0.4em; }
-  #projetos li { list-style: none; display: flex; align-items: baseline; gap: 1.2em; padding: 0.5em 0; border-top: 1px solid rgba(20,22,27,0.25); font-weight: 700; font-size: clamp(30px, 8.4vw, 76px); letter-spacing: -0.04em; }
-  #projetos li:last-child { border-bottom: 1px solid rgba(20,22,27,0.25); }
-  #projetos li span { font-family: var(--mono); font-weight: 500; font-size: 13px; letter-spacing: 0.2em; }
-  #projetos li small { margin-left: auto; font-family: var(--mono); font-weight: 500; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.7; }
-
-  /* ---------- Roda de disciplinas ---------- */
-  #roda { background: var(--azul); color: var(--papel); }
-  #roda .mira { position: absolute; inset: 0; width: 100%; height: 100%; }
-  #roda .cabecalho, #roda .rodape { position: absolute; left: var(--margem); right: var(--margem); display: flex; justify-content: space-between; opacity: 0.85; }
-  #roda .cabecalho { top: 13%; }
-  #roda .rodape { bottom: 7%; }
-  .girar { position: absolute; left: calc(var(--margem) + 4vw); top: 28%; display: flex; align-items: center; gap: 12px; background: none; border: 0; color: var(--papel); cursor: pointer; padding: 10px 0; }
-  .girar::before { content: ""; width: 26px; height: 1px; background: currentColor; }
-  .lista { position: absolute; left: clamp(64px, 19vw, 30%); right: 0; top: 56%; height: 0; transform: rotate(-4deg); transform-origin: 0 0; }
-  .lista div { position: absolute; left: 0; top: 0; white-space: nowrap; font-size: clamp(24px, 6.9vw, 60px); letter-spacing: -0.03em; transform-origin: 0 50%; will-change: transform, opacity; }
-  .lista div.ativo { color: #fff; }
-  .lista div.final { color: var(--laranja); font-weight: 700; }
-  .ponto { position: absolute; left: calc(clamp(64px, 19vw, 30%) - 26px); top: 56%; width: 11px; height: 11px; margin-top: -4px; border-radius: 50%; background: var(--laranja); transition: transform 0.2s; }
-  .ponto.bate { transform: scale(1.7); }
-
-  /* ---------- Frase ---------- */
-  #frase { background: var(--marinho); color: var(--papel); padding: 16vh var(--margem); display: flex; flex-direction: column; justify-content: center; gap: 7vh; }
-  #frase p { font-size: clamp(30px, 8.2vw, 76px); line-height: 1.08; letter-spacing: -0.04em; max-width: 12em; }
-  #frase p.direita { align-self: flex-end; text-align: right; }
-  #frase p em { font-style: normal; color: var(--laranja); font-weight: 700; }
-  .maos { display: block; width: calc(100% + 2 * var(--margem)); margin: 2vh calc(-1 * var(--margem)); aspect-ratio: 1080 / 440; }
-  .ferramentas { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(14px, 4vw, 36px); width: min(100%, 520px); }
-  .ferramentas.direita { align-self: flex-end; }
-  .ferramentas svg, .ferramentas .aa { width: 100%; aspect-ratio: 1; }
-  .ferramentas svg path { fill: var(--papel); }
-  .ferramentas .aa { display: flex; align-items: center; justify-content: center; }
-  .ferramentas .aa span { width: 84%; height: 72%; display: flex; align-items: center; justify-content: center; border-radius: 8%; background: var(--papel); color: var(--marinho); font-weight: 700; font-size: clamp(22px, 6vw, 44px); letter-spacing: -0.02em; }
-  .ferramentas > * { transform: scale(0.2); opacity: 0; transition: transform 0.5s cubic-bezier(0.3, 1.5, 0.5, 1), opacity 0.3s; }
-  .visivel .ferramentas > *, .ferramentas.visivel > * { transform: none; opacity: 1; }
-  .ferramentas > :nth-child(2) { transition-delay: 0.07s; } .ferramentas > :nth-child(3) { transition-delay: 0.14s; } .ferramentas > :nth-child(4) { transition-delay: 0.21s; }
-  .revela { opacity: 0; transform: translateY(26px); transition: opacity 0.7s, transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1); }
-  .revela.visivel { opacity: 1; transform: none; }
-  #frase .assina { opacity: 0.7; }
-
-  /* ---------- Contato ---------- */
-  #contato { background: var(--laranja); padding: 14vh var(--margem) clamp(18px, 4vw, 28px); display: flex; flex-direction: column; }
-  #contato .lema { line-height: 1.7; }
-  #contato .nome { margin: auto 0 0; padding-top: 12vh; text-align: center; font-size: clamp(40px, 11.4vw, 120px); letter-spacing: -0.045em; white-space: nowrap; }
-  #contato .nome .leve { font-weight: 400; }
-  #contato .ano { text-align: center; margin: 1.6em 0 auto; padding-bottom: 10vh; }
-  .falar { display: block; width: 100%; padding: 1.05em; background: var(--tinta); color: var(--papel); text-align: center; font-weight: 700; font-size: clamp(19px, 5.2vw, 26px); letter-spacing: -0.02em; transition: background-color 0.2s; }
-  .falar:hover { background: #000; }
-  .canais { display: flex; flex-direction: column; align-items: center; gap: 1.9em; padding: 2.4em 0 3.2em; }
-  .canais a:hover { text-decoration: underline; text-underline-offset: 4px; }
-  .fim { display: flex; justify-content: space-between; padding-top: 1.4em; border-top: 1px solid rgba(20,22,27,0.3); }
-
-  .fim { font-size: 10px; letter-spacing: 0.14em; gap: 12px; white-space: nowrap; }
-  @media (min-width: 700px) {
-    .heroi .nome { font-size: clamp(60px, 10.4vw, 170px); min-height: 1.2em; }
-    .heroi .bloco { top: 36%; }
-    .heroi .silhueta { height: 44%; }
-    #frase { padding-left: 12vw; padding-right: 12vw; }
-    .maos { width: 100vw; margin-left: -12vw; margin-right: -12vw; }
-    .falar { max-width: 560px; margin: 0 auto; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    .revela, .ferramentas > * { transition: none; }
-  }
-</style>
-<link rel="stylesheet" href="./portfolio-upgrade.css">
+<meta name="description" content="Herslander Jorge, diretor criativo, diretor de arte e web designer. Identidade de marca, web design e automação com IA.">
+<link rel="canonical" href="https://herslander-site.pages.dev/">
+<link rel="icon" href="assets/img/favicon-campionario.svg" type="image/svg+xml">
+<link rel="icon" href="assets/img/icon-campionario-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon-campionario.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Herslander Jorge">
+<meta property="og:url" content="https://herslander-site.pages.dev/">
+<meta property="og:title" content="Herslander Jorge — Direção de Marca">
+<meta property="og:description" content="Herslander Jorge, diretor criativo, diretor de arte e web designer. Identidade de marca, web design e automação com IA.">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Herslander Jorge — Direção de Marca">
+<meta name="twitter:description" content="Herslander Jorge, diretor criativo, diretor de arte e web designer. Identidade de marca, web design e automação com IA.">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"Person","name":"Herslander Jorge","url":"https://herslander-site.pages.dev/","description":"Herslander Jorge, diretor criativo, diretor de arte e web designer. Identidade de marca, web design e automação com IA.","jobTitle":["Diretor Criativo","Diretor de Arte","Web Designer"],"knowsAbout":["Direção Criativa","Estratégia de Marca","Identidade de Marca","Direção de Arte","Copy & Conteúdo","Design Gráfico","Design de Produto","Vídeo & Motion Design","Social Media","Meta Ads","Web Design & Desenvolvimento","Apps Sob Medida","Automações com IA","Leads & Prospecção","Agentes de IA","Cérebro da Empresa"]},{"@context":"https://schema.org","@type":"WebSite","name":"Herslander Jorge","url":"https://herslander-site.pages.dev/","inLanguage":"pt-BR"}]</script>
+<link rel="preload" href="assets/fonts/Geist-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Geist-Bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/GeistMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/site.795760c1.css">
+<link rel="stylesheet" href="assets/css/ajustes.css">
+<script>try{history.scrollRestoration='manual'}catch(e){}(function(){var d=document.documentElement,z={k:1,c:1};try{var s=document.createElement('span');s.style.cssText='position:absolute;left:0;top:0;visibility:hidden;font:100px/1 sans-serif;white-space:nowrap';s.textContent='MMMMMMMMMM';d.appendChild(s);var x=document.createElement('canvas').getContext('2d');x.font='100px sans-serif';var k=s.getBoundingClientRect().width/x.measureText('MMMMMMMMMM').width,f=parseFloat(getComputedStyle(s).fontSize)/100;s.remove();if(k>0.5&&k<4&&Math.abs(k-1)>0.02){z={k:k,c:k/f};d.style.setProperty('--tz',k.toFixed(4))}}catch(e){}window.__tz=z})();document.documentElement.classList.add('js');setTimeout(function(){var h=document.documentElement;if(!h.classList.contains('ready')){h.classList.remove('js');h.classList.add('salvo')}},9000)</script>
 </head>
-<body class="trancado" data-tema="escuro">
+<body>
+<div class="site" data-site>
+<a class="skip mono" href="#disciplines">Pular para as disciplinas</a>
 
-<a class="marca" href="#quem" aria-label="Herslander Jorge — início"><b>Herslander</b> Jorge ✱</a>
-<nav class="navegacao mono" aria-label="Navegação principal"><a href="#quem">Início</a><a href="#roda">O que faço</a><a href="#sobre">Sobre mim</a><a href="#contato">Contato</a></nav>
-<button class="som" id="som" type="button" aria-pressed="true" aria-label="Som ligado">
-  <svg viewBox="0 0 24 24" aria-hidden="true">
-    <path d="M3 9v6h4l5 5V4L7 9H3z"/>
-    <path class="ondas" d="M16.5 12A4.5 4.5 0 0 0 14 7.97v8.05A4.48 4.48 0 0 0 16.5 12zM14 3.23v2.06a7 7 0 0 1 0 13.42v2.06a9 9 0 0 0 0-17.54z"/>
-    <path class="corte" d="M15 9.5l6 6M21 9.5l-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-  </svg>
-</button>
+<header class="bar" data-bar>
+  <a class="bar__name" href="#home" data-nav><span class="nm "><span class="nm__l">Herslander</span> <span class="nm__r">Jorge</span></span></a>
+  <nav class="bar__nav mono" aria-label="Seções">
+    <a href="#disciplines" data-nav>Disciplinas</a>
+    <a href="/work/">Trabalhos</a>
+    <a href="#contact" data-nav>Contato</a>
+    <button class="bar__sound " type="button" data-sound data-on="Som ligado" data-off="Som desligado" aria-pressed="false"><svg class="vol" viewBox="0 0 24 24" aria-hidden="true"><path class="vol__corpo" d="M11 5 6.5 9H3v6h3.5l4.5 4z"/><path class="vol__on" d="M15.5 8.6a5 5 0 0 1 0 6.8M18.6 5.6a9.2 9.2 0 0 1 0 12.8"/><path class="vol__off" d="m16 9.5 5 5m0-5-5 5"/></svg><span class="bar__sound-t vh">Som desligado</span></button>
+  </nav>
+  <p class="bar__sub mono"><span>Portfólio</span><span>2027</span></p>
+</header>
 
-<!-- Entrada -->
-<div class="entrada" id="entrada">
-  <span class="canto mono" style="left:var(--margem);top:clamp(16px,4vw,28px)">Herslander Jorge</span>
-  <span class="canto mono" style="right:var(--margem);bottom:clamp(16px,4vw,28px)">Portfólio 2027</span>
-  <div class="linha-v" style="left:32%"></div><div class="linha-v" style="left:68%"></div>
-  <div class="linha-h" style="top:calc(50% - 29px)"></div><div class="linha-h" style="top:calc(50% + 29px)"></div>
-  <i class="no" style="left:32%;top:calc(50% - 29px)"></i><i class="no" style="left:68%;top:calc(50% - 29px)"></i>
-  <i class="no" style="left:32%;top:calc(50% + 29px)"></i><i class="no" style="left:68%;top:calc(50% + 29px)"></i>
-  <button class="entrar mono" id="entrar" type="button"><i></i>Entrar</button>
+<div class="intro" data-intro aria-hidden="true">
+  <div class="intro__gate" data-gate>
+    <svg class="intro__guides" data-intro-guides aria-hidden="true"></svg>
+    <p class="intro__c intro__c--tl mono" data-corner>Herslander Jorge</p>
+    <p class="intro__c intro__c--tr mono" data-corner>Direção de Marca</p>
+    <p class="intro__c intro__c--bl mono" data-corner><span class="intro__city">Brasil</span></p>
+    <p class="intro__c intro__c--br mono" data-corner>Portfólio 2027</p>
+    <p class="intro__num" data-intro-num>000</p>
+    <div class="intro__door">
+      <button type="button" class="gate__go" data-enter aria-label="Entrar"><span class="gate__in"><span class="gate__dot"></span><span class="mono">Entrar</span></span></button>
+    </div>
+        <p class="intro__note mono"><span data-note="loading">Carregando</span></p>
+  </div>
+  <div class="intro__paper" data-intro-paper></div>
+  <div class="intro__hello"><span class="intro__word" data-hello>Olá</span><span class="caret"><i class="caret__bar"></i><i class="caret__dot"></i></span></div>
 </div>
 
 <main>
-  <!-- Quem sou + funções -->
-  <section id="quem">
-    <div class="fixo">
-      <div class="camada heroi ativa" id="heroi">
-        <div class="guia v"></div>
-        <div class="cota mono">96 PX · −3 %</div>
-        <div class="bloco">
-          <div class="eu">Eu sou</div>
-          <h1 class="nome" id="nome" aria-label="Herslander Jorge"></h1>
-          <div class="cargo mono" id="cargo"></div>
+    <section class="chi" id="home" data-scene="chi" aria-label="Herslander Jorge">
+    <div class="chi__stage">
+      <div class="chi__ground" data-ground></div>
+      <svg class="guides" data-guides aria-hidden="true"></svg>
+      <div class="guides__labels mono" data-guide-labels aria-hidden="true"></div>
+      <div class="sil" aria-hidden="true"><div class="sil__img"></div></div>
+      <p class="chi__im" data-im aria-hidden="true">Eu sou</p>
+      <h1 class="chi__name" data-name><span class="nm "><span class="nm__l">Herslander</span> <span class="nm__r">Jorge</span></span><span class="caret caret--name" aria-hidden="true"><i class="caret__bar"></i></span></h1>
+      <p class="chi__label mono" data-label>Direção de Marca</p>
+      <div class="roles" data-roles>
+        <p class="roles__count mono" aria-hidden="true"><span>Função</span><span data-role-n>01 / 04</span></p>
+        <div class="roles__win">
+          <p class="roles__ln roles__your" data-your aria-hidden="true"><span class="im2">Sou</span> <span class="y" data-your-word>seu</span><span class="caret caret--your"><i class="caret__bar"></i></span></p>
+          <ol class="roles__list">
+            <li class="roles__ln" data-role="0" data-ink="inchiostro" data-mark="arancio" data-ground="carta"><span class="a">Diretor</span> <span class="b">Criativo<svg class="glyph" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="16"/></svg></span></li>
+            <li class="roles__ln" data-role="1" data-ink="carta" data-mark="arancio" data-ground="inchiostro"><span class="a">Diretor</span> <span class="b">de Arte<svg class="glyph" viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="5" width="30" height="30"/></svg></span></li>
+            <li class="roles__ln" data-role="2" data-ink="inchiostro" data-mark="carta" data-ground="arancio"><span class="a">Web</span> <span class="b">Designer<svg class="glyph" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 L37 35 H3 Z"/></svg></span></li>
+            <li class="roles__ln" data-role="3" data-ink="carta" data-mark="arancio" data-ground="cobalto"><span class="a">Parceiro</span> <span class="b">Criativo<svg class="glyph" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 V38 M2 20 H38" class="stroke"/></svg></span></li>
+          </ol>
         </div>
-        <img class="silhueta" src="silhueta.png" alt="Silhueta de Herslander Jorge">
-        <div class="desce mono">Role ↓</div>
-      </div>
-      <div class="camada funcao" data-fundo="#F4F1EE" data-cor="#14151B" data-tema="claro">
-        <div class="topo mono"><span>Função</span><span>01 / 04</span></div>
-        <div class="mascara"><div class="texto">Diretor <b>Criativo</b><i class="sinal bola"></i></div></div>
-      </div>
-      <div class="camada funcao" data-fundo="#0B63A4" data-cor="#F4F1EE" data-tema="escuro">
-        <div class="topo mono"><span>Função</span><span>02 / 04</span></div>
-        <div class="mascara"><div class="texto">Diretor <b>de Arte</b><i class="sinal"></i></div></div>
-      </div>
-      <div class="camada funcao" data-fundo="#F19759" data-cor="#14151B" data-tema="claro">
-        <div class="topo mono"><span>Função</span><span>03 / 04</span></div>
-        <div class="mascara"><div class="texto">Web <b>Designer</b><i class="sinal tri"></i></div></div>
-      </div>
-      <div class="camada funcao duas" data-fundo="#0B2B5C" data-cor="#F4F1EE" data-tema="escuro">
-        <div class="topo mono"><span>Função</span><span>04 / 04</span></div>
-        <div class="mascara"><div class="texto">Diretor <b>de Marca</b><br><b>e Tecnologia</b><i class="sinal mais"></i></div></div>
       </div>
     </div>
   </section>
 
-  <!-- Projetos: preenchido pelo script a partir da lista PROJETOS -->
-  <section id="projetos" data-tema="claro" hidden>
-    <h2 class="revela">Projetos<br>selecionados<sup id="qtd-projetos"></sup></h2>
-    <ul id="lista-projetos"></ul>
-  </section>
-
-  <!-- Roda de disciplinas -->
-  <section id="roda" data-tema="escuro">
-    <div class="fixo">
-      <svg class="mira" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-        <g fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="1.5">
-          <circle cx="500" cy="560" r="170"/><circle cx="500" cy="560" r="290"/>
-          <path d="M150 560H850M500 120V1000"/>
-        </g>
-      </svg>
-      <div class="cabecalho mono"><span>Disciplinas</span><span id="total"></span></div>
-      <button class="girar mono" id="girar" type="button">Gire a roda</button>
-      <i class="ponto" id="ponto"></i>
-      <div class="lista" id="lista"></div>
-      <p class="ajuda mono">Percorra as especialidades e toque para saber mais.</p>
-      <div class="rodape mono"><span>Herslander Jorge</span><span id="contador"></span></div>
-    </div>
-  </section>
-
-  <!-- Apresentação pessoal -->
-  <section id="sobre" data-tema="claro" aria-labelledby="sobre-titulo">
-    <div class="sobre-topo mono revela"><span>Uma apresentação</span><span class="sobre-numero">01 — Quem sou</span></div>
-    <div class="sobre-grid">
-      <h2 class="sobre-titulo revela" id="sobre-titulo">Sobre<span>mim<span aria-hidden="true" style="display:inline;color:var(--laranja)">.</span></span></h2>
-      <div class="sobre-texto revela">
-        <p>Sou <strong>Herslander Jorge</strong>. Trabalho na conexão entre <strong>criatividade, comunicação e tecnologia</strong>, transformando ideias em experiências, marcas e soluções digitais.</p>
-        <p>Meu olhar reúne estratégia, design, audiovisual, desenvolvimento e inteligência artificial — da primeira conversa à entrega de uma solução que faça sentido para cada negócio.</p>
-        <a class="sobre-contato mono" href="#contato">Vamos criar algo juntos <span aria-hidden="true">↗</span></a>
+    <section class="gl" id="work" data-scene="galleria" aria-labelledby="gl-h">
+    <div class="gl__stage">
+      <h2 class="gl__h" id="gl-h"><span class="gl__l1">Marcas</span> <span class="gl__l2">selecionadas<span class="gl__count mono">(04)</span></span></h2>
+      <div class="gl__deck">
+        <ol class="gl__space" data-gl-space><li class="gl__item" data-gl-card><a class="gl__card" href="/work/quartier/" data-strato>
+          <span class="gl__lab mono"><span class="gl__n">01</span> Quartier</span>
+          <span class="gl__img"><img data-src="/assets/work/img/quartier-copertina-720.webp" width="720" height="900" alt="Quartier, conceito" decoding="async" draggable="false" style="object-position:50% 50%"><noscript><img src="/assets/work/img/quartier-copertina-720.webp" width="720" height="900" alt="Quartier, conceito" loading="lazy" style="object-position:50% 50%"></noscript><i class="gl__sh gl__sh--l" aria-hidden="true"></i><i class="gl__sh gl__sh--r" aria-hidden="true"></i></span>
+        </a></li><li class="gl__item" data-gl-card><a class="gl__card" href="/work/meridio/" data-strato>
+          <span class="gl__lab mono"><span class="gl__n">02</span> Meridio</span>
+          <span class="gl__img"><img data-src="/assets/work/img/meridio-hero-720.webp" width="720" height="900" alt="Meridio, conceito" decoding="async" draggable="false" style="object-position:50% 50%"><noscript><img src="/assets/work/img/meridio-hero-720.webp" width="720" height="900" alt="Meridio, conceito" loading="lazy" style="object-position:50% 50%"></noscript><i class="gl__sh gl__sh--l" aria-hidden="true"></i><i class="gl__sh gl__sh--r" aria-hidden="true"></i></span>
+        </a></li><li class="gl__item" data-gl-card><a class="gl__card" href="/work/kage/" data-strato>
+          <span class="gl__lab mono"><span class="gl__n">03</span> Kage</span>
+          <span class="gl__img"><img data-src="/assets/work/img/kage-copertina-720.webp" width="720" height="900" alt="Kage, conceito" decoding="async" draggable="false" style="object-position:50% 50%"><noscript><img src="/assets/work/img/kage-copertina-720.webp" width="720" height="900" alt="Kage, conceito" loading="lazy" style="object-position:50% 50%"></noscript><i class="gl__sh gl__sh--l" aria-hidden="true"></i><i class="gl__sh gl__sh--r" aria-hidden="true"></i></span>
+        </a></li><li class="gl__item" data-gl-card><a class="gl__card" href="/work/alba/" data-strato>
+          <span class="gl__lab mono"><span class="gl__n">04</span> Alba</span>
+          <span class="gl__img"><img data-src="/assets/work/img/alba-copertina-720.webp" width="720" height="900" alt="Alba, conceito" decoding="async" draggable="false" style="object-position:50% 50%"><noscript><img src="/assets/work/img/alba-copertina-720.webp" width="720" height="900" alt="Alba, conceito" loading="lazy" style="object-position:50% 50%"></noscript><i class="gl__sh gl__sh--l" aria-hidden="true"></i><i class="gl__sh gl__sh--r" aria-hidden="true"></i></span>
+        </a></li>
+        </ol>
+        <p class="gl__dots" role="group" aria-label="Marcas selecionadas"><button class="gl__dot" type="button" data-gl-dot aria-label="Quartier" aria-current="false"></button><button class="gl__dot" type="button" data-gl-dot aria-label="Meridio" aria-current="false"></button><button class="gl__dot" type="button" data-gl-dot aria-label="Kage" aria-current="false"></button><button class="gl__dot" type="button" data-gl-dot aria-label="Alba" aria-current="false"></button></p>
       </div>
     </div>
-    <div class="sobre-faixas revela" aria-label="Três áreas de atuação">
-      <article><span class="numero mono">01 / Criatividade</span><h3>Ideias com direção.</h3><p>Marcas, design, vídeo e campanhas com linguagem própria.</p></article>
-      <article><span class="numero mono">02 / Tecnologia</span><h3>Experiências úteis.</h3><p>Sites, aplicativos e sistemas conectados às necessidades reais.</p></article>
-      <article><span class="numero mono">03 / Inteligência artificial</span><h3>Mais possibilidades.</h3><p>Automações e agentes com contexto, controle e propósito.</p></article>
+  </section>
+
+    <section class="play" id="disciplines" data-scene="play" aria-label="Disciplinas">
+    <div class="play__stage">
+      <svg class="play__grid" data-play-grid aria-hidden="true"></svg>
+      <span class="play__dot play__dot--solo" data-dot aria-hidden="true"></span>
+      <div class="drum" data-drum>
+        <p class="drum__lab mono drum__lab--tl">Disciplinas</p>
+        <p class="drum__lab mono drum__lab--tr" aria-hidden="true">16</p>
+        <p class="drum__lab mono drum__lab--bl" aria-hidden="true">Herslander Jorge</p>
+        <p class="drum__lab mono drum__lab--br" aria-hidden="true" data-drum-n>01 / 16</p>
+        <ol class="drum__list">
+          <li><a class="drum__link" href="#creative-direction" data-dp-open="creative-direction">Direção Criativa</a></li>
+          <li><a class="drum__link" href="#brand-strategy" data-dp-open="brand-strategy">Estratégia de Marca</a></li>
+          <li><a class="drum__link" href="#brand-identity" data-dp-open="brand-identity">Identidade de Marca</a></li>
+          <li><a class="drum__link" href="#art-direction" data-dp-open="art-direction">Direção de Arte</a></li>
+          <li><a class="drum__link" href="#copy-content" data-dp-open="copy-content">Copy &amp; Conteúdo</a></li>
+          <li><a class="drum__link" href="#graphic-design" data-dp-open="graphic-design">Design Gráfico</a></li>
+          <li><a class="drum__link" href="#product-design" data-dp-open="product-design">Design de Produto</a></li>
+          <li><a class="drum__link" href="#video-motion" data-dp-open="video-motion">Vídeo &amp; Motion Design</a></li>
+          <li><a class="drum__link" href="#social-media" data-dp-open="social-media">Social Media</a></li>
+          <li><a class="drum__link" href="#meta-ads" data-dp-open="meta-ads">Meta Ads</a></li>
+          <li><a class="drum__link" href="#web-design" data-dp-open="web-design">Web Design &amp; Desenvolvimento</a></li>
+          <li><a class="drum__link" href="#custom-apps" data-dp-open="custom-apps">Apps Sob Medida</a></li>
+          <li><a class="drum__link" href="#ai-automations" data-dp-open="ai-automations">Automações com IA</a></li>
+          <li><a class="drum__link" href="#lead-outreach" data-dp-open="lead-outreach">Leads &amp; Prospecção</a></li>
+          <li><a class="drum__link" href="#ai-agents" data-dp-open="ai-agents">Agentes de IA</a></li>
+          <li><a class="drum__link" href="#company-brain" data-dp-open="company-brain">Cérebro da Empresa</a></li>
+        </ol>
+        <div class="drum__wrap" data-drum-wrap aria-hidden="true">
+          <div class="drum__clip drum__clip--lo"><div class="drum__tilt"><div class="drum__cyl" data-cyl="lo"></div></div></div>
+          <div class="drum__clip drum__clip--hi"><div class="drum__tilt"><div class="drum__cyl" data-cyl="hi"></div></div></div>
+        </div>
+        <button type="button" class="drum__spin mono" data-spin>Gire a roda</button>
+      </div>
     </div>
   </section>
 
-  <!-- Frase -->
-  <section id="frase" class="tela" data-tema="escuro">
-    <p class="revela">Boas ideias vêm<br>de cima,</p>
-    <!-- Duas mãos quase se tocando, desenhadas com caracteres pelo script. -->
-    <canvas class="maos" id="maos" aria-hidden="true"></canvas>
-    <p class="revela direita">e sim, a gente dá<br><em>uma mão.</em></p>
-    <div class="assina mono revela">Criatividade, comunicação e tecnologia</div>
+    <section class="dp" data-dp data-lenis-prevent aria-labelledby="dp-t">
+    <header class="dp__head">
+      <div class="dp__id"><h2 class="dp__title" id="dp-t">Disciplinas</h2><p class="dp__by mono">Herslander Jorge</p></div>
+      <div class="dp__tools mono"><button class="bar__sound dp__sound" type="button" data-sound data-on="Som ligado" data-off="Som desligado" aria-pressed="false"><svg class="vol" viewBox="0 0 24 24" aria-hidden="true"><path class="vol__corpo" d="M11 5 6.5 9H3v6h3.5l4.5 4z"/><path class="vol__on" d="M15.5 8.6a5 5 0 0 1 0 6.8M18.6 5.6a9.2 9.2 0 0 1 0 12.8"/><path class="vol__off" d="m16 9.5 5 5m0-5-5 5"/></svg><span class="bar__sound-t vh">Som desligado</span></button><button class="dp__back" type="button" data-dp-back>Voltar</button></div>
+    </header>
+    <div class="dp__scroll" data-dp-scroll>
+      <div class="dp__track" style="--n:16">
+        <div class="dp__stage">
+          <i class="dp__ruler dp__ruler--l" aria-hidden="true"></i>
+          <i class="dp__ruler dp__ruler--r" aria-hidden="true"></i>
+          <p class="dp__count mono" aria-hidden="true"><b data-dp-n>01</b> / 16</p>
+          <ol class="dp__cards">
+          <li class="dc dc--work" id="creative-direction" data-slug="creative-direction" data-i="0">
+            <article class="dc__inner" aria-labelledby="dc-creative-direction">
+              <svg class="guides dc__guides" data-dc-guides aria-hidden="true"></svg>
+              <div class="dc__labels mono" data-dc-labels aria-hidden="true"></div>
+              <p class="dc__meta mono"><span>Disciplina</span><span>01</span></p>
+              <h3 class="dc__name" id="dc-creative-direction"><span class="nm"><span class="a">Direção</span> <span class="b">Criativa</span></span><span class="dc__dot" aria-hidden="true"></span></h3>
+              <p class="dc__text">Defino a ideia sobre a qual uma marca ou campanha é construída e mantenho cada peça fiel a ela. Do primeiro briefing ao último post, uma única direção decide o que entra e o que fica de fora.</p>
+              <ol class="dc__does mono" aria-label="O que inclui"><li><span>01</span>Conceito e storytelling</li><li><span>02</span>Briefings e moodboards</li><li><span>03</span>Direção de equipe</li><li><span>04</span>Revisão final</li></ol>
+              <a class="btn dc__cta" href="https://wa.me/5579998181983?text=Ol%C3%A1%20Herslander%2C%20gostaria%20de%20falar%20sobre%20Dire%C3%A7%C3%A3o%20Criativa." target="_blank" rel="noopener"><span>Vamos conversar</span></a>
+              <a class="dc__work" href="/work/" data-strato><span>Ver os trabalhos</span><span aria-hidden="true">→</span></a>
+              <i class="dc__shade" aria-hidden="true"></i>
+            </article>
+          </li>
+          <li class="dc" id="brand-strategy" data-slug="brand-strategy" data-i="1">
+            <article class="dc__inner" aria-labelledby="dc-brand-strategy">
+              <svg class="guides dc__guides" data-dc-guides aria-hidden="true"></svg>
+              <div class="dc__labels mono" data-dc-labels aria-hidden="true"></div>
+              <p class="dc__meta mono"><span>Disciplina</span><span>02</span></p>
+              <h3 class="dc__name" id="dc-brand-strategy"><span class="nm"><span class="a">Estratégia</span> <span class="b">de Marca</span></span><span class="dc__dot" aria-hidden="true"></span></h3>
+              <p class="dc__text">Estudo o mercado, a concorrência e os números; depois definimos juntos posicionamento, público e tom de voz. Tudo vira um plano de metas, canais e orçamento para seguir passo a passo.</p>
+              <ol class="dc__does mono" aria-label="O que inclui"><li><span>01</span>Posicionamento</li><li><span>02</span>Público</li><li><span>03</span>Tom de voz</li><li><span>04</span>Plano de marketing</li></ol>
+              <a class="btn dc__cta" href="https://wa.me/5579998181983?text=Ol%C3%A1%20Herslander%2C%20gostaria%20de%20falar%20sobre%20Estrat%C3%A9gia%20de%20Marca." target="_blank" rel="noopener"><span>Vamos conversar</span></a>
+              <i class="dc__shade" aria-hidden="true"></i>
+            </article>
+          </li>
+          <li class="dc dc--work" id="brand-identity" data-slug="brand-identity" data-i="2">
+            <article class="dc__inner" aria-labelledby="dc-brand-identity">
+              <svg class="guides dc__guides" data-dc-guides aria-hidden="true"></svg>
+              <div class="dc__labels mono" data-dc-labels aria-hidden="true"></div>
+              <p class="dc__meta mono"><span>Disciplina</span><span>03</span></p>
+              <h3 class="dc__name" id="dc-brand-identity"><span class="nm"><span class="a">Identidade</span> <span class="b">de Marca</span></span><span class="dc__dot" aria-hidden="true"></span></h3>
+              <p class="dc__text">Um nome vira logo, paleta, sistema tipográfico e um conjunto de regras, reunidos em um brand book. Cada combinação de cores é testada quanto à legibilidade, para que a marca seja lida do mesmo jeito da foto de perfil ao cartaz.</p>
+              <ol class="dc__does mono" aria-label="O que inclui"><li><span>01</span>Logo e assinatura</li><li><span>02</span>Cor e tipografia</li><li><span>03</span>Brand book</li><li><span>04</span>Design system</li></ol>
+              <a class="btn dc__cta" href="https://wa.me/5579998181983?text=Ol%C3%A1%20Herslander%2C%20gostaria%20de%20falar%20sobre%20Identidade%20de%20Marca." target="_blank" rel="noopener"><span>Vamos conversar</span></a>
+              <a class="dc__work" href="/work/" data-strato><span>Ver os trabalhos</span><span aria-hidden="true">→</span></a>
+              <i class="dc__shade" aria-hidden="true"></i>
+            </article>
+          </li>
+          <li class="dc dc--work" id="art-direction" data-slug="art-direction" data-i="3">
+            <article class="dc__inner" aria-labelledby="dc-art-direction">
+              <svg class="guides dc__guides" data-dc-guides aria-hidden="true"></svg>
+              <div class="dc__labels mono" data-dc-labels aria-hidden="true"></div>
+              <p class="dc__meta mono"><span>Disciplina</span><span>04</span></p>
+              <h3 class="dc__name" id="dc-art-direction"><span class="nm"><span class="a">Direção</span> <span class="b">de Arte</span></span><span class="dc__dot" aria-hidden="true"></span></h3>
+              <p class="dc__text">Defino a direção visual e a sustento em todas as entregas: as fotografias e o seu tratamento, séries editoriais, apresentações, fundos gerados com IA na paleta da marca. Tudo parece feito pela mesma mão.</p>
+              <ol class="dc__does mono" aria-label="O que inclui"><li><span>01</span>Direção visual</li><li><span>02</span>Direção de ensaios</li><li><span>03</span>Tratamento de fotos</li><li><span>04</span>Imagens com IA</li></ol>
+              <a class="btn dc__cta" href="https://wa.me/5579998181983?text=Ol%C3%A1%20Herslander%2C%20gostaria%20de%20falar%20sobre%20Dire%C3%A7%C3%A3o%20de%20Arte." target="_blank" rel="noopener"><span>Vamos conversar</span></a>
+              <a class="dc__work" href="/work/" data-strato><span>Ver os trabalhos</span><span aria-hidden="true">→</span></a>
+              <i class="dc__shade" aria-hidden="true"></i>
+            </article>
+          </li>
+          <li class="dc" id="copy-content" data-slug="copy-content" data-i="4">
+            <article class="dc__inner" aria-labelledby="dc-copy-content">
+              <svg class="guides dc__guides" data-dc-guides aria-hidden="true"></svg>
+              <div class="dc__labels mono" data-dc-labels aria-hidden="true"></div>
+              <p class="dc__meta mono"><span>Disciplina</span><span>05</span></p>
+              <h3 class="dc__name" id="dc-copy-content"><span class="nm"><span class="a">Copy</span> <span class="b">&amp; Conteúdo</span></span><span class="dc__dot" aria-hidden="true"></span></h3>
+              <p class="dc__text">Escrevo ganchos, legendas e roteiros de reels, e produzo fotos e vídeos em um ritmo constante. Uma ideia é desenvolvida uma vez e vira post, e-mail, página web e vídeo.</p>
+              <ol class="dc__does mono" aria-label="O que inclui"><li><span>01</span>Copywriting</li><li><span>02</span>Roteiros de reels</li><li><span>03</span>Ensaios</li><li><span>04</span>Calendário de conteúdo</li></ol>
+              <a class="btn dc__cta" href="https://wa.me/5579998181983?text=Ol%C3%A1%20Herslander%2C%20gostaria%20de%20falar%20sobre%20Copy%20%26%20Conte%C3%BAdo." target="_blank" rel="noopener"><span>Vamos conversar</span></a>
+              <i class="dc__shade" aria-hidden="true"></i>
+            </article>
+          </li>
+          <li class="dc dc--work" id="graphic-design" data-slug="graphic-design" data-i="5">
+            <article class="dc__inner" aria-labelledby="dc-graphic-design">
+              <svg class="guides dc__guides" data-dc-guides aria-hidden="true"></svg>
+              <div class="dc__labels mono" data-dc-labels aria-hidden="true"></div>
+              <p class="dc__meta mono"><span>Disciplina</span><span>06</span></p>
+              <h3 class="dc__name" id="dc-graphic-design"><span class="nm"><span class="a">Design</span> <span class="b">Gráfico</span></span><span class="dc__dot" aria-hidden="true"></span></h3>
+              <p class="dc__text">Carrosséis, posts e stories, mas também flyers e cartazes para impressão: todo formato nasce do mesmo sistema visual, e a marca continua a mesma do feed à rua.</p>
+              <ol class="dc__does mono" aria-label="O que inclui"><li><span>01</span>Carrosséis</li><li><span>02</span>Stories</li><li><span>03</span>Flyers e cartazes</li><li><span>04</span>Apresentações</li></ol>
+              <a class="btn dc__cta" href="https://wa.me/5579998181983?text=Ol%C3%A1%20Herslander%2C%20gostaria%20de%20falar%20sobre%20Design%20Gr%C3%A1fico." target="_blank" rel="noopener"><span>Vamos conversar</span></a>
+              <a class="dc__work" href="/work/" data-strato><span>Ver os trabalhos</span><span aria-hidden="true">→</span></a>
+              <i class="dc__shade" aria-hidden="true"></i>
+            </article>
+          </li>
+          <li class="dc dc--work" id="product-design" data-slug="product-design" data-i="6">
+            <article class="dc__inner" aria-labelledby="dc-product-design">
+              <svg class="guides dc__guides" data-dc-guides aria-hidden="true"></svg>
+              <div class="dc__labels mono" data-dc-labels aria-hidden="true"></div>
+              <p class="dc__meta mono"><span>Disciplina</span><span>07</span></p>
+              <h3 class="dc__name" id="dc-product-design"><span class="nm"><span class="a">Design</span> <span class="b">de Produto</span></span><span class="dc__dot" aria-hidden="true"></span></h3>
+              <p class="dc__text">Desenho o produto e tudo o que o envolve: o objeto, a embalagem, o rótulo. Depois, as imagens que o vendem, fotos de estúdio e cenas geradas com IA e dirigidas plano a plano, prontas antes do primeiro protótipo.</p>
+              <ol class="dc__does mono" aria-label="O que inclui"><li><span>01</span>Produto e embalagem</li><li><span>02</span>Rótulos e acabamentos</li><li><span>03</span>Imagens de produto com IA</li><li><span>04</span>Catálogo e e-commerce</li></ol>
+              <a class="btn dc__cta" href="https://wa.me/5579998181983?text=Ol%C3%A1%20Herslander%2C%20gostaria%20de%20falar%20sobre%20Design%20de%20Produto." target="_blank" rel="noopener"><span>Vamos conversar</span></a>
+              <a class="dc__work" href="/work/" data-strato><span>Ver os trabalhos</span><span aria-hidden="true">→</span></a>
+              <i class="dc__shade" aria-hidden="true"></i>
+            </article>
+          </li>
+          <li class="dc dc--work" id="video-motion" data-slug="video-motion" data-i="7">
+            <article class="dc__inner" aria-labelledby="dc-video-motion">
+              <svg class="guides dc__guides" data-dc-guides aria-hidden="true"></svg>
+              <div class="dc__labels mono" data-dc-labels aria-hidden="true"></div>
+              <p class="dc__meta mono"><span>Disciplina</span><span>08</span></p>
+              <h3 class="dc__name" id="dc-video-motion"><span class="nm"><span class="a">Vídeo</span> <span class="b">&amp; Motion Design</span></span><span class="dc__dot" aria-hidden="true"></span></h3>
+              <p class="dc__text">Reels e vídeos curtos editados no ritmo da voz, com legendas, música e som limpo. As animações usam as cores e a tipografia da marca, e cada vídeo se mantém consistente.</p>
+              <ol class="dc__does mono" aria-label="O que inclui"><li><span>01</span>Reels</li><li><span>02</span>Edição</li><li><span>03</span>Motion graphics</li><li><span>04</span>Legendas</li></ol>
+              <a class="btn dc__cta" href="https://wa.me/5579998181983?text=Ol%C3%A1%20Herslander%2C%20gostaria%20de%20falar%20sobre%20V%C3%ADdeo%20%26%20Motion%20Design." target="_blank" rel="noopener"><span>Vamos conversar</span></a>
+              <a class="dc__work" href="/work/" data-strato><span>Ver os trabalhos</span><span aria-hidden="true">→</span></a>
+              <i class="dc__shade" aria-hidden="true"></i>
+            </article>
+          </li>
+          <li class="dc" id="social-media" data-slug="social-media" data-i="8">
+            <article class="dc__inner" aria-labelledby="dc-social-media">
+              <svg class="guides dc__guides" data-dc-guides aria-hidden="true"></svg>
+              <div class="dc__labels mono" data-dc-labels aria-hidden="true"></div>
+              <p class="dc__meta mono"><span>Disciplina</span><span>09</span></p>
+              <h3 class="dc__name" id="dc-social-media"><span class="nm"><span class="a">Social</span> <span class="b">Media</span></span><span class="dc__dot" aria-hidden="true"></span></h3>
+              <p class="dc__text">Programo e publico no Instagram, Facebook, TikTok e LinkedIn, respondo à comunidade e leio os números. A marca aparece com consistência, sem você precisar pensar nisso.</p>
+              <ol class="dc__does mono" aria-label="O que inclui"><li><span>01</span>Plano editorial</li><li><span>02</span>Agendamento</li><li><span>03</span>Comunidade</li><li><span>04</span>Métricas</li></ol>
+              <a class="btn dc__cta" href="https://wa.me/5579998181983?text=Ol%C3%A1%20Herslander%2C%20gostaria%20de%20falar%20sobre%20Social%20Media." target="_blank" rel="noopener"><span>Vamos conversar</span></a>
+              <i class="dc__shade" aria-hidden="true"></i>
+            </article>
+          </li>
+          <li class="dc" id="meta-ads" data-slug="meta-ads" data-i="9">
+            <article class="dc__inner" aria-labelledby="dc-meta-ads">
+              <svg class="guides dc__guides" data-dc-guides aria-hidden="true"></svg>
+              <div class="dc__labels mono" data-dc-labels aria-hidden="true"></div>
+              <p class="dc__meta mono"><span>Disciplina</span><span>10</span></p>
+              <h3 class="dc__name" id="dc-meta-ads"><span class="nm"><span class="a">Meta</span> <span class="b">Ads</span></span><span class="dc__dot" aria-hidden="true"></span></h3>
+              <p class="dc__text">Monto e gerencio campanhas no Instagram e no Facebook: público, criativos, testes e otimização. Com o CRM conectado, cada contato carrega o anúncio de onde veio, e o relatório mostra com clareza o que funciona.</p>
+              <ol class="dc__does mono" aria-label="O que inclui"><li><span>01</span>Geração de leads</li><li><span>02</span>Criativos</li><li><span>03</span>Testes A/B</li><li><span>04</span>Relatórios</li></ol>
+              <a class="btn dc__cta" href="https://wa.me/5579998181983?text=Ol%C3%A1%20Herslander%2C%20gostaria%20de%20falar%20sobre%20Meta%20Ads." target="_blank" rel="noopener"><span>Vamos conversar</span></a>
+              <i class="dc__shade" aria-hidden="true"></i>
+            </article>
+          </li>
+          <li class="dc" id="web-design" data-slug="web-design" data-i="10">
+            <article class="dc__inner" aria-labelledby="dc-web-design">
+              <svg class="guides dc__guides" data-dc-guides aria-hidden="true"></svg>
+              <div class="dc__labels mono" data-dc-labels aria-hidden="true"></div>
+              <p class="dc__meta mono"><span>Disciplina</span><span>11</span></p>
+              <h3 class="dc__name" id="dc-web-design"><span class="nm"><span class="a">Web</span> <span class="b">Design &amp; Desenvolvimento</span></span><span class="dc__dot" aria-hidden="true"></span></h3>
+              <p class="dc__text">Desenho e desenvolvo sites e landing pages rápidos, em mais de um idioma, feitos para transformar visitas em contatos. Toda alteração passa por verificações automáticas antes de ir ao ar.</p>
+              <ol class="dc__does mono" aria-label="O que inclui"><li><span>01</span>Sites</li><li><span>02</span>Landing pages</li><li><span>03</span>Multilíngue</li><li><span>04</span>Motion e interação</li></ol>
+              <a class="btn dc__cta" href="https://wa.me/5579998181983?text=Ol%C3%A1%20Herslander%2C%20gostaria%20de%20falar%20sobre%20Web%20Design%20%26%20Desenvolvimento." target="_blank" rel="noopener"><span>Vamos conversar</span></a>
+              <i class="dc__shade" aria-hidden="true"></i>
+            </article>
+          </li>
+          <li class="dc" id="custom-apps" data-slug="custom-apps" data-i="11">
+            <article class="dc__inner" aria-labelledby="dc-custom-apps">
+              <svg class="guides dc__guides" data-dc-guides aria-hidden="true"></svg>
+              <div class="dc__labels mono" data-dc-labels aria-hidden="true"></div>
+              <p class="dc__meta mono"><span>Disciplina</span><span>12</span></p>
+              <h3 class="dc__name" id="dc-custom-apps"><span class="nm"><span class="a">Apps</span> <span class="b">Sob Medida</span></span><span class="dc__dot" aria-hidden="true"></span></h3>
+              <p class="dc__text">Quando um site não basta, construo o aplicativo de que você precisa: reservas e pagamentos online, vales-presente, áreas privadas para seus clientes. Funciona no celular e no computador, e conversa com sua agenda, seu CRM e suas automações.</p>
+              <ol class="dc__does mono" aria-label="O que inclui"><li><span>01</span>Reservas e pagamentos</li><li><span>02</span>Áreas privadas</li><li><span>03</span>Vales-presente</li><li><span>04</span>Integrações</li></ol>
+              <a class="btn dc__cta" href="https://wa.me/5579998181983?text=Ol%C3%A1%20Herslander%2C%20gostaria%20de%20falar%20sobre%20Apps%20Sob%20Medida." target="_blank" rel="noopener"><span>Vamos conversar</span></a>
+              <i class="dc__shade" aria-hidden="true"></i>
+            </article>
+          </li>
+          <li class="dc" id="ai-automations" data-slug="ai-automations" data-i="12">
+            <article class="dc__inner" aria-labelledby="dc-ai-automations">
+              <svg class="guides dc__guides" data-dc-guides aria-hidden="true"></svg>
+              <div class="dc__labels mono" data-dc-labels aria-hidden="true"></div>
+              <p class="dc__meta mono"><span>Disciplina</span><span>13</span></p>
+              <h3 class="dc__name" id="dc-ai-automations"><span class="nm"><span class="a">Automações</span> <span class="b">com IA</span></span><span class="dc__dot" aria-hidden="true"></span></h3>
+              <p class="dc__text">Conecto as ferramentas que você já usa e faço com que trabalhem sozinhas. Os e-mails saem na hora certa (boas-vindas, carrinho abandonado, follow-ups), cada novo lead recebe resposta em segundos e, quando algo importante acontece (um pedido, uma avaliação ruim, uma menção no X, um concorrente mudando preços), você recebe um alerta na hora. Toda segunda-feira, os números da semana em uma única mensagem.</p>
+              <ol class="dc__does mono" aria-label="O que inclui"><li><span>01</span>Automação de e-mail marketing</li><li><span>02</span>Follow-up de leads</li><li><span>03</span>Alertas em tempo real</li><li><span>04</span>Relatórios automáticos</li></ol>
+              <a class="btn dc__cta" href="https://wa.me/5579998181983?text=Ol%C3%A1%20Herslander%2C%20gostaria%20de%20falar%20sobre%20Automa%C3%A7%C3%B5es%20com%20IA." target="_blank" rel="noopener"><span>Vamos conversar</span></a>
+              <i class="dc__shade" aria-hidden="true"></i>
+            </article>
+          </li>
+          <li class="dc" id="lead-outreach" data-slug="lead-outreach" data-i="13">
+            <article class="dc__inner" aria-labelledby="dc-lead-outreach">
+              <svg class="guides dc__guides" data-dc-guides aria-hidden="true"></svg>
+              <div class="dc__labels mono" data-dc-labels aria-hidden="true"></div>
+              <p class="dc__meta mono"><span>Disciplina</span><span>14</span></p>
+              <h3 class="dc__name" id="dc-lead-outreach"><span class="nm"><span class="a">Leads</span> <span class="b">&amp; Prospecção</span></span><span class="dc__dot" aria-hidden="true"></span></h3>
+              <p class="dc__text">Um serviço B2B: encontro as empresas da sua região ou do seu nicho usando os dados que elas mesmas publicam, no Google e em seus próprios sites, e entrego uma lista organizada de nomes, endereços e e-mails. Pronta para prospecção direta ou e-mail marketing.</p>
+              <ol class="dc__does mono" aria-label="O que inclui"><li><span>01</span>Listas de contatos B2B</li><li><span>02</span>Busca por região</li><li><span>03</span>Busca por nicho</li><li><span>04</span>E-mail marketing</li></ol>
+              <a class="btn dc__cta" href="https://wa.me/5579998181983?text=Ol%C3%A1%20Herslander%2C%20gostaria%20de%20falar%20sobre%20Leads%20%26%20Prospec%C3%A7%C3%A3o." target="_blank" rel="noopener"><span>Vamos conversar</span></a>
+              <i class="dc__shade" aria-hidden="true"></i>
+            </article>
+          </li>
+          <li class="dc" id="ai-agents" data-slug="ai-agents" data-i="14">
+            <article class="dc__inner" aria-labelledby="dc-ai-agents">
+              <svg class="guides dc__guides" data-dc-guides aria-hidden="true"></svg>
+              <div class="dc__labels mono" data-dc-labels aria-hidden="true"></div>
+              <p class="dc__meta mono"><span>Disciplina</span><span>15</span></p>
+              <h3 class="dc__name" id="dc-ai-agents"><span class="nm"><span class="a">Agentes</span> <span class="b">de IA</span></span><span class="dc__dot" aria-hidden="true"></span></h3>
+              <p class="dc__text">Um assistente que responde no WhatsApp, no seu site e até por voz: perguntas frequentes, disponibilidade e reservas. Ele consulta os seus dados e passa para você os casos que importam.</p>
+              <ol class="dc__does mono" aria-label="O que inclui"><li><span>01</span>WhatsApp</li><li><span>02</span>Chat no site</li><li><span>03</span>Agente de voz</li><li><span>04</span>Reservas</li></ol>
+              <a class="btn dc__cta" href="https://wa.me/5579998181983?text=Ol%C3%A1%20Herslander%2C%20gostaria%20de%20falar%20sobre%20Agentes%20de%20IA." target="_blank" rel="noopener"><span>Vamos conversar</span></a>
+              <i class="dc__shade" aria-hidden="true"></i>
+            </article>
+          </li>
+          <li class="dc" id="company-brain" data-slug="company-brain" data-i="15">
+            <article class="dc__inner" aria-labelledby="dc-company-brain">
+              <svg class="guides dc__guides" data-dc-guides aria-hidden="true"></svg>
+              <div class="dc__labels mono" data-dc-labels aria-hidden="true"></div>
+              <p class="dc__meta mono"><span>Disciplina</span><span>16</span></p>
+              <h3 class="dc__name" id="dc-company-brain"><span class="nm"><span class="a">Cérebro</span> <span class="b">da Empresa</span></span><span class="dc__dot" aria-hidden="true"></span></h3>
+              <p class="dc__text">Reúno tudo o que a empresa sabe, de documentos e clientes ao tom de voz da marca, e conecto às ferramentas que você já usa. O cérebro da empresa responde com os seus dados, prepara relatórios e executa as ações que você decidir.</p>
+              <ol class="dc__does mono" aria-label="O que inclui"><li><span>01</span>Conhecimento da empresa</li><li><span>02</span>Ferramentas conectadas</li><li><span>03</span>Ações</li><li><span>04</span>Relatórios</li></ol>
+              <a class="btn dc__cta" href="https://wa.me/5579998181983?text=Ol%C3%A1%20Herslander%2C%20gostaria%20de%20falar%20sobre%20C%C3%A9rebro%20da%20Empresa." target="_blank" rel="noopener"><span>Vamos conversar</span></a>
+              <i class="dc__shade" aria-hidden="true"></i>
+            </article>
+          </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <p class="dp__fly" data-dp-fly aria-hidden="true"></p>
   </section>
 
-  <!-- Contato -->
-  <section id="contato" class="tela" data-tema="claro">
-    <div class="lema mono revela">Criatividade, estratégia<br>e tecnologia conectadas.</div>
-    <div class="nome revela"><b>Herslander</b> <span class="leve">Jorge</span></div>
-    <div class="ano mono revela">Direção de Marca — 2027</div>
-    <a class="falar" id="falar" href="#" target="_blank" rel="noopener">Vamos conversar</a>
-    <div class="canais mono" id="canais"></div>
-    <div class="fim mono"><span>© 2027 Herslander Jorge</span><a href="#quem">Voltar ao topo ↑</a></div>
+      <section class="mani" data-scene="mani">
+    <div class="mani__stage">
+      <div class="mani__top"><p class="mani__line mani__line--a"><span class="mw"><span>Boas</span></span> <span class="mw"><span>ideias</span></span> <span class="mw"><span>vêm</span></span> <span class="mw"><span>de</span></span> <span class="mw"><span>cima,</span></span></p><p class="mani__note mono">Design, voz e tecnologia</p></div>
+      <div class="mani__box" aria-hidden="true"><div class="adamo adamo--l"><canvas></canvas></div><div class="adamo adamo--r"><canvas></canvas></div></div>
+      <div class="mani__bottom"><p class="mani__note mono">Criatividade, comunicação e tecnologia</p><p class="mani__line mani__line--b"><span class="mw"><span>e</span></span> <span class="mw"><span>sim,</span></span> <span class="mw"><span>a</span></span> <span class="mw"><span>gente</span></span> <span class="mw"><span>dá</span></span><br><em><span class="mw"><span>uma</span></span> <span class="mw"><span>mão.</span></span></em></p></div>
+    </div>
+  </section>
+
+    <section class="contact" id="contact" aria-labelledby="contact-h">
+    <p class="contact__motto mono" data-motto>Boas ideias merecem<br>uma direção.</p>
+    <div class="contact__center">
+      <h2 class="contact__name" id="contact-h"><span class="nm "><span class="nm__l">Herslander</span> <span class="nm__r">Jorge</span></span></h2>
+      <p class="contact__label mono">Direção de Marca — 2027</p>
+    </div>
+    <div class="contact__cta">
+      <a class="btn" href="https://wa.me/5579998181983?text=Ol%C3%A1%20Herslander%2C%20gostaria%20de%20falar%20sobre%20um%20projeto." target="_blank" rel="noopener" data-magnetic data-wa><span>Vamos conversar</span></a>
+      <p class="contact__links mono"><a class="contact__ig" href="https://wa.me/5579998181983?text=Ol%C3%A1%20Herslander%2C%20gostaria%20de%20falar%20sobre%20um%20projeto." target="_blank" rel="noopener" data-wa>WhatsApp — <span class="nowrap">(79) 99818-1983</span></a></p>
+    </div>
+    <footer class="foot mono"><span>© 2027 Herslander Jorge</span><a href="#home" data-nav>Voltar ao topo <span aria-hidden="true">↑</span></a></footer>
   </section>
 </main>
+</div>
 
-<dialog id="detalhe-disciplina" class="detalhe-servico" aria-labelledby="detalhe-titulo" aria-describedby="detalhe-descricao">
-  <div class="detalhe-interior">
-    <div class="detalhe-topo mono"><span id="detalhe-numero">ÁREA 01 / 16</span><button class="detalhe-fechar mono" id="fechar-detalhe" type="button" aria-label="Fechar informações da especialidade">Fechar ✕</button></div>
-    <h2 id="detalhe-titulo">Direção Criativa</h2>
-    <p class="detalhe-resumo" id="detalhe-descricao"></p>
-    <h3 class="mono">O que entrego</h3>
-    <ol id="detalhe-entregas" class="detalhe-entregas"></ol>
-    <a class="detalhe-acao" id="detalhe-acao" href="https://wa.me/5579998181983" target="_blank" rel="noopener">Conversar sobre esse serviço ↗</a>
-  </div>
-</dialog>
-
-<script>
-/* ============ CONTEÚDO EDITÁVEL ============ */
-const DISCIPLINAS = [
-  "Direção Criativa", "Estratégia de Marca", "Direção de Marca", "Direção de Arte",
-  "Conteúdo e Copy", "Design Gráfico", "Motion Design", "Edição de Vídeo",
-  "Filmmaker", "Social Media", "Tráfego Pago", "Web Design e Desenvolvimento",
-  "Aplicativos Sob Medida", "Automações com IA", "Consultoria Digital", "Agentes de IA",
-];
-/* Cada projeto: { nome: "NOME", tipo: "Identidade visual", link: "https://..." }. Vazio = seção escondida. */
-const PROJETOS = [];
-/* Canais sem valor não aparecem. */
-const CONTATO = {
-  whatsapp: "5579998181983",          // só números, com 55 + DDD
-  whatsappTexto: "(79) 99818-1983",
-  instagram: "",                      // ex.: "seu_usuario" (sem @)
-  email: "",                          // ex.: "contato@seudominio.com"
-};
-/* =========================================== */
-
-const $ = (s) => document.querySelector(s);
-const limita = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
-
-/* ----- Efeitos sonoros (sintetizados no navegador, sem arquivos de áudio) ----- */
-const som = { ctx: null, saida: null, ligado: localStorage.getItem("som") !== "0", ultimo: 0 };
-const iniciaSom = () => {
-  if (som.ctx) return;
-  const Contexto = window.AudioContext || window.webkitAudioContext;
-  if (!Contexto) return;
-  som.ctx = new Contexto();
-  som.saida = som.ctx.createGain();
-  som.saida.gain.value = som.ligado ? 0.6 : 0;
-  som.saida.connect(som.ctx.destination);
-};
-/** Nota curta: vai de `freq` até `para` em `dur` segundos. */
-const tom = ({ freq = 440, para = freq, dur = 0.08, tipo = "sine", vol = 0.2, atraso = 0 }) => {
-  if (!som.ctx || !som.ligado) return;
-  const t = som.ctx.currentTime + atraso;
-  const osc = som.ctx.createOscillator(), ganho = som.ctx.createGain();
-  osc.type = tipo;
-  osc.frequency.setValueAtTime(freq, t);
-  osc.frequency.exponentialRampToValueAtTime(Math.max(20, para), t + dur);
-  ganho.gain.setValueAtTime(0.0001, t);
-  ganho.gain.exponentialRampToValueAtTime(vol, t + Math.min(0.01, dur / 3));
-  ganho.gain.exponentialRampToValueAtTime(0.0001, t + dur);
-  osc.connect(ganho).connect(som.saida);
-  osc.start(t); osc.stop(t + dur + 0.03);
-};
-/** Sopro de ruído filtrado: o filtro varre de `de` até `para`. */
-const sopro = ({ dur = 0.3, de = 400, para = 3000, vol = 0.12, q = 1, atraso = 0 }) => {
-  if (!som.ctx || !som.ligado) return;
-  const t = som.ctx.currentTime + atraso;
-  const amostras = Math.ceil(som.ctx.sampleRate * dur);
-  const buffer = som.ctx.createBuffer(1, amostras, som.ctx.sampleRate);
-  const dados = buffer.getChannelData(0);
-  for (let i = 0; i < amostras; i++) dados[i] = Math.random() * 2 - 1;
-  const fonte = som.ctx.createBufferSource(), filtro = som.ctx.createBiquadFilter(), ganho = som.ctx.createGain();
-  fonte.buffer = buffer;
-  filtro.type = "bandpass"; filtro.Q.value = q;
-  filtro.frequency.setValueAtTime(de, t);
-  filtro.frequency.exponentialRampToValueAtTime(para, t + dur);
-  ganho.gain.setValueAtTime(0.0001, t);
-  ganho.gain.exponentialRampToValueAtTime(vol, t + dur * 0.3);
-  ganho.gain.exponentialRampToValueAtTime(0.0001, t + dur);
-  fonte.connect(filtro).connect(ganho).connect(som.saida);
-  fonte.start(t); fonte.stop(t + dur + 0.03);
-};
-const sons = {
-  entrar: () => { sopro({ dur: 0.8, de: 250, para: 3200, vol: 0.2 }); tom({ freq: 120, para: 48, dur: 0.6, vol: 0.4 }); },
-  tecla: () => { sopro({ dur: 0.03, de: 2600, para: 1700, vol: 0.14, q: 2 }); tom({ freq: 1800 + Math.random() * 400, dur: 0.02, tipo: "square", vol: 0.025 }); },
-  funcao: (i) => { tom({ freq: [330, 392, 494, 587][i % 4], dur: 0.22, tipo: "triangle", vol: 0.2 }); sopro({ dur: 0.14, de: 1800, para: 500, vol: 0.09 }); },
-  roda: () => {
-    const agora = performance.now();
-    if (agora - som.ultimo < 28) return;
-    som.ultimo = agora;
-    tom({ freq: 1150 + Math.random() * 250, para: 700, dur: 0.035, tipo: "square", vol: 0.05 });
-    sopro({ dur: 0.02, de: 3200, para: 2000, vol: 0.09, q: 3 });
-  },
-  rodaFinal: () => { tom({ freq: 660, dur: 0.5, vol: 0.2 }); tom({ freq: 990, dur: 0.7, vol: 0.14, atraso: 0.09 }); },
-  maos: () => { sopro({ dur: 1.5, de: 180, para: 1300, vol: 0.1 }); tom({ freq: 220, dur: 1.3, vol: 0.1 }); tom({ freq: 330, dur: 1.3, vol: 0.08, atraso: 0.18 }); },
-  toque: () => tom({ freq: 520, para: 780, dur: 0.09, tipo: "triangle", vol: 0.16 }),
-  detalhe: () => { tom({ freq: 420, para: 560, dur: 0.13, tipo: "sine", vol: 0.15 }); tom({ freq: 650, para: 840, dur: 0.16, vol: 0.11, atraso: 0.07 }); },
-  voltar: () => tom({ freq: 550, para: 310, dur: 0.12, tipo: "sine", vol: 0.11 }),
-};
-const atualizaBotaoSom = () => {
-  const botao = $("#som");
-  botao.setAttribute("aria-pressed", som.ligado);
-  botao.setAttribute("aria-label", som.ligado ? "Som ligado" : "Som desligado");
-  botao.classList.toggle("mudo", !som.ligado);
-};
-$("#som").addEventListener("click", () => {
-  som.ligado = !som.ligado;
-  localStorage.setItem("som", som.ligado ? "1" : "0");
-  iniciaSom();
-  if (som.saida) som.saida.gain.value = som.ligado ? 0.6 : 0;
-  atualizaBotaoSom();
-  sons.toque();
-});
-atualizaBotaoSom();
-document.addEventListener("click", (e) => { if (e.target.closest(".falar, .girar, .canais a, .fim a, .marca")) sons.toque(); });
-
-/* ----- Entrada e abertura digitada ----- */
-const digita = (alvo, partes, ms, fim) => {
-  let p = 0, i = 0;
-  alvo.innerHTML = partes.map((x) => `<span class="${x.classe || ""}"></span>`).join("") + '<i class="cursor"></i>';
-  const spans = alvo.querySelectorAll("span");
-  const passo = () => {
-    if (p >= partes.length) { alvo.querySelector(".cursor")?.remove(); fim && fim(); return; }
-    spans[p].textContent = partes[p].texto.slice(0, ++i);
-    sons.tecla();
-    if (i >= partes[p].texto.length) { p++; i = 0; }
-    setTimeout(passo, ms);
-  };
-  passo();
-};
-const estreito = () => window.innerWidth < 700;
-const abrir = () => {
-  iniciaSom();
-  sons.entrar();
-  $("#entrada").classList.add("sai");
-  document.body.classList.remove("trancado");
-  document.body.classList.add("aberto");
-  document.body.dataset.tema = "claro";
-  setTimeout(() => {
-    digita($("#nome"), [{ texto: "Herslander" }, { texto: estreito() ? "\nJorge" : " Jorge", classe: "leve" }], 55, () => {
-      digita($("#cargo"), [{ texto: "Direção de Marca" }], 28, () => $("#heroi").classList.add("pronto"));
-    });
-  }, 350);
-};
-$("#entrar").addEventListener("click", abrir);
-
-/* ----- Projetos ----- */
-if (PROJETOS.length) {
-  $("#projetos").hidden = false;
-  $("#qtd-projetos").textContent = `(${String(PROJETOS.length).padStart(2, "0")})`;
-  $("#lista-projetos").innerHTML = PROJETOS.map((pr, n) => {
-    const miolo = `<span>${String(n + 1).padStart(2, "0")}</span>${pr.nome}<small>${pr.tipo || ""}</small>`;
-    return `<li class="revela">${pr.link ? `<a href="${pr.link}" target="_blank" rel="noopener" style="display:contents">${miolo}</a>` : miolo}</li>`;
-  }).join("");
-}
-
-/* ----- Contato ----- */
-const zap = `https://wa.me/${CONTATO.whatsapp}`;
-$("#falar").href = CONTATO.whatsapp ? zap : "#contato";
-$("#canais").innerHTML = [
-  CONTATO.whatsapp && `<a href="${zap}" target="_blank" rel="noopener">WhatsApp — ${CONTATO.whatsappTexto}</a>`,
-  CONTATO.instagram && `<a href="https://instagram.com/${CONTATO.instagram}" target="_blank" rel="noopener">Instagram — @${CONTATO.instagram}</a>`,
-  CONTATO.email && `<a href="mailto:${CONTATO.email}">E-mail — ${CONTATO.email}</a>`,
-].filter(Boolean).join("");
-
-/* ----- Ícones da frase ----- */
-const ICONES = {
-  cubo: "M18.25 7.6l-5.5-3.18c-.46-.27-1.04-.27-1.5 0L5.75 7.6c-.46.27-.75.76-.75 1.3v6.35c0 .54.29 1.03.75 1.3l5.5 3.18c.46.27 1.04.27 1.5 0l5.5-3.18c.46-.27.75-.76.75-1.3V8.9c0-.54-.29-1.03-.75-1.3zM7 14.96v-4.62l4 2.32v4.61l-4-2.31zm5-4.03L8 8.61l4-2.31 4 2.31-4 2.32zm1 6.34v-4.61l4-2.32v4.62l-4 2.31zM7 2H3.5C2.67 2 2 2.67 2 3.5V7h2V4h3V2zm10 0h3.5c.83 0 1.5.67 1.5 1.5V7h-2V4h-3V2zM7 22H3.5c-.83 0-1.5-.67-1.5-1.5V17h2v3h3v2zm10 0h3.5c.83 0 1.5-.67 1.5-1.5V17h-2v3h-3v2z",
-  mover: "M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z",
-  pincel: "M7 14c-1.66 0-3 1.34-3 3 0 1.31-1.16 2-2 2 .92 1.22 2.49 2 4 2 2.21 0 4-1.79 4-4 0-1.66-1.34-3-3-3zm13.71-9.37l-1.34-1.34a.996.996 0 0 0-1.41 0L9 12.25 11.75 15l8.96-8.96a.996.996 0 0 0 0-1.41z",
-  borracha: "M16.24 3.56l4.95 4.94c.78.79.78 2.05 0 2.84L12 20.53a4.008 4.008 0 0 1-5.66 0L2.81 17c-.78-.79-.78-2.05 0-2.84l10.6-10.6c.79-.78 2.05-.78 2.83 0M4.22 15.58l3.54 3.53c.78.79 2.04.79 2.83 0l3.53-3.53-4.95-4.95-4.95 4.95zM14.5 20.2h7v1.6h-7z",
-  pino: "M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z",
-  troca: "M6.99 11L3 15l3.99 4v-3H14v-2H6.99v-3zM21 9l-3.99-4v3H10v2h7.01v3L21 9z",
-  espelho: "M11 4v16H3zM13 4l8 16h-8zM15 10.4V18h3.8z",
-};
-const icone = (n) => n === "aa"
-  ? '<div class="aa"><span>Aa</span></div>'
-  : `<svg viewBox="0 0 24 24" aria-hidden="true"${n === "pino" ? ' style="rotate:45deg"' : ""}><path fill-rule="evenodd" d="${ICONES[n]}"/></svg>`;
-/* Os ícones ficam guardados para uso futuro; a seção da frase usa as mãos. */
-document.querySelectorAll("[data-icones]").forEach((el) => { el.innerHTML = el.dataset.icones.split(",").map(icone).join(""); });
-
-/* ----- Mãos em caracteres ----- */
-/* As formas são desenhadas em uma grade de 1000 × 400 e depois convertidas em letras conforme a densidade. */
-const MAOS = {
-  massas: [
-    "M0 30L235 32L325 66L378 116L368 168L310 202L205 224L0 220Z",
-    "M1000 -10L930 8L805 78L748 128L758 196L850 236L1000 252Z",
-  ],
-  dedos: [
-    ["M352 126L402 160L437 189", 26], ["M335 180L368 226L386 264", 26], ["M258 208L268 252L282 286", 26], ["M195 218L208 248L224 274", 22],
-    ["M778 108L690 134L582 157", 25], ["M772 172L716 196L674 201", 24], ["M781 216L773 300L779 362", 28], ["M824 226L819 300L825 346", 26], ["M891 236L894 296L901 332", 26], ["M938 240L942 292", 22],
-  ],
-  sulcos: ["M801 236L798 348", "M857 240L858 314", "M915 244L916 300", "M300 112L346 150", "M232 208L246 236", "M300 196L318 222"],
-};
-const RAMPA = " .-:;=+*#%&$@";
-const telaMaos = $("#maos");
-const pincel = telaMaos.getContext("2d");
-const fonteMaos = document.createElement("canvas");
-const mapaMaos = new Image();
-mapaMaos.onload = () => { grade = null; tAnterior = -1; };
-mapaMaos.src = "maos.png";
-let grade = null;
-const desenhaMaos = (c) => {
-  c.lineCap = c.lineJoin = "round";
-  c.fillStyle = c.strokeStyle = "#fff";
-  // Três camadas: as de fora, mais largas e fracas, criam a borda rala.
-  [[22, 0.22], [10, 0.5], [0, 1]].forEach(([extra, alfa]) => {
-    c.globalAlpha = alfa;
-    MAOS.massas.forEach((d) => { const forma = new Path2D(d); c.lineWidth = 14 + extra; c.fill(forma); c.stroke(forma); });
-    MAOS.dedos.forEach(([d, largura]) => { c.lineWidth = largura + extra; c.stroke(new Path2D(d)); });
-  });
-  c.globalAlpha = 0.5; c.strokeStyle = "#000"; c.lineWidth = 8;
-  MAOS.sulcos.forEach((d) => c.stroke(new Path2D(d)));
-  // Sombra: a luz vem de cima, então a parte de baixo de cada mão fica mais rala.
-  c.globalAlpha = 1;
-  c.globalCompositeOperation = "source-atop";
-  const sombra = c.createLinearGradient(0, 20, 0, 380);
-  sombra.addColorStop(0, "rgba(0,0,0,0)"); sombra.addColorStop(0.45, "rgba(0,0,0,0.28)"); sombra.addColorStop(1, "rgba(0,0,0,0.62)");
-  c.fillStyle = sombra; c.fillRect(0, -20, 1000, 440);
-  c.globalCompositeOperation = "source-over";
-};
-const montaGrade = () => {
-  const larg = telaMaos.clientWidth, alt = telaMaos.clientHeight;
-  if (!larg) return;
-  const dpr = Math.min(2, window.devicePixelRatio || 1);
-  telaMaos.width = Math.round(larg * dpr); telaMaos.height = Math.round(alt * dpr);
-  const cols = Math.round(limita(larg / 3.3, 112, 260));
-  // Células quase quadradas, com a letra menor que a célula: fica arejado como arte ASCII.
-  const celulaL = larg / cols, celulaA = celulaL * 1.3;
-  const rows = Math.max(1, Math.floor(alt / celulaA));
-  fonteMaos.width = cols; fonteMaos.height = rows;
-  const c = fonteMaos.getContext("2d", { willReadFrequently: true });
-  c.clearRect(0, 0, cols, rows);
-  // Base: maos.png, mapa de densidade feito a partir de "A Criação de Adão", de Michelangelo (domínio público,
-  // arquivo "Hands of God and Adam.jpg" do Wikimedia Commons). Se ele não carregar, usa o desenho em vetor.
-  const comMapa = mapaMaos.complete && mapaMaos.naturalWidth > 0;
-  if (comMapa) c.drawImage(mapaMaos, 0, 0, cols, rows);
-  else { c.save(); c.scale(cols / 1000, rows / 400); desenhaMaos(c); c.restore(); }
-  const px = c.getImageData(0, 0, cols, rows).data;
-  const niveis = new Float32Array(cols * rows);
-  for (let i = 0; i < cols * rows; i++) niveis[i] = Math.min(1, (px[i * 4] / 255) * (px[i * 4 + 3] / 255) * (comMapa ? 1.05 : 1));
-  grade = { cols, rows, niveis, celulaL, celulaA, dpr, larg, alt };
-};
-const acaso = (x, y, k) => { const v = Math.sin(x * 12.9898 + y * 78.233 + k * 37.719) * 43758.5453; return v - Math.floor(v); };
-const pintaMaos = (t, tique) => {
-  const { cols, rows, niveis, celulaL, celulaA, dpr, larg, alt } = grade;
-  pincel.setTransform(dpr, 0, 0, dpr, 0, 0);
-  pincel.clearRect(0, 0, larg, alt);
-  pincel.font = `500 ${celulaA}px "JetBrains Mono", monospace`;
-  pincel.textBaseline = "top";
-  pincel.fillStyle = "#C9DAEE";
-  const desloca = (1 - t) * cols * 0.12;
-  for (let y = 0; y < rows; y++) {
-    for (let x = 0; x < cols; x++) {
-      const v = niveis[y * cols + x];
-      if (v < 0.1) continue;
-      // Cada célula tem um caractere fixo; uma parte delas troca a cada tique, para a arte "respirar".
-      const k = acaso(x, y, tique) < 0.1 ? tique : 0;
-      const n = v * (RAMPA.length - 1) + (acaso(x, y, k + 1) - 0.5) * 2;
-      const letra = RAMPA[Math.round(limita(n, 1, RAMPA.length - 1))];
-      pincel.globalAlpha = (0.42 + 0.58 * v) * t;
-      pincel.fillText(letra, (x + (x < cols / 2 ? -desloca : desloca)) * celulaL, y * celulaA);
-    }
-  }
-  pincel.globalAlpha = 1;
-};
-let maosVisiveis = false, entradaMaos = 0, tiqueAnterior = -1, tAnterior = -1;
-const cicloMaos = (agora) => {
-  if (!maosVisiveis) return;
-  if (!grade) montaGrade();
-  if (!entradaMaos) entradaMaos = agora;
-  const bruto = limita((agora - entradaMaos) / 1500);
-  const t = 1 - Math.pow(1 - bruto, 3);
-  const tique = Math.floor(agora / 160);
-  if (grade && (t !== tAnterior || tique !== tiqueAnterior)) { pintaMaos(t, tique); tAnterior = t; tiqueAnterior = tique; }
-  requestAnimationFrame(cicloMaos);
-};
-new IntersectionObserver((itens) => {
-  const visivel = itens[0].isIntersecting;
-  if (visivel && !maosVisiveis) { maosVisiveis = true; if (!entradaMaos) sons.maos(); requestAnimationFrame(cicloMaos); }
-  maosVisiveis = visivel;
-}, { threshold: 0.15 }).observe(telaMaos);
-window.addEventListener("resize", () => { grade = null; tAnterior = -1; });
-document.fonts && document.fonts.ready.then(() => { tAnterior = -1; });
-
-/* ----- Aparição ao rolar ----- */
-const olho = new IntersectionObserver((itens) => itens.forEach((it) => it.isIntersecting && it.target.classList.add("visivel")), { threshold: 0.25 });
-document.querySelectorAll(".revela, .ferramentas").forEach((el) => olho.observe(el));
-
-/* ----- Roda ----- */
-const N = DISCIPLINAS.length;
-const lista = $("#lista");
-lista.innerHTML = DISCIPLINAS.map((d) => `<div>${d}</div>`).join("");
-const itens = [...lista.children];
-$("#total").textContent = N;
-$("#roda").style.height = `${100 + N * 42}vh`;
-let ativoAnterior = -1;
-const desenhaRoda = (pos) => {
-  const raio = Math.min(window.innerHeight * 0.27, 300);
-  const ativo = Math.round(limita(pos, 0, N - 1));
-  itens.forEach((el, i) => {
-    let d = (((i - pos) % N) + N) % N;
-    if (d > N / 2) d -= N;
-    const ang = d * 19;
-    if (Math.abs(ang) > 92) { el.style.opacity = 0; return; }
-    const rad = (ang * Math.PI) / 180;
-    el.style.opacity = i === ativo ? 1 : Math.cos(rad) ** 2 * 0.5;
-    el.style.transform = `translateY(calc(${raio * Math.sin(rad)}px - 50%)) perspective(900px) rotateX(${-ang}deg)`;
-    el.classList.toggle("ativo", i === ativo);
-    el.classList.toggle("final", i === ativo && i === N - 1);
-  });
-  $("#contador").textContent = `${String(ativo + 1).padStart(2, "0")} / ${String(N).padStart(2, "0")}`;
-  if (ativo !== ativoAnterior) {
-    if (ativoAnterior >= 0) { if (ativo === N - 1) sons.rodaFinal(); else sons.roda(); }
-    ativoAnterior = ativo;
-    const ponto = $("#ponto");
-    ponto.classList.add("bate");
-    setTimeout(() => ponto.classList.remove("bate"), 160);
-  }
-};
-const progresso = (secao) => limita((window.scrollY - secao.offsetTop) / (secao.offsetHeight - window.innerHeight));
-$("#girar").addEventListener("click", () => {
-  const secao = $("#roda");
-  const alvo = Math.floor(Math.random() * N);
-  window.scrollTo({ top: secao.offsetTop + (alvo / (N - 1)) * (secao.offsetHeight - window.innerHeight), behavior: "smooth" });
-});
-
-/* ----- Rolagem: etapas das funções, roda e cor do nome fixo ----- */
-const camadas = [...document.querySelectorAll("#quem .camada")];
-const fundoQuem = $("#quem .fixo");
-let etapaAnterior = -1;
-const aoRolar = () => {
-  const quem = $("#quem");
-  const etapa = Math.min(camadas.length - 1, Math.floor(progresso(quem) * camadas.length * 0.999));
-  if (etapa !== etapaAnterior) {
-    if (etapaAnterior >= 0 && etapa > 0) sons.funcao(etapa - 1);
-    etapaAnterior = etapa;
-    camadas.forEach((c, i) => c.classList.toggle("ativa", i === etapa));
-    const c = camadas[etapa];
-    fundoQuem.style.backgroundColor = c.dataset.fundo || "#F4F1EE";
-    fundoQuem.style.color = c.dataset.cor || "#14151B";
-  }
-  desenhaRoda(progresso($("#roda")) * (N - 1));
-  if (!document.body.classList.contains("aberto")) return;
-  const linha = window.scrollY + 40;
-  let tema = "claro";
-  if (linha < quem.offsetTop + quem.offsetHeight) tema = camadas[etapa].dataset.tema || "claro";
-  else document.querySelectorAll("main > section[data-tema]").forEach((s) => { if (!s.hidden && linha >= s.offsetTop) tema = s.dataset.tema; });
-  document.body.dataset.tema = tema;
-};
-window.addEventListener("scroll", aoRolar, { passive: true });
-window.addEventListener("resize", aoRolar);
-aoRolar();
-</script>
-<script src="./portfolio-details.js" defer></script>
+<script src="assets/js/main.492a8095.js" defer></script>
 </body>
 </html>
