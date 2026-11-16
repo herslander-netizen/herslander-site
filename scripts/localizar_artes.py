@@ -3,6 +3,7 @@
 import argparse
 import json
 import re
+import shutil
 from collections import defaultdict
 from pathlib import Path
 
@@ -57,7 +58,7 @@ GLOSSARY = {
 }
 PROTECT = re.compile(
     r"(luca\s+radez|designed\s+by|design\s+by|by\s+luca|"
-    r"copyright|©|®|https?://|www\.|@|"
+    r"copyright|©|®|kyoto|japan|organic matcha|https?://|www\.|@|"
     r"^(alba|kage|meridio|quartier|paris|london|croissanterie|matcha)$)", re.I
 )
 
@@ -89,7 +90,7 @@ def translate_line(s, translate):
         return None
     if n in GLOSSARY:
         return GLOSSARY[n]
-    if len(n) < 8 or len(n.split()) < 2 or re.search(r"\d{2}[:.]\d{2}", s):
+    if len(n) < 12 or len(n.split()) < 3 or not re.match(r"^[A-Za-z]", s) or re.search(r"\d{2}[:.]\d{2}", s):
         return None
     if not translate:
         return None
@@ -111,7 +112,7 @@ def lines_from_ocr(small):
             conf = float(d["conf"][i])
         except (ValueError, TypeError):
             continue
-        if not s or conf < 55:
+        if not s or conf < 78:
             continue
         key = (d["block_num"][i], d["par_num"][i], d["line_num"][i])
         grouped[key].append((s, int(d["left"][i]), int(d["top"][i]),
@@ -160,8 +161,8 @@ def localize(large, smaller, translate):
         if len(pt) > len(en)*1.8 and w < width*0.65:
             continue
         kind = "serif" if large.name.startswith(("quartier-", "meridio-")) else ("bold" if en.isupper() else "sans")
-        size = max(12, int(h*1.25))
-        available = min(width-x-5, max(w, int(w*1.22)))
+        size = max(12, int(h*0.85))
+        available = min(width-x-8, w)
         while size > 10:
             font = ImageFont.truetype(FONTS[kind], size)
             box = font.getbbox(pt)
@@ -172,11 +173,10 @@ def localize(large, smaller, translate):
             continue
         area = source[max(0,y-2):min(height,y+h+2), max(0,x-2):min(width,x+w+2)]
         color = color_of_text(area)
-        for _, wx, wy, tw, th in words:
-            rx, ry = int(wx*sx), int(wy*sy)
-            rw, rh = int(tw*sx), int(th*sy)
-            cv2.rectangle(mask, (max(0,rx-2), max(0,ry-3)),
-                          (min(width-1,rx+rw+2), min(height-1,ry+rh+3)), 255, -1)
+        # Apaga a linha completa, incluindo antialiasing e espaços.
+        # Não remover pixels em fragmentos: isso deixava letras fantasma.
+        cv2.rectangle(mask, (max(0,x-3), max(0,y-4)),
+                      (min(width-1,x+w+3), min(height-1,y+h+4)), 255, -1)
         changes.append({"original": en, "traducao": pt, "bbox": [x,y,w,h],
                         "font": kind, "size": size, "rgb": color})
     if not changes:
@@ -200,6 +200,9 @@ def main():
     ap.add_argument("--limit", type=int, default=0)
     args = ap.parse_args()
     translate = translator_offline()
+    # Apaga somente as variantes anteriores desta branch, jamais as originais.
+    if OUT.exists():
+        shutil.rmtree(OUT)
     report = []
     samples = []
     files = sorted(BASE.glob("*-720.webp"))
