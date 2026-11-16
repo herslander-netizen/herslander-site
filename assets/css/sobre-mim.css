@@ -1,0 +1,156 @@
+/* Seção editorial "Quem sou eu" — isolada das cenas animadas do site. */
+.about-me {
+  --sobre-grafite: #2E3339;
+  --sobre-laranja: #F59E63;
+  position: relative;
+  isolation: isolate;
+  background: var(--color-foglio, #f4f1ee);
+  color: var(--sobre-grafite);
+  padding: clamp(110px, 13vw, 196px) var(--M, 24px) clamp(100px, 12vw, 175px);
+  scroll-margin-top: 80px;
+  overflow: hidden;
+}
+.about-me::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .48;
+  background:
+    repeating-linear-gradient(90deg, transparent 0, transparent 95px, #2E333910 96px),
+    repeating-linear-gradient(0deg, transparent 0, transparent 95px, #2E333910 96px);
+}
+.about-me__inner {
+  max-width: 1450px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: clamp(32px, 8vw, 142px);
+  align-items: start;
+}
+.about-me__lead, .about-me__copy { min-width: 0; }
+.about-me__kicker {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid #2E333934;
+}
+.about-me__kicker > span:first-child {
+  font-family: var(--font-display, sans-serif);
+  font-size: 23px;
+  line-height: 1;
+  color: var(--sobre-laranja);
+}
+.about-me__kicker > span:last-child { margin-left: auto; }
+.about-me__title {
+  margin: clamp(38px, 6vw, 92px) 0 clamp(44px, 7vw, 100px);
+  font-size: clamp(60px, 8vw, 142px);
+  font-weight: 600;
+  line-height: .93;
+  letter-spacing: -.07em;
+}
+.about-me__title em {
+  font-style: normal;
+  position: relative;
+}
+.about-me__title em > span {
+  display: inline-block;
+  margin-left: .05em;
+  vertical-align: top;
+  font-size: .28em;
+  line-height: 1;
+  letter-spacing: 0;
+  color: var(--sobre-laranja);
+}
+.about-me__fact {
+  display: flex;
+  gap: clamp(18px, 3vw, 45px);
+  align-items: end;
+  border-top: 1px solid #2E333934;
+  padding-top: 20px;
+}
+.about-me__years {
+  font-size: clamp(68px, 9vw, 152px);
+  font-weight: 600;
+  line-height: .84;
+  letter-spacing: -.095em;
+  font-variant-numeric: tabular-nums;
+}
+.about-me__years span { color: var(--sobre-laranja); }
+.about-me__fact p {
+  max-width: 200px;
+  line-height: 1.5;
+  padding-bottom: 3px;
+}
+.about-me__copy {
+  padding-top: clamp(12px, 4vw, 60px);
+  max-width: 665px;
+}
+.about-me__copy p {
+  font-size: clamp(16px, 1.4vw, 20px);
+  line-height: 1.65;
+  text-wrap: pretty;
+  margin: 0 0 1.1em;
+}
+.about-me__copy strong { font-weight: 600; }
+.about-me__copy .about-me__opening {
+  font-size: clamp(24px, 2.65vw, 39px);
+  line-height: 1.23;
+  letter-spacing: -.035em;
+  margin-bottom: clamp(28px, 3vw, 44px);
+}
+.about-me__copy .about-me__signature {
+  border-top: 1px solid #2E333934;
+  padding-top: 26px;
+  margin-top: clamp(36px, 4vw, 64px);
+  margin-bottom: 0;
+  font-size: clamp(19px, 2vw, 29px);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -.025em;
+}
+.about-me__signature > span:first-child { font-weight: 400; }
+.about-me__signature > span:last-child { color: var(--sobre-laranja); }
+@media (max-width: 900px) {
+  .about-me { padding: 106px var(--M, 24px) 108px; }
+  .about-me__inner { grid-template-columns: minmax(0,1fr); gap: 32px; }
+  .about-me__lead { display: grid; grid-template-columns: minmax(0,1fr) auto; }
+  .about-me__kicker { grid-column: 1 / -1; }
+  .about-me__title { margin: 52px 0 40px; }
+  .about-me__fact {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+  }
+  .about-me__copy { padding-top: 0; }
+}
+@media (max-width: 768px) {
+  /* A navegação mobile oculta os outros links no CSS original. */
+  .bar__nav { gap: 16px; }
+  .bar__nav a[href="#sobre"] {
+    display: inline-flex;
+    white-space: nowrap;
+    padding: 8px 0;
+  }
+}
+@media (max-width: 420px) {
+  .about-me {
+    padding: 100px 22px 96px;
+    scroll-margin-top: 48px;
+  }
+  .about-me__kicker { font-size: 10px; }
+  .about-me__title {
+    font-size: clamp(58px, 15vw, 77px);
+    margin: 40px 0 36px;
+  }
+  .about-me__years { font-size: 92px; }
+  .about-me__fact { gap: 22px; }
+  .about-me__fact p { font-size: 10px; }
+  .about-me__copy .about-me__opening { font-size: clamp(25px, 6.65vw, 30px); }
+  .about-me__copy p { font-size: 16px; line-height: 1.62; }
+  .about-me__copy .about-me__signature { font-size: 21px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .about-me { scroll-behavior: auto; }
+}
