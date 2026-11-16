@@ -1,0 +1,13 @@
+/* Assinatura da marca nos cabeçalhos: Herslander Jorge✱.
+   Os estilos são restritos à navegação para não alterar as animações do nome na home. */
+.bar__name .nm__l { font-weight: 700; }
+.bar__name .nm__r { font-weight: 400; }
+.bar__name .nm__mark {
+  display: inline-block;
+  color: #F59E63;
+  font-size: 0.72em;
+  font-weight: 500;
+  line-height: 1;
+  margin-left: 0.035em;
+  vertical-align: 0.09em;
+}
