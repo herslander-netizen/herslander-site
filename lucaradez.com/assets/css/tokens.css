@@ -1,0 +1,60 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --color-primary-41: #0b63a4; /** brand fill */
+  --color-secondary-8: #14151b;
+  --color-accent-72: #f19759;
+  --color-neutral-10: #14151b;
+  --color-neutral-40: #9ea8b8;
+  --color-neutral-90: #e6e0dd;
+  --color-neutral-99: #f4f1ee;
+  --color-carta: #e6e0dd;
+  --color-inchiostro: #14151b;
+  --color-arancio: #f19759;
+  --color-cobalto: #0b63a4;
+  --color-grafite: #2b2f37;
+  --color-acciaio: #9ea8b8;
+  --color-sabbia: #f6d9a8;
+  --color-notte: #0b2b5c;
+  --color-foglio: #f4f1ee;
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
+  --duration-slow: 498ms;
+  --easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --space-xs: clamp(0.5rem, 0.46rem + 0.2vw, 0.625rem);
+  --space-s: clamp(0.75rem, 0.69rem + 0.3vw, 0.938rem);
+  --space-m: clamp(1rem, 0.91rem + 0.43vw, 1.25rem);
+  --space-l: clamp(1.5rem, 1.37rem + 0.65vw, 1.875rem);
+  --space-xl: clamp(2rem, 1.83rem + 0.87vw, 2.5rem);
+  --space-2xl: clamp(3rem, 2.74rem + 1.3vw, 3.75rem);
+  --radius-brand: 0 — square fields; circles only as construction nodes; /** from profile.visual_language.border_radius */
+  --grid-container: 64rem; /** default (was hardcoded in cinema.mjs) */
+  --grid-gutter: 1.5rem; /** default */
+  --grid-columns: 12; /** default */
+  --font-display: Geist, sans-serif;
+  --font-body: Geist, sans-serif;
+  --scale-0: clamp(1rem, 0.912rem + 0.376vw, 1.25rem);
+  --scale-1: clamp(1.2rem, 1rem + 0.853vw, 1.767rem);
+  --scale-2: clamp(1.44rem, 1.067rem + 1.591vw, 2.499rem);
+  --scale-3: clamp(1.728rem, 1.092rem + 2.713vw, 3.534rem);
+  --scale-4: clamp(2.074rem, 1.044rem + 4.392vw, 4.997rem);
+  --scale-5: clamp(2.488rem, 0.877rem + 6.877vw, 7.066rem);
+  --scale-6: clamp(2.986rem, 0.519rem + 10.524vw, 9.991rem);
+  --scale-n2: clamp(0.694rem, 0.719rem + -0.104vw, 0.625rem);
+  --scale-n1: clamp(0.833rem, 0.815rem + 0.076vw, 0.884rem);
+  --scale-display: clamp(2.6rem, 8vw, 5.6rem); /** default (was hardcoded in cinema.mjs) */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-bold: 600;
+  --leading-tight: 1.1;
+  --leading-body: 1.5;
+  --semantic-bg: var(--color-neutral-99); /** page background */
+  --semantic-fg: var(--color-neutral-10); /** body text on bg */
+  --semantic-brand: var(--color-primary-41); /** primary action on bg */
+  --semantic-brand-text: var(--color-neutral-99); /** text on brand fill */
+  --semantic-secondary: var(--color-secondary-8); /** secondary emphasis (tone-independent alias) */
+  --semantic-accent: var(--color-accent-72); /** highlight, use at ~10% */
+}
