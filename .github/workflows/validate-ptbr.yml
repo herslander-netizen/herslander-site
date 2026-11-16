@@ -1,0 +1,38 @@
+name: Validar traducoes pt-BR
+on:
+  pull_request:
+    paths:
+      - 'index.html'
+      - 'work/**/*.html'
+      - 'scripts/check_ptbr.py'
+      - '.github/workflows/validate-ptbr.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'work/**/*.html'
+      - 'scripts/check_ptbr.py'
+      - '.github/workflows/validate-ptbr.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ptbr-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validar:
+    name: Revisao de textos do portfolio
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Baixar codigo
+        uses: actions/checkout@v4
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validar textos em portugues
+        run: python scripts/check_ptbr.py
