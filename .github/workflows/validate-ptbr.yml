@@ -5,6 +5,7 @@ on:
       - 'index.html'
       - 'work/**/*.html'
       - 'scripts/check_ptbr.py'
+      - 'assets/css/work-contrast.css'
       - '.github/workflows/validate-ptbr.yml'
   push:
     branches: [main]
@@ -12,6 +13,7 @@ on:
       - 'index.html'
       - 'work/**/*.html'
       - 'scripts/check_ptbr.py'
+      - 'assets/css/work-contrast.css'
       - '.github/workflows/validate-ptbr.yml'
   workflow_dispatch:
 

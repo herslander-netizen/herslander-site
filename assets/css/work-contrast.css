@@ -1,0 +1,6 @@
+/* Correção de contraste dos estudos de caso.
+   Cada painel usa --i para sua cor de texto, garantindo leitura tanto em
+   fundos escuros quanto claros, sem afetar o lightbox ou o catálogo. */
+.bp-panel .bp-dida .wk-testo {
+  color: inherit;
+}
