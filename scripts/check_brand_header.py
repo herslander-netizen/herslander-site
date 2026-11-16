@@ -21,8 +21,8 @@ else:
         expr = re.escape(selector) + r"\s*\{[^}]*font-weight:\s*" + weight + r"\s*;"
         if not re.search(expr, css):
             problems.append(f"{css_path}: estilo incorreto para {selector}")
-    if not re.search(r"\.bar__name\s+\.nm__mark\s*\{[^}]*color:\s*#F59E63\s*;", css, re.I):
-        problems.append(f"{css_path}: o asterisco precisa usar #F59E63")
+    if not re.search(r"\.bar__name\s+\.nm__mark\s*\{[^}]*color:\s*inherit\s*;", css, re.I):
+        problems.append(f"{css_path}: o asterisco deve herdar a cor do nome para acompanhar as transições")
 signature = '<span class="nm__l">Herslander</span> <span class="nm__r">Jorge</span><span class="nm__mark" aria-hidden="true">✱</span>'
 for page in pages:
     if not page.is_file():

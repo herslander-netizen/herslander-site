@@ -4,7 +4,8 @@
 .bar__name .nm__r { font-weight: 400; }
 .bar__name .nm__mark {
   display: inline-block;
-  color: #F59E63;
+  /* Herda a cor animada do nome. Na seção laranja, fica preto. */
+  color: inherit;
   font-size: 0.72em;
   font-weight: 500;
   line-height: 1;
