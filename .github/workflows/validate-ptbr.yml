@@ -5,6 +5,8 @@ on:
       - 'index.html'
       - 'work/**/*.html'
       - 'scripts/check_ptbr.py'
+      - 'scripts/check_brand_header.py'
+      - 'assets/css/brand-name.css'
       - 'assets/css/work-contrast.css'
       - '.github/workflows/validate-ptbr.yml'
   push:
@@ -13,6 +15,8 @@ on:
       - 'index.html'
       - 'work/**/*.html'
       - 'scripts/check_ptbr.py'
+      - 'scripts/check_brand_header.py'
+      - 'assets/css/brand-name.css'
       - 'assets/css/work-contrast.css'
       - '.github/workflows/validate-ptbr.yml'
   workflow_dispatch:
@@ -37,4 +41,6 @@ jobs:
         with:
           python-version: '3.12'
       - name: Validar textos em portugues
-        run: python scripts/check_ptbr.py
+        run: |
+          python scripts/check_ptbr.py
+          python scripts/check_brand_header.py
