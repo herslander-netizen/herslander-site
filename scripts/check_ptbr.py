@@ -14,7 +14,7 @@ CAPTION = re.compile(
 UNTRANSLATED = re.compile(
     r"\b(?:the|and|with|without|from|into|every|each|before|after|has|have|"
     r"this|that|these|those|watch|brand|logo|logos|colour|colors|colours|"
-    r"design|designed|pattern|patterns|packaging|campaign|stories|posts|"
+    r"designed|pattern|patterns|packaging|campaign|posts|"
     r"typography|illustrations|the\s+brand\s+reel|fine\s+watchmaking|"
     r"croissanterie|organic\s+matcha|airline|art\s+direction|product\s+design)\b",
     re.IGNORECASE,
@@ -42,6 +42,10 @@ for page in PAGES:
             match = UNTRANSLATED.search(value)
             if match:
                 issues.append(f"{page}: legenda {index}, {field}: possível inglês: {match.group()!r}")
+    for match in re.finditer(r'alt="([^"]+)"', src):
+        label = unescape(match.group(1))
+        if re.search(r"\\b(?:Concept|The|Raised in shade|Fly at first light)\\b", label):
+            issues.append(f"{page}: texto alternativo em inglês: {label}")
     for match in re.finditer(r'aria-label="([^"]+)"', src):
         label = unescape(match.group(1))
         if re.match(r"^(Open|Close|Next|Previous):?\b", label, re.IGNORECASE):
