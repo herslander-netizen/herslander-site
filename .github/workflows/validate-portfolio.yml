@@ -1,0 +1,49 @@
+name: Validar portfolio e midias
+on:
+  pull_request:
+    paths:
+      - 'index.html'
+      - 'sitemap.xml'
+      - 'work/**'
+      - 'assets/work/img/kairos-*'
+      - 'assets/work/video/kairos-*'
+      - 'assets/css/portfolio-refine.css'
+      - 'scripts/check_kairos_media.py'
+      - '.github/workflows/validate-portfolio.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'sitemap.xml'
+      - 'work/**'
+      - 'assets/work/img/kairos-*'
+      - 'assets/work/video/kairos-*'
+      - 'assets/css/portfolio-refine.css'
+      - 'scripts/check_kairos_media.py'
+      - '.github/workflows/validate-portfolio.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: portfolio-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  conferir:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Obter arquivos
+        uses: actions/checkout@v4
+      - name: Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validar links, imagens e motion da Kairos
+        run: python scripts/check_kairos_media.py
+      - name: Validar traducao e assinatura
+        run: |
+          python scripts/check_ptbr.py
+          python scripts/check_brand_header.py
