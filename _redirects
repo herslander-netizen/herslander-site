@@ -1,0 +1,4 @@
+/assets/* /lucaradez.com/assets/:splat 200
+/work/* /lucaradez.com/work/:splat 200
+/it/* /lucaradez.com/it/:splat 200
+/es/* /lucaradez.com/es/:splat 200
