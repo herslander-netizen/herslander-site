@@ -44,7 +44,7 @@ for page in PAGES:
                 issues.append(f"{page}: legenda {index}, {field}: possível inglês: {match.group()!r}")
     for match in re.finditer(r'alt="([^"]+)"', src):
         label = unescape(match.group(1))
-        if re.search(r"\\b(?:Concept|The|Raised in shade|Fly at first light)\\b", label):
+        if re.search(r"\b(?:Concept|The|Raised in shade|Fly at first light)\b", label):
             issues.append(f"{page}: texto alternativo em inglês: {label}")
     for match in re.finditer(r'aria-label="([^"]+)"', src):
         label = unescape(match.group(1))
