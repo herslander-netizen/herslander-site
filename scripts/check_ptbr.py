@@ -29,7 +29,7 @@ contrast_css = Path("assets/css/work-contrast.css")
 if not contrast_css.is_file():
     issues.append(f"{contrast_css}: folha de contraste ausente")
 elif not re.search(
-    r"\\.bp-panel\\s+\\.bp-dida\\s+\\.wk-testo\\s*\\{\\s*color:\\s*inherit\\s*;",
+    r"\.bp-panel\s+\.bp-dida\s+\.wk-testo\s*\{\s*color:\s*inherit\s*;",
     contrast_css.read_text(encoding="utf-8"),
 ):
     issues.append(f"{contrast_css}: falta color: inherit nas descrições dos painéis")
