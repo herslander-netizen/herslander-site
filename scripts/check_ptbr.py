@@ -6,7 +6,7 @@ from pathlib import Path
 import re
 import sys
 
-PAGES = [Path("work") / name / "index.html" for name in ("quartier", "meridio", "kage", "alba")]
+PAGES = [Path("work") / name / "index.html" for name in ("quartier", "meridio", "kage", "alba", "kairos")]
 CAPTION = re.compile(
     r'<figcaption class="wk-dida bp-dida"><p class="wk-pezzo mono">([^<]*)</p>'
     r'<p class="wk-titolo">([^<]*)</p><p class="wk-testo">([^<]*)</p></figcaption>'
@@ -21,7 +21,7 @@ UNTRANSLATED = re.compile(
 )
 # Nomes de marcas, produtos, fontes e títulos de obras podem continuar no original.
 EXEMPT_TITLES = {"Kage Display", "Basteleur Bold", "Morning Blend", "Shade Kit"}
-EXPECTED = {"quartier": 30, "meridio": 13, "kage": 30, "alba": 30}
+EXPECTED = {"quartier": 30, "meridio": 13, "kage": 30, "alba": 30, "kairos": 9}
 
 issues = []
 # Evita regressão: descrições devem herdar a cor de cada painel temático.
