@@ -67,6 +67,20 @@ for page in PAGES:
 for page in (Path("index.html"), Path("work/index.html")):
     if not page.is_file() or '<html lang="pt-BR">' not in page.read_text(encoding="utf-8"):
         issues.append(f"{page}: ausente ou idioma incorreto")
+# Mantém a terminologia pública consistente sem renomear âncoras técnicas
+# como #disciplines, usadas pela navegação e pelas animações.
+for page in (Path("index.html"), Path("work/index.html"), *PAGES):
+    if not page.is_file():
+        continue
+    content = page.read_text(encoding="utf-8")
+    if re.search(r"\bdisciplinas?\b", content, flags=re.IGNORECASE):
+        issues.append(f"{page}: nomenclatura antiga 'Disciplina(s)' ainda visível")
+homepage = Path("index.html").read_text(encoding="utf-8")
+if homepage.count("<span>Especialidade</span>") != 16:
+    issues.append("index.html: esperados 16 rótulos 'Especialidade'")
+if 'id="disciplines"' not in homepage:
+    issues.append("index.html: âncora técnica #disciplines removida")
+
 if issues:
     print("Falhas de tradução pt-BR:")
     for issue in issues:
