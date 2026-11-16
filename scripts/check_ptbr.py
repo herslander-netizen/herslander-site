@@ -24,11 +24,22 @@ EXEMPT_TITLES = {"Kage Display", "Basteleur Bold", "Morning Blend", "Shade Kit"}
 EXPECTED = {"quartier": 30, "meridio": 13, "kage": 30, "alba": 30}
 
 issues = []
+# Evita regressão: descrições devem herdar a cor de cada painel temático.
+contrast_css = Path("assets/css/work-contrast.css")
+if not contrast_css.is_file():
+    issues.append(f"{contrast_css}: folha de contraste ausente")
+elif not re.search(
+    r"\\.bp-panel\\s+\\.bp-dida\\s+\\.wk-testo\\s*\\{\\s*color:\\s*inherit\\s*;",
+    contrast_css.read_text(encoding="utf-8"),
+):
+    issues.append(f"{contrast_css}: falta color: inherit nas descrições dos painéis")
 for page in PAGES:
     if not page.is_file():
         issues.append(f"{page}: arquivo ausente")
         continue
     src = page.read_text(encoding="utf-8")
+    if '<link rel="stylesheet" href="/assets/css/work-contrast.css">' not in src:
+        issues.append(f"{page}: folha de contraste não está vinculada")
     if '<html lang="pt-BR">' not in src:
         issues.append(f"{page}: atributo lang não é pt-BR")
     captions = CAPTION.findall(src)
