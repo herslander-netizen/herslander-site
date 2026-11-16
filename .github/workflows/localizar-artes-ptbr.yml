@@ -1,0 +1,71 @@
+name: Preparar artes em PT-BR
+
+on:
+  push:
+    branches:
+      - feat/portfolio-artes-ptbr-20261116
+    paths:
+      - 'scripts/localizar_artes.py'
+      - '.github/workflows/localizar-artes-ptbr.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: portfolio-artes-ptbr
+  cancel-in-progress: true
+
+jobs:
+  gerar-artes:
+    name: Gerar propostas e comparativos
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Baixar o repositório
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Instalar dependências gratuitas de OCR e imagem
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y tesseract-ocr tesseract-ocr-eng fonts-dejavu-core
+          python -m pip install --disable-pip-version-check \
+            "pillow>=10,<12" "numpy>=1.26,<3" \
+            "opencv-python-headless>=4.8,<5" "pytesseract>=0.3.10,<1" \
+            "argostranslate>=1.9,<2"
+
+      - name: Gerar variantes sem alterar arquivos originais
+        run: python scripts/localizar_artes.py
+
+      - name: Publicar relatório e comparativo para revisão
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: previa-artes-ptbr
+          path: |
+            assets/work/img/ptbr/revisao.json
+            assets/work/img/ptbr/comparativo.jpg
+          retention-days: 14
+          if-no-files-found: warn
+
+      - name: Registrar variantes na branch, sem publicar
+        run: |
+          if [ ! -d assets/work/img/ptbr ]; then
+            echo "Nenhum arquivo gerado."; exit 1
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/work/img/ptbr
+          if git diff --cached --quiet; then
+            echo "Não há alterações novas."
+            exit 0
+          fi
+          git commit -m "chore(portfolio): gerar propostas de artes localizadas [skip ci]"
+          git push origin HEAD:feat/portfolio-artes-ptbr-20261116
