@@ -15,8 +15,8 @@ if not css_path.is_file():
 else:
     css = css_path.read_text(encoding="utf-8")
     for selector, weight in (
-        (".bar__name .nm__l", "700"),
-        (".bar__name .nm__r", "400"),
+        (".nm__l", "700"),
+        (".nm__r", "400"),
     ):
         expr = re.escape(selector) + r"\s*\{[^}]*font-weight:\s*" + weight + r"\s*;"
         if not re.search(expr, css):
