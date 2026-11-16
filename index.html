@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Herslander Jorge — Direção de Marca</title>
 <meta name="description" content="Portfólio de Herslander Jorge. Direção criativa, estratégia de marca, vídeo, sites, sistemas e inteligência artificial.">
-<meta name="theme-color" content="#2E3339">
+<meta name="theme-color" content="#14151B">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --papel: #F6F3EF; --tinta: #2E3339; --laranja: #F59E63; --azul: #2E3339; --marinho: #23282D;
+    --papel: #F4F1EE; --tinta: #14151B; --laranja: #F19759; --azul: #0B63A4; --marinho: #0B2B5C;
     --sans: "Inter", system-ui, sans-serif; --mono: "JetBrains Mono", ui-monospace, monospace;
     --margem: clamp(18px, 5vw, 56px);
   }
@@ -196,19 +196,19 @@
         <img class="silhueta" src="silhueta.png" alt="Silhueta de Herslander Jorge">
         <div class="desce mono">Role ↓</div>
       </div>
-      <div class="camada funcao" data-fundo="#F6F3EF" data-cor="#2E3339" data-tema="claro">
+      <div class="camada funcao" data-fundo="#F4F1EE" data-cor="#14151B" data-tema="claro">
         <div class="topo mono"><span>Função</span><span>01 / 04</span></div>
         <div class="mascara"><div class="texto">Diretor <b>Criativo</b><i class="sinal bola"></i></div></div>
       </div>
-      <div class="camada funcao" data-fundo="#2E3339" data-cor="#F6F3EF" data-tema="escuro">
+      <div class="camada funcao" data-fundo="#0B63A4" data-cor="#F4F1EE" data-tema="escuro">
         <div class="topo mono"><span>Função</span><span>02 / 04</span></div>
         <div class="mascara"><div class="texto">Diretor <b>de Arte</b><i class="sinal"></i></div></div>
       </div>
-      <div class="camada funcao" data-fundo="#F59E63" data-cor="#2E3339" data-tema="claro">
+      <div class="camada funcao" data-fundo="#F19759" data-cor="#14151B" data-tema="claro">
         <div class="topo mono"><span>Função</span><span>03 / 04</span></div>
         <div class="mascara"><div class="texto">Web <b>Designer</b><i class="sinal tri"></i></div></div>
       </div>
-      <div class="camada funcao duas" data-fundo="#2E3339" data-cor="#F6F3EF" data-tema="escuro">
+      <div class="camada funcao duas" data-fundo="#0B2B5C" data-cor="#F4F1EE" data-tema="escuro">
         <div class="topo mono"><span>Função</span><span>04 / 04</span></div>
         <div class="mascara"><div class="texto">Diretor <b>de Marca</b><br><b>e Tecnologia</b><i class="sinal mais"></i></div></div>
       </div>
@@ -611,8 +611,8 @@ const aoRolar = () => {
     etapaAnterior = etapa;
     camadas.forEach((c, i) => c.classList.toggle("ativa", i === etapa));
     const c = camadas[etapa];
-    fundoQuem.style.backgroundColor = c.dataset.fundo || "#F6F3EF";
-    fundoQuem.style.color = c.dataset.cor || "#2E3339";
+    fundoQuem.style.backgroundColor = c.dataset.fundo || "#F4F1EE";
+    fundoQuem.style.color = c.dataset.cor || "#14151B";
   }
   desenhaRoda(progresso($("#roda")) * (N - 1));
   if (!document.body.classList.contains("aberto")) return;
