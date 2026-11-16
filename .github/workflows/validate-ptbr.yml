@@ -7,6 +7,8 @@ on:
       - 'scripts/check_ptbr.py'
       - 'scripts/check_brand_header.py'
       - 'assets/css/brand-name.css'
+      - 'assets/css/ajustes.css'
+      - 'scripts/check_intro_spacing.py'
       - 'assets/css/work-contrast.css'
       - '.github/workflows/validate-ptbr.yml'
   push:
@@ -17,6 +19,8 @@ on:
       - 'scripts/check_ptbr.py'
       - 'scripts/check_brand_header.py'
       - 'assets/css/brand-name.css'
+      - 'assets/css/ajustes.css'
+      - 'scripts/check_intro_spacing.py'
       - 'assets/css/work-contrast.css'
       - '.github/workflows/validate-ptbr.yml'
   workflow_dispatch:
@@ -44,3 +48,4 @@ jobs:
         run: |
           python scripts/check_ptbr.py
           python scripts/check_brand_header.py
+          python scripts/check_intro_spacing.py
